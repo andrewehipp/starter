@@ -1,13 +1,13 @@
-<h1>Starter</h1>
+#Starter
 
-<h3>Setup</h3>
+###Setup
 
-<code>cd</code> to the project root and run <code>./setup</code>. Currently installs local node packages.
+`cd` to the project root and run `./setup`. Currently installs local node packages.
 
-<h3>Gulp</h3>
+###Gulp
 
-<code>gulp watch</code>
+    gulp watch
 
-<h3>Browser Sync</h3>
+###Browser Sync
 
-<code>http://localhost:3000/</code> to view live reloads of content with BrowserSync. <code>http://localhost:3001</code> to view control panel.
+[http://localhost:3000/](http://localhost:3000/) to view live reloads of content with BrowserSync. [http://localhost:3001/](http://localhost:3001/) to view control panel.
