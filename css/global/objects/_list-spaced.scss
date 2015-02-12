@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    #LIST SPACED
+\*------------------------------------*/
+
+/**
+ * Spaced list
+ */
+.list-spaced {
+
+    & >  li {
+        margin-bottom: $spacing-unit--tiny;
+    }
+
+}

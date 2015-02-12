@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    #VERTICAL CENTER
+\*------------------------------------*/
+
+/**
+ * Vertically center content with table css
+ */
+.vertical-center {
+	display: table;
+	width: 100%;
+}
+
+	.vertical-center__content {
+		display: table-cell;
+		vertical-align: middle;
+	}

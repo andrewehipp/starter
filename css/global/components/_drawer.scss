@@ -1,0 +1,130 @@
+/*------------------------------------*\
+	#DRAWER
+\*------------------------------------*/
+
+
+.drawer {
+	overflow: hidden;
+	padding: $spacing-unit--tiny 0;
+	height:	100px;
+	margin-top: -100px;
+	background: color('blue-dark');
+	-webkit-transition: margin .3s ease-in-out;
+	        transition: margin .3s ease-in-out;
+
+	@include breakpoint(md) {
+		height:	145px;
+		margin-top: -145px;
+	}
+	
+}
+
+	.drawer--active {
+		margin-top: 0;
+	}
+
+
+	/**
+	 * Trigger for opening the drawer
+	 */
+	.drawer__trigger {
+		display: block;
+		width:	110px;
+		padding: 0 $layout-gutter;
+		background: color('blue-dark');
+		color: #fff;
+		font-family: $font-family-asap;
+		font-size: em(14px);
+		font-weight: bold;
+		line-height: 50px;
+		text-transform: uppercase;
+		position: absolute;
+		top:	0;
+		right:	0;
+		z-index: 1;
+		-webkit-transition: color .3s ease-in-out;
+		        transition: color .3s ease-in-out;
+
+		@include breakpoint(md) {
+			width:	200px;
+			line-height: 60px;
+		}
+
+		&:after {
+			content: '';
+			display: block;
+			width:	1000%;
+			background: color('blue-dark');
+			position: absolute;
+			top:	0;
+			left:	0;
+			bottom:	0;
+			z-index: -1;
+		}
+
+		&:hover {
+			color: color('blue-light');
+		}
+
+	}
+
+		.drawer__trigger-inactive {
+			display: block;
+			
+			.drawer__trigger--active & {
+				display: none;
+			}
+
+		}
+		.drawer__trigger-active {
+			display: none;
+			
+			.drawer__trigger--active & {
+				display: block;
+			}
+
+		}
+
+
+	/**
+	 * Drawer Carousel
+	 */
+
+	.drawer__carousel {
+		padding: 0 50px;
+
+		.owl-prev,
+		.owl-next {
+			height: 26px;
+			width: 26px;
+			background: #fff;
+			color: color('blue-dark');
+			font-size: em(12px);
+			line-height: 28px;
+			text-indent: 0;
+			box-shadow: 0 3px 0 transparentize(#fff, .9);
+
+			@include link-states() {
+				background: color('yellow');
+				box-shadow: 0 3px 0 transparentize(#fff, .8);
+				color: #fff;
+			}
+
+		}
+
+		.owl-prev {
+			left: 0;
+		}
+
+		.owl-next {
+			right: 0;
+		}
+
+
+		img {
+			-webkit-transform: translateZ(0);
+			        transform: translateZ(0);
+		}
+		
+
+	}

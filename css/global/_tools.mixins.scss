@@ -1,0 +1,148 @@
+///*------------------------------------*\
+//	#MIXINS
+//\*------------------------------------*/
+
+
+/**
+ * Link Psuedo States
+ * Can include the parent selector too if set to 'true'.
+ */
+@mixin link-states($parent: false) {
+	
+	@if ($parent){
+
+		&,
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+
+	} @else {
+
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+
+	}
+
+}
+
+
+
+
+
+/**
+ * Headings
+ */
+@mixin headings() {
+
+	h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6 {
+		@content;
+	}
+
+}
+
+
+
+
+
+
+/**
+ * Hide
+ */
+@mixin hide() {
+	position: absolute !important;
+	height: 1px; width: 1px; 
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+
+
+
+
+/**
+ * Image Replacement
+ */
+@mixin ir() {
+	border: 0;
+	font: 0/0 a;
+	text-shadow: none;
+	color: transparent;
+}
+
+
+
+
+
+/**
+ * Clearfix for modern browsers
+ * 
+ * [1] The space content is one way to avoid an Opera bug when the
+ * contenteditable attribute is included anywhere else in the document.
+ * Otherwise it causes space to appear at the top and bottom of elements
+ * that are clearfixed.
+ * 
+ * [2] The use of `table` rather than `block` is only necessary if using
+ * `:before` to contain the top-margins of child elements.
+ * 
+ */
+@mixin clearfix() {
+
+	&:before,
+	&:after {
+		content: " ";		// [1]
+		display: table;		// [2]
+	}
+	&:after {
+		clear: both;
+	}
+
+}
+
+
+
+
+
+/**
+ * Media Queries
+ *
+ * $breakpoints located in global/_variables.scss
+ */
+@mixin breakpoint($name) {
+
+	@if map-has-key($breakpoints, $name) {
+		@media #{inspect(map-get($breakpoints, $name))} {
+			@content;
+		}
+	}
+
+	@else {
+		@warn "Couldn't find a breakpoint named `#{$name}`.";
+	}
+
+}
+
+
+
+
+
+/**
+ * High Resolution Media Querie
+ */
+@mixin high-res(){
+
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+		@content;
+	}
+
+}

@@ -1,0 +1,19 @@
+/*------------------------------------*\
+	#LIST INLINE
+\*------------------------------------*/
+
+/**
+ * Inline list
+ */
+.list-inline {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	& >  li {
+		display: inline-block;
+		padding: 0 2px;
+		vertical-align: top;
+	}
+
+}

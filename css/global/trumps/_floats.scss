@@ -1,0 +1,24 @@
+/*------------------------------------*\
+    #FLOATS
+\*------------------------------------*/
+
+.f-right {
+	float: right;
+	margin-left: $spacing-unit--small;
+
+	@include breakpoint(md) {
+		margin-left: $spacing-unit;
+	}
+	
+}
+
+.f-left {
+	float: left;
+	margin-right: $spacing-unit--small;
+
+	@include breakpoint(md) {
+		margin-right: $spacing-unit;
+	}
+	
+}
+

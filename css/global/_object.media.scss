@@ -1,0 +1,48 @@
+/*------------------------------------*\
+	#Media
+\*------------------------------------*/
+
+/**
+ * A generic layout with an item floated to the side and content block that
+ * doesn't wrap underneath it.
+ */
+.media {
+	@include clearfix();
+	margin-bottom: 1em;
+}
+
+
+	/**
+	 * Side element floats left and pushes content away. Stacks on mobile.
+	 */
+	.media__img {
+		display: block;
+		margin: 1em 0 0;
+
+		@include breakpoint(xs) {
+			max-width: 30%;
+			float: left;
+			margin: 0 1em 1em 0;
+		}
+
+	}
+
+		/**
+		 * Switch aside element to be on the right.
+		 */
+		.media__img--flip {
+			
+			@include breakpoint(xs) {
+				float: right;
+				margin: 0 0 1em 1em;
+			}
+
+		}
+
+
+	/**
+	 * Content Block
+	 */
+	.media__content {
+		overflow: hidden;
+	}

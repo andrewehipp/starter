@@ -1,0 +1,38 @@
+/*------------------------------------*\
+    #CONTAINER
+\*------------------------------------*/
+
+.container {
+    margin: 0;
+    position: relative;
+    @include clearfix();
+
+    @include breakpoint(lg) {
+    	max-width: $layout;
+    	margin: 0 auto;
+    }
+    
+}
+
+	/**
+	 * Add gutter outside the container (tablet - desktop)
+	 */
+	.container--gutter {
+	    @include breakpoint(sm) {
+	    	max-width: $layout;
+		    margin: 0 $layout-gutter;
+	    }
+
+	    @include breakpoint(lg) {
+	    	max-width: $layout;
+	    	margin: 0 auto;
+	    }
+	}
+
+	/**
+	 * Add padding inside the container.
+	 */
+	.container--padded {		
+		padding-left: $layout-gutter;
+		padding-right: $layout-gutter;
+	}

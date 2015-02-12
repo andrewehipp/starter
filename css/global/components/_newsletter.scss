@@ -1,0 +1,67 @@
+/*------------------------------------*\
+    #NEWSLETTER
+\*------------------------------------*/
+
+.newsletter {
+	padding: $layout-gutter 0 ;
+	@include clearfix();
+
+	@include breakpoint(md) {
+	    padding: 0;
+	}
+	
+}
+
+.newsletter__form {
+	width: 100%;
+	position: relative;
+
+	@include breakpoint(md) {
+		padding: 0 150px 0 230px;
+	}
+	
+}
+
+
+.newsletter__title {
+	display: block;
+	text-transform: uppercase;
+
+	@include breakpoint(md) {
+		font-size: em(22px);
+		line-height: 45px;
+		position: absolute;
+		top:	0;
+		left:	0;
+	}
+
+	@include breakpoint(lg) {
+		font-size: em(25px);
+	}
+	
+	
+}
+
+.newsletter__email {
+	width: 100%;
+	margin-bottom: 7px;
+
+	@include breakpoint(md) {
+	    margin: 0;
+	}
+	
+}
+
+.newsletter__submit {
+	width: 100px;
+	float: right;
+
+	@include breakpoint(md) {
+		width: 140px;
+		float: none;
+		position: absolute;
+		top:	0;
+		right:	0;
+	}
+
+}

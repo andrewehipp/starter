@@ -1,0 +1,63 @@
+///*------------------------------------*\
+//	#VARIABLES
+//\*------------------------------------*/
+
+
+// Text Variables
+$base-font-size:		 14px;
+$base-line-height:		1.4em;
+
+
+
+
+
+// Layout
+$container: 			1240px;
+$container-padding: 	  20px;
+
+
+$col-gutter: 			  20px;
+
+
+
+
+
+// The site-wide color pallete and their various tones.
+$colors: (
+	'blue':	blue,
+	'red':	red
+);
+
+
+
+
+
+// Social Network Colors
+$social-networks: (
+	'facebook':		#0e639e,
+	'twitter':		#44c1ed,
+	'pinterest':	#ff0000,
+	'youtube':		#c90909
+);
+
+
+
+
+
+// Breakpoints for @mixin breakpoint()
+$breakpoints: (
+	'xs':			screen and (min-width:  480px),
+	'sm':			screen and (min-width:  768px),
+	'md':			screen and (min-width:  992px),
+	'lg':			screen and (min-width: 1200px),
+	'xl':			screen and (min-width: 1500px)
+);
+
+
+
+
+
+// Z-index Map
+$z-index: (
+	'lightbox':		1000
+);

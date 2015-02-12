@@ -1,0 +1,17 @@
+/*------------------------------------*\
+	#BASE
+\*------------------------------------*/
+
+
+body {
+	background: #000;
+	color: color('grey-darker');
+	font-family: $font-family-oxygen;
+	font-size: $base-font-size;
+	line-height: $base-line-height;
+	-webkit-font-smoothing: antialiased;
+}
+
+:focus {
+	outline: none;
+}

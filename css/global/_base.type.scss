@@ -1,0 +1,58 @@
+/*------------------------------------*\
+	#BASE
+\*------------------------------------*/
+
+
+/**
+ * Link Styles
+ */
+a {
+	text-decoration: none;
+
+	@include link-states(){
+		text-decoration: underline;
+	}
+
+}
+
+
+
+
+
+/**
+ * Headings
+ */
+@include headings() {
+}
+
+h1 {
+	font-size: em(65px);
+}
+h2 {
+	font-size: em(45px);
+}
+h3 {
+	font-size: em(25px);
+}
+h4 {
+	font-size: em(22px);
+}
+h5 {
+	font-size: em(18px);
+
+}
+h6 {
+	font-size: em(15px);
+
+}
+
+
+
+
+
+/**
+ * Paragraphs
+ */
+p {
+
+}

@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    #SECTION
+\*------------------------------------*/
+
+.section {
+	@include clearfix();
+}
+
+	.section--globe {
+		background: url('../img/section-globe-bg.png') right top no-repeat;
+	}
+
+	.section__block {
+		padding: $spacing-unit--small $layout-gutter;
+		@include clearfix();
+
+		@include breakpoint(md) {
+			padding: $spacing-unit $layout-gutter--large;
+		}
+		
+	}
+
+		.section__block--small {
+
+			@include breakpoint(md) {
+				padding-top: $spacing-unit--small;
+				padding-bottom: $spacing-unit--small;
+			}
+
+		}

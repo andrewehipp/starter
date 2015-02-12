@@ -1,0 +1,15 @@
+.DS_Store
+.sass-cache
+
+# Ignore Node
+node_modules
+npm-debug.log
+
+
+# Sublime project files
+*.sublime-project
+*.sublime-workspace
+
+# Ignore temporary files BrowserSync makes.
+css/_*
+js/_*

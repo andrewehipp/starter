@@ -1,0 +1,159 @@
+/*------------------------------------*\
+	#HEADER
+\*------------------------------------*/
+
+.header {
+	position: relative;
+	z-index: z('header');
+}
+
+	.header__logo-wrap {
+		width:	102px;
+		height:	102px;
+		margin: 0;
+		background: #fff;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, .17);
+		border-radius: 0 50% 50% 50%;
+		position: absolute;
+		top:	0;
+		left:	0;
+		z-index: 1000;
+		border: 5px solid transparent;
+		-webkit-transition: border .3s ease-in-out;
+		        transition: border .3s ease-in-out;
+
+		@include link-states(){
+			border-color: color('yellow');
+		}
+
+		@include breakpoint(sm) {
+			top:	-20px;
+		}
+
+		@include breakpoint(lg) {
+			width:	210px;
+			height:	210px;
+			border-radius: 50%;
+			top:	-57px;
+		}
+
+	}
+
+		.header__logo {
+			margin: 0;
+			position: absolute;
+			top:	45%;
+			left:	50%;
+			-webkit-transform: translate(-50%, -50%);
+			    -ms-transform: translate(-50%, -50%);
+			        transform: translate(-50%, -50%);
+
+			@include breakpoint(sm) {
+				top:	50%;
+			}
+
+			@include breakpoint(lg) {
+				top:	55%;
+			}
+			
+		}
+
+
+		.header__section--primary {
+			background: #fff;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, .17);
+			line-height: 53px;
+		}
+
+		.header__section--secondary {
+			background: color('blue');
+			border-bottom: 1px solid color('blue-dark');
+		}
+
+
+	.header__section-content {
+		padding: 0 220px 0 120px;
+		position: relative;
+
+		@include breakpoint(lg) {
+			padding: 0 220px 0 240px;
+		}
+
+		.header__section--secondary & {
+			
+			@include breakpoint(sm) {
+				padding-right: 120px;
+			}
+
+			@include breakpoint(md) {
+				padding-right: 210px;
+			}
+
+			@include breakpoint(lg) {
+				padding-right: 220px;
+			}	
+
+		}
+
+	}
+
+	.header__social {
+		padding: 0 $layout-gutter;
+		position: absolute;
+		right:	0;
+		top:	0;
+
+		@include breakpoint(lg) {
+		    padding: 0;
+		}
+
+	}
+
+
+	.header__subnav {
+		width: 60%;
+		float: left;
+
+		@include breakpoint(lg) {
+			width: 50%;
+		}
+
+	}
+
+	.header__search {
+		width: 40%;
+		float: left;
+		padding: ($spacing-unit--tiny - 5) 0;
+
+		@include breakpoint(md) {
+			padding: $spacing-unit--tiny 0;
+		}
+
+		@include breakpoint(lg) {
+			width: 50%;
+		}
+
+	}
+
+	.header__trigger {
+		height:	45px;
+		width:	45px;
+		margin: 0;
+		padding: 0;
+		background: none;
+		border: 0;
+		color: #fff;
+		font-size: em(22px);
+		float: right;
+
+		@include link-states(){
+			outline: none;
+		}
+
+	}
+
+	.header__drawer-trigger {
+		position: absolute;
+		top:	0;
+		right:	0;
+	}

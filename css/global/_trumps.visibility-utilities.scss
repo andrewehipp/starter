@@ -1,0 +1,22 @@
+/*------------------------------------*\
+    #VISIBILITY UTILITIES
+\*------------------------------------*/
+
+
+/**
+ * Hide the content
+ */
+.hidden {
+	@include hide();
+}
+
+
+
+
+
+/**
+ * Image Replacement
+ */
+.ir {
+	@include ir();
+}
