@@ -23,9 +23,7 @@ var gulp =			require('gulp'),
 
 gulp.task('browser-sync', function() {
 	browserSync({
-		server: {
-			baseDir: "./"
-		},
+		proxy: 'localhost/starter',
 		notify: false
 	});
 });
