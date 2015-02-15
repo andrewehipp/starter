@@ -1,123 +1,49 @@
 /*------------------------------------*\
-	#MEDIA
+	#COLUMNS
 \*------------------------------------*/
 
+/**
+ * Block level column class
+ */
 .col {
 	position: relative;
 	width: 100%;
 	float: left;
 	min-height: 1px;
+	margin-right:	$columns-gutter / 2;
+	margin-left:	$columns-gutter / 2;
 }
 
 
 	/**
-	 * Build The Columns
-	 *
-	 * 1) The first loop creates column systems from 2 to 6 columns 
-	 * 2) In each column system create all possible column sizes
+	 * Build The Column span modifiers
 	 */
-	 
-	@for $columns-in-row from 2 through 6 { /* [1] */
+	@for $columns-span from 1 through $columns-per-row {
+		
+		.col--#{$columns-span}-#{$columns-per-row} {
+			width: (100% / $columns-per-row) * $columns-span;
+		}
 
-		@for $columns-span from 1 through $columns-in-row { /* [2] */
+	}
 
-			.col--#{$columns-span}-#{$columns-in-row} {
-				width: (100% / $columns-in-row) * $columns-span;
-			}
 
-			.col--xs-#{$columns-span}-#{$columns-in-row} {
-				@include breakpoint(xs) {
-					width: (100% / $columns-in-row) * $columns-span;
+	/**
+	 * Build The Responsive Columns
+	 *
+	 * 1) Do the same as above but for each breakpoint
+	 */
+	@each $breakpoint, $viewport in $breakpoints {
+
+		@include breakpoint($breakpoint) {
+
+			@for $columns-span from 1 through $columns-per-row {
+				
+				.col--#{$breakpoint}-#{$columns-span}-#{$columns-per-row} {
+					width: (100% / $columns-per-row) * $columns-span;
 				}
-			}
 
-			.col--sm-#{$columns-span}-#{$columns-in-row} {
-				@include breakpoint(sm) {
-					width: (100% / $columns-in-row) * $columns-span;
-				}
-			}
-
-			.col--md-#{$columns-span}-#{$columns-in-row} {
-				@include breakpoint(md) {
-					width: (100% / $columns-in-row) * $columns-span;
-				}
-			}
-
-			.col--lg-#{$columns-span}-#{$columns-in-row} {
-				@include breakpoint(lg) {
-					width: (100% / $columns-in-row) * $columns-span;
-				}
 			}
 
 		}
 
 	}
-
-//  /**
-//   * Push & Pull Utilities
-//   */
-//  @for $columns-in-row from 2 through 6 { /* [1] */
-//
-//	@for $columns-span from 1 through $columns-in-row { /* [2] */
-//
-//
-//	  .col--push-#{$columns-span}-#{$columns-in-row} {
-//		left: (100% / $columns-in-row) * $columns-span;
-//	  }
-//
-//	  .col--push-xs-#{$columns-span}-#{$columns-in-row} {
-//		@include breakpoint(xs) {
-//		  left: (100% / $columns-in-row) * $columns-span;   
-//		}
-//	  }
-//	  .col--push-sm-#{$columns-span}-#{$columns-in-row} {
-//		@include breakpoint(sm) {
-//		  left: (100% / $columns-in-row) * $columns-span;   
-//		}
-//	  }
-//	  .col--push-md-#{$columns-span}-#{$columns-in-row} {
-//		@include breakpoint(md) {
-//		  left: (100% / $columns-in-row) * $columns-span;   
-//		}
-//	  }
-//	  .col--push-lg-#{$columns-span}-#{$columns-in-row} {
-//		@include breakpoint(lg) {
-//		  left: (100% / $columns-in-row) * $columns-span;   
-//		}
-//	  }
-//
-//	}
-//  }
-//
-//  @for $columns-in-row from 2 through 6 { /* [1] */
-//
-//	@for $columns-span from 1 through $columns-in-row { /* [2] */
-//
-//
-//	  .col--pull-#{$columns-span}-#{$columns-in-row} {
-//		left: -(100% / $columns-in-row) * $columns-span;
-//	  }
-//
-//	  .col--pull-xs-#{$columns-span}-#{$columns-in-row} {
-//		@include breakpoint(xs) {
-//		  left: -(100% / $columns-in-row) * $columns-span;  
-//		}
-//	  }
-//	  .col--pull-sm-#{$columns-span}-#{$columns-in-row} {
-//		@include breakpoint(sm) {
-//		  left: -(100% / $columns-in-row) * $columns-span;  
-//		}
-//	  }
-//	  .col--pull-md-#{$columns-span}-#{$columns-in-row} {
-//		@include breakpoint(md) {
-//		  left: -(100% / $columns-in-row) * $columns-span;  
-//		}
-//	  }
-//	  .col--pull-lg-#{$columns-span}-#{$columns-in-row} {
-//		@include breakpoint(lg) {
-//		  left: -(100% / $columns-in-row) * $columns-span;  
-//		}
-//	  }
-//
-//	}
-//  }

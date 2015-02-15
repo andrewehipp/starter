@@ -4,11 +4,8 @@
 
 
 // Text Variables
-$base-font-size:		 14px;
-$base-line-height:		1.4em;
-
-
-
+$base-font-size:		  14px;
+$base-line-height:		 1.4em;
 
 
 // Layout
@@ -16,8 +13,11 @@ $container: 			1240px;
 $container-padding: 	  20px;
 
 
-$col-gutter: 			  20px;
+$columns-per-row:		    12;
+$columns-gutter: 		  20px;
 
+
+$spacing-unit: 			  25px;
 
 
 
@@ -48,7 +48,7 @@ $social-networks: (
 $breakpoints: (
 	'xs':			screen and (min-width:  480px),
 	'sm':			screen and (min-width:  768px),
-	'md':			screen and (min-width:  992px),
+	'md':			screen and (min-width: 1024px),
 	'lg':			screen and (min-width: 1200px),
 	'xl':			screen and (min-width: 1500px)
 );

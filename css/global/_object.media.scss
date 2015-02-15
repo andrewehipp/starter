@@ -14,6 +14,8 @@
 
 	/**
 	 * Side element floats left and pushes content away. Stacks on mobile.
+	 *
+	 * [1] Flip the image to the right with modifier
 	 */
 	.media__img {
 		display: block;
@@ -25,12 +27,8 @@
 			margin: 0 1em 1em 0;
 		}
 
-	}
-
-		/**
-		 * Switch aside element to be on the right.
-		 */
-		.media__img--flip {
+		// [1]
+		.media--flip & {
 			
 			@include breakpoint(xs) {
 				float: right;
@@ -38,6 +36,8 @@
 			}
 
 		}
+
+	}
 
 
 	/**
