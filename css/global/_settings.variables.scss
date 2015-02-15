@@ -2,27 +2,26 @@
 //	#VARIABLES
 //\*------------------------------------*/
 
-
-// Text Variables
-$base-font-size:		  14px;
-$base-line-height:		 1.4em;
-
-
 // Layout
 $container: 			1240px;
 $container-padding: 	  20px;
-
 
 $columns-per-row:		    12;
 $columns-gutter: 		  20px;
 
 
+// Spacing
 $spacing-unit: 			  20px;
 
+
+// Text Variables
+$base-font-size:		  14px;
+$base-line-height:	 1.42857em; // (20/14)
 
 
 
 // The site-wide color pallete and their various tones.
+// Also usefull with sass @each loops.
 $colors: (
 	'blue':	blue,
 	'red':	red
@@ -32,7 +31,7 @@ $colors: (
 
 
 
-// Social Network Colors
+// Social Network Colors (just nice to have)
 $social-networks: (
 	'facebook':		#0e639e,
 	'twitter':		#44c1ed,
@@ -61,3 +60,7 @@ $breakpoints: (
 $z-index: (
 	'lightbox':		1000
 );
+
+
+
+

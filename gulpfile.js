@@ -60,7 +60,6 @@ gulp.task('sass', function() {
 gulp.task('css', ['sass'], function(){
 
 	gulp.src([
-			'css/normalize.css',
 			'css/global.css'
 		])
 		.pipe($.plumber())

@@ -16,7 +16,7 @@
 
 
 	/**
-	 * Build The Column span modifiers
+	 * Build The column span modifiers
 	 */
 	@for $columns-span from 1 through $columns-per-row {
 		
@@ -25,7 +25,6 @@
 		}
 
 	}
-
 
 	/**
 	 * Build The Responsive Columns
@@ -47,3 +46,8 @@
 		}
 
 	}
+
+
+
+
+
