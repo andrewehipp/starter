@@ -12,6 +12,7 @@ module.exports = gulp;
 var gulp =			require('gulp'),
 	browserSync =	require('browser-sync'),
 	reload =		browserSync.reload,
+	sprite =		require('css-sprite').stream,
 	$ =				require('gulp-load-plugins')();
 
 
@@ -36,6 +37,30 @@ gulp.task('browser-sync', function() {
 
 
 /*------------------------------------*\
+	SPRITE
+\*------------------------------------*/
+
+gulp.task('sprite', function () {
+
+	return gulp.src('img/sprite/*.png')
+		.pipe(sprite({
+			//retina: true, // Support retina, but requires retina sized images
+			name: 'sprite',
+			style: '_component.sprite.scss',
+			cssPath: '../img/',
+			processor: 'scss',
+			prefix: 'sprite'
+		}))
+		.pipe($.if('*.png', gulp.dest('img/'), gulp.dest('css/global/')));
+
+});
+
+
+
+
+
+
+/*------------------------------------*\
 	CSS
 \*------------------------------------*/
 
@@ -49,7 +74,7 @@ gulp.task('sass', function() {
 		.pipe($.sourcemaps.write())
 		.pipe($.autoprefixer('last 2 versions'))
 		.pipe(gulp.dest('css'))
-        .pipe(reload({stream:true}));	
+				.pipe(reload({stream:true}));	
 
 });
 
@@ -100,7 +125,7 @@ gulp.task('js', ['lint'], function(){
 		.pipe($.concat('production.min.js'))
 		.pipe($.uglify())
 		.pipe(gulp.dest('dist'))
-        .pipe(reload({stream:true}));
+				.pipe(reload({stream:true}));
 
 });
 
@@ -116,6 +141,10 @@ gulp.task('watch', ['default'], function() {
 
 	$.watch('css/**/*.scss', function () {
 		gulp.start('css');
+	});
+
+	$.watch('img/sprite/*', function () {
+		gulp.start('sprite');
 	});
 
 	$.watch('js/*.js', function () {
@@ -137,5 +166,5 @@ gulp.task('watch', ['default'], function() {
 	DEFAULT
 \*------------------------------------*/
 
-gulp.task('default', ['css', 'js', 'browser-sync']);
+gulp.task('default', ['sprite', 'css', 'js', 'browser-sync']);
 
