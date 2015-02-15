@@ -35,45 +35,74 @@
 
 
 /**
- * Headings
+ * Generate a list of heading tags and classes.
+ *
+ * [1] Create a placeholder that we will extend to.
+ * [2] Check that only 1-6 is being requested and $from is smaller than $to.
+ * [3] Loop through the range of $from and $to to generate and @extend the
+ *     the correct classes to the placeholder.
+ *
  */
-@mixin headings() {
+@mixin headings($from: 1, $to: 6) {
 
-	h1, .h1,
-	h2, .h2,
-	h3, .h3,
-	h4, .h4,
-	h5, .h5,
-	h6, .h6 {
+	// [1]
+	%heading-placeholder {
 		@content;
+	}
+
+	// [2]
+	@if $from >= 1 and $to <= 6 and $from <= $to {
+
+		// [3]
+		@for $heading from $from through $to {
+ 
+			h#{$heading}, .h#{$heading} {
+				@extend %heading-placeholder;
+			}
+
+		}
+
 	}
 
 }
 
 
 
-
-
-
 /**
- * Hide
+ * Unstyled List
  */
-@mixin hide() {
-	position: absolute !important;
-	height: 1px; width: 1px; 
-	overflow: hidden;
-	clip: rect(1px, 1px, 1px, 1px);
+@mixin list-unstyled() {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 
 
 
 
+/**
+ * Hide's content in a screen reader friendly way.
+ */
+@mixin hide() {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding:0 !important;
+    border:0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
+
+
+
+
 
 /**
- * Image Replacement
+ * Hide text, good for Image Replacement
  */
-@mixin ir() {
+@mixin hide-text() {
 	border: 0;
 	font: 0/0 a;
 	text-shadow: none;
