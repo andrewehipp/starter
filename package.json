@@ -5,6 +5,7 @@
   "repository": "bitbucket.org/haven_agency/starter",
   "devDependencies": {
     "browser-sync": "^2.0.1",
+    "del": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "2.1.0",
     "gulp-concat": "^2.4.3",

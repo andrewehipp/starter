@@ -21,6 +21,26 @@ var gulp =			require('gulp'),
 
 
 /*------------------------------------*\
+	CLEAN
+\*------------------------------------*/
+
+gulp.task('clean', function() {
+
+	del([
+		'.sass-cache',
+		'css/_*',
+		'dist'
+	], function (err, deletedFiles) {
+		console.log('Files deleted:', deletedFiles.join(', '));
+	});
+
+});
+
+
+
+
+
+/*------------------------------------*\
 	BROWSER SYNC
 \*------------------------------------*/
 
@@ -166,5 +186,5 @@ gulp.task('watch', ['default'], function() {
 	DEFAULT
 \*------------------------------------*/
 
-gulp.task('default', ['sprite', 'css', 'js', 'browser-sync']);
+gulp.task('default', ['clean', 'sprite', 'css', 'js', 'browser-sync']);
 
