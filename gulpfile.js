@@ -10,6 +10,7 @@ module.exports = gulp;
  * only 'gulp-' plugins.
  */
 var gulp =			require('gulp'),
+	del =			require('del'),
 	browserSync =	require('browser-sync'),
 	reload =		browserSync.reload,
 	sprite =		require('css-sprite').stream,
@@ -28,7 +29,7 @@ gulp.task('clean', function() {
 
 	del([
 		'.sass-cache',
-		'css/_*',
+		'css/_*', // BrowserSync creates a directory to hold file's it injects
 		'dist'
 	], function (err, deletedFiles) {
 		console.log('Files deleted:', deletedFiles.join(', '));
@@ -86,15 +87,15 @@ gulp.task('sprite', function () {
 
 gulp.task('sass', function() {
 	
-	return $.rubySass('css/global.scss', { sourcemap: true }) 
+	return gulp.src('css/**/*.scss')
 		.pipe($.plumber())
-		.on('error', function (err) {
-			console.error('Error!', err.message);
-		})
-		.pipe($.sourcemaps.write())
+		.pipe($.rubySass({ 'sourcemap=none': true }))
 		.pipe($.autoprefixer('last 2 versions'))
+		//.pipe($.combineMediaQueries({
+		//	log: true
+		//}))
 		.pipe(gulp.dest('css'))
-				.pipe(reload({stream:true}));	
+		.pipe(reload({stream:true}));
 
 });
 
