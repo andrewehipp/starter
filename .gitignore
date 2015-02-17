@@ -10,6 +10,9 @@ npm-debug.log
 *.sublime-project
 *.sublime-workspace
 
+# IntelliJ IDEA project files
+.idea
+
 # Bower
 bower_components
 
