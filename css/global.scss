@@ -2,14 +2,14 @@
  * CONTENTS
  *
  * SETTINGS
- * Variables.............Globally-variables, local variables can go in their
- * 						component file.
+ * Variables.............Globally-variables
  *
  * TOOLS
- * Functions................Useful mixins.
+ * Functions.............Useful mixins.
  * Mixins................Useful mixins.
  *
  * GENERIC
+ * Normalize.............CSS reset.
  * Box-sizing............Better default `box-sizing`.
  *
  * BASE
@@ -19,8 +19,7 @@
  *
  * OBJECTS
  * Container.............Outer Container.
- * Row...................Row, with optional gutter modifier.
- * Columns...............Columns, and source ordering.
+ * Layout................Rows and Columns as Block and Elements.
  * List Unstyled.........Unstyled list.
  * List Inline...........Inline list.
  * Media.................The Media Object.
@@ -31,8 +30,9 @@
  * Footer................The main page footer.
  *
  * TRUMPS
- * Img Utilities............
- * Visibility Utilities.....
+ * Text Utilities........
+ * Img Utilities.........
+ * Visibility Utilities..
  */
 
 
@@ -71,8 +71,7 @@
  * Objects
  */
 @import 'global/object.container';
-@import 'global/object.row';
-@import 'global/object.columns';
+@import 'global/object.layout';
 @import 'global/object.list-unstyled';
 @import 'global/object.list-inline';
 @import 'global/object.media';
@@ -91,3 +90,7 @@
 @import 'global/trumps.text-utilities';
 @import 'global/trumps.img-utilities';
 @import 'global/trumps.visibility-utilities';
+
+
+
+

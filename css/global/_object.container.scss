@@ -2,6 +2,16 @@
     #CONTAINER
 \*------------------------------------*/
 
+/// Container Width
+$container-width:       1240px;
+
+/// Container left and right padding
+$container-padding:       20px;
+
+
+
+
+
 .container {
     max-width: $container-padding + $container-width + $container-padding;
     margin: 0 auto;

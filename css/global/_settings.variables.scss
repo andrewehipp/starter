@@ -1,36 +1,10 @@
 ////
 ///	VARIABLES
-///
-/// @group Global
-///
 ////
 
 
-
-
-///
-// Layout
-///
-
-/// Container Width
-$container-width: 		1240px;
-
-/// Container left and right padding
-$container-padding: 	  20px;
-
-
-/// Number of columns per row
-$columns-per-row:		    12;
-
-/// Default column gutter
-$columns-gutter: 		  20px;
-
-
 /// Generic spacing unit
-$spacing-unit: 			  20px;
-
-
-
+$spacing-unit:            20px;
 
 
 ///
@@ -42,6 +16,7 @@ $base-font-size:		  14px;
 
 /// Calculated Line Height
 $base-line-height:	 1.42857em; // (20/14)
+
 
 
 

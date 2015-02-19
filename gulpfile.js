@@ -162,9 +162,7 @@ gulp.task('js', ['lint'], function(){
 gulp.task('sassdoc', function () {
 
     return gulp.src('css/**/*.scss')
-        .pipe(sassdoc({
-            autofill: ['content']
-        }));
+        .pipe(sassdoc());
 
 });
 
