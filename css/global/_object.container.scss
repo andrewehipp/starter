@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 .container {
-    max-width: $container-padding + $container + $container-padding;
+    max-width: $container-padding + $container-width + $container-padding;
     margin: 0 auto;
     padding: 0 $container-padding;
 }

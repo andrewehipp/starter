@@ -2,26 +2,47 @@
 //	#VARIABLES
 //\*------------------------------------*/
 
+///
 // Layout
-$container: 			1240px;
+///
+
+/// Container Width
+$container-width: 		1240px;
+
+/// Container left and right padding
 $container-padding: 	  20px;
 
+
+/// Number of columns per row
 $columns-per-row:		    12;
+
+/// Default column gutter
 $columns-gutter: 		  20px;
 
 
-// Spacing
+/// Generic spacing unit
 $spacing-unit: 			  20px;
 
 
-// Text Variables
+
+
+
+///
+// Typography
+///
+
+/// Global font size
 $base-font-size:		  14px;
+
+/// Calculated Line Height
 $base-line-height:	 1.42857em; // (20/14)
 
 
 
-// The site-wide color pallete and their various tones.
-// Also usefull with sass @each loops.
+
+///
+/// Global sass map for the primary color palette.
+///
 $colors: (
 	'blue':	blue,
 	'red':	red
@@ -31,7 +52,9 @@ $colors: (
 
 
 
-// Social Network Colors (just nice to have)
+///
+/// Social Network's brand colors (just nice to have)
+///
 $social-networks: (
 	'facebook':		#0e639e,
 	'twitter':		#44c1ed,
@@ -43,7 +66,9 @@ $social-networks: (
 
 
 
-// Breakpoints for @mixin breakpoint()
+///
+/// Breakpoints for @mixin breakpoint();
+///
 $breakpoints: (
 	'xs':			screen and (min-width:  480px),
 	'sm':			screen and (min-width:  768px),
@@ -56,7 +81,9 @@ $breakpoints: (
 
 
 
-// Z-index Map
+///
+/// Z-index Map for @function z();
+///
 $z-index: (
 	'lightbox':		1000
 );

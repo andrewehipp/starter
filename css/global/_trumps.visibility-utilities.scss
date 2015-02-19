@@ -6,7 +6,15 @@
  * Hide the content
  */
 .hidden {
-	@include hide();
+    display: none;
+}
+
+
+/**
+ * Screen Readers only
+ */
+.sr-only {
+    @include hide();
 }
 
 

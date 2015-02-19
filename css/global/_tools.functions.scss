@@ -3,10 +3,14 @@
 //\*------------------------------------*/
 
 
-/**
- * Return EM value
- * Update the $base-font-size per use to change the scope, ex: line-height for nested elements
- */
+///
+/// Return EM value
+///
+/// @param {pixel} $px - Target equivalent pixel value to output as ems.
+/// @param {pixel} $base [$base-font-size] - Base pixel value to calculate against.
+///
+/// @require {variable} $base-font-size
+///
 @function em($px, $base: $base-font-size) {
 
     @return ($px / $base) * 1em;
@@ -17,14 +21,17 @@
 
 
 
-/**
- * Retrieve color from $colors
- *
- * [1] Check if color colors exists in $colors and if it has the provided $color
- * [2] If not check if the colors is present in $colors
- * [3] If not assume the colors is present but the $color is not.
- * [4] If error output a usefull warning with available options.
- */
+///
+/// Retrieve color from sass map $colors
+///
+/// @param {string} $color - Name of color to return from $colors.
+///
+/// @require {variable} $colors
+///
+/// @ignore
+/// [1] Check if $color exists in $colors.
+/// [2] If not pass an error.
+///
 @function color($color) {
 
 	// [1]
@@ -34,11 +41,43 @@
 
 	} @else {
 
-		@warn "'#{$color}' is not an available version of #{$colors}. (#{map-keys($colors, $color)})"; // [4]
+		@warn "'#{$color}' is not an available version of #{$colors}. (#{map-keys($colors, $color)})"; // [2]
 
 		@return null;
 
 	}
+
+}
+
+
+
+
+
+///
+/// Retrieve z-index value from sass map $z-index
+///
+/// @param {string} $element - Element to return z-index value from $z-index.
+///
+/// @require {variable} $z-index
+///
+/// @ignore
+/// [1] Check if $element exists in $z-index.
+/// [2] If not pass an error.
+///
+@function z($element) {
+
+    // [1]
+    @if map-has-key($z-index, $element){
+
+        @return map-get($z-index, $element);
+
+    } @else {
+
+        @warn "'#{$element}' does not have a value set in  #{$z-index}. (#{map-keys($z-index, $element)})"; // [2]
+
+        @return null;
+
+    }
 
 }
 

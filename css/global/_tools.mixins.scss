@@ -3,12 +3,13 @@
 //\*------------------------------------*/
 
 
-/**
- * Link Psuedo States
- * Can include the parent selector too if set to 'true'.
- */
+///
+/// Link Psuedo States
+///
+/// @param {boolean} $parent [true] - Can include the parent selector too if set to
+///
 @mixin link-states($parent: false) {
-	
+
 	@if ($parent){
 
 		&,
@@ -34,15 +35,20 @@
 
 
 
-/**
- * Generate a list of heading tags and classes.
- *
- * [1] Create a placeholder that we will extend to.
- * [2] Check that only 1-6 is being requested and $from is smaller than $to.
- * [3] Loop through the range of $from and $to to generate and @extend the
- *     the correct classes to the placeholder.
- *
- */
+///
+/// Generate a list of heading tags and classes.
+///
+/// @param {number} $from [1] - Highest heading value to start from.
+/// @param {number} $to [6] - Lowest heading value to start from.
+///
+/// @throw Error related message
+///
+/// @ignore
+/// [1] Create a placeholder that we will extend to.
+/// [2] Check that only 1-6 is being requested and $from is smaller than $to.
+/// [3] Loop through the range of $from and $to to generate and @extend the
+///     the correct classes to the placeholder.
+///
 @mixin headings($from: 1, $to: 6) {
 
 	// [1]
@@ -55,7 +61,7 @@
 
 		// [3]
 		@for $heading from $from through $to {
- 
+
 			h#{$heading}, .h#{$heading} {
 				@extend %heading-placeholder;
 			}
@@ -64,13 +70,17 @@
 
 	}
 
+    @else {
+        @warn "headings() only accepts two numbers between 1 & 6.";
+    }
+
 }
 
 
 
-/**
- * Unstyled List
- */
+///
+/// Unstyled List
+///
 @mixin list-unstyled() {
 	list-style: none;
 	margin: 0;
@@ -81,9 +91,9 @@
 
 
 
-/**
- * Hide's content in a screen reader friendly way.
- */
+///
+/// Hide's content in a screen reader friendly way.
+///
 @mixin hide() {
     position: absolute !important;
     clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
@@ -99,9 +109,9 @@
 
 
 
-/**
- * Hide text, good for Image Replacement
- */
+///
+/// Hide text only, intended for image replacement.
+///
 @mixin hide-text() {
 	border: 0;
 	font: 0/0 a;
@@ -113,24 +123,24 @@
 
 
 
-/**
- * Clearfix for modern browsers
- * 
- * [1] The space content is one way to avoid an Opera bug when the
- * contenteditable attribute is included anywhere else in the document.
- * Otherwise it causes space to appear at the top and bottom of elements
- * that are clearfixed.
- * 
- * [2] The use of `table` rather than `block` is only necessary if using
- * `:before` to contain the top-margins of child elements.
- * 
- */
+///
+/// Clearfix for modern browsers
+///
+/// @ignore
+/// [1] The space content is one way to avoid an Opera bug when the
+///     contenteditable attribute is included anywhere else in the document.
+///     Otherwise it causes space to appear at the top and bottom of elements
+///     that are clearfixed.
+/// [2] The use of `table` rather than `block` is only necessary if using
+///     `:before` to contain the top-margins of child elements.
+///
+///
 @mixin clearfix() {
 
 	&:before,
 	&:after {
-		content: " ";		// [1]
-		display: table;		// [2]
+		content: " ";	// [1]
+		display: table;	// [2]
 	}
 	&:after {
 		clear: both;
@@ -142,11 +152,13 @@
 
 
 
-/**
- * Media Queries
- *
- * $breakpoints located in global/_variables.scss
- */
+///
+/// Media Queries
+///
+/// @param {string} $name - $key to use from $breakpoints
+///
+/// @require {variable} $breakpoints
+///
 @mixin breakpoint($name) {
 
 	@if map-has-key($breakpoints, $name) {
@@ -165,9 +177,9 @@
 
 
 
-/**
- * High Resolution Media Querie
- */
+///
+/// High Resolution Media Querie
+///
 @mixin high-res(){
 
 	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
