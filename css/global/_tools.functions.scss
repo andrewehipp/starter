@@ -28,6 +28,74 @@
 
 
 ///
+/// Returns the number as a negative.
+///
+/// @param {number} $number
+///
+@function negative($number) {
+    @return -($number);
+}
+
+/// @alias negative
+@function neg($args...){
+    @return negative($args...);
+}
+
+
+///
+/// Returns number as rounded half the number passed.
+///
+/// @param {number} $number
+///
+@function halve($number) {
+    @return round($number / 2);
+}
+
+/// @alias halve
+@function half($args...){
+    @return halve($args...);
+}
+
+
+///
+/// Returns number as rounded quarter the number passed.
+///
+/// @param {number} $number
+///
+@function quarter($number) {
+    @return round($number / 4);
+}
+
+/// @alias quarter
+@function fourth($args...){
+    @return quarter($args...);
+}
+
+
+///
+/// Returns number as rounded double the number passed.
+///
+/// @param {number} $number
+///
+@function double($number) {
+    @return round($number * 2);
+}
+
+
+///
+/// Returns number as rounded quadruple the number passed.
+///
+/// @param {number} $number
+///
+@function quadruple($number) {
+    @return round($number * 4);
+}
+
+
+
+
+
+///
 /// Retrieve color from sass map $colors
 ///
 /// @param {string} $color - Name of color to return from $colors.
