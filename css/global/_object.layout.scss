@@ -77,7 +77,7 @@ $layout--push-and-pull:    false;
 
 
 
-
+    // Conditionally output layout offsets.
     @if $layout--offsets {
 
         /**
@@ -116,6 +116,7 @@ $layout--push-and-pull:    false;
 
 
 
+    // Conditionally output layout source ordering.
     @if $layout--push-and-pull {
 
         /**
