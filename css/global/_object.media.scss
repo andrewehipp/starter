@@ -29,7 +29,7 @@
 
 		// [1]
 		.media--flip & {
-			
+
 			@include breakpoint(xs) {
 				float: right;
 				margin: 0 0 1em 1em;
@@ -46,7 +46,3 @@
 	.media__content {
 		overflow: hidden;
 	}
-
-
-
-
