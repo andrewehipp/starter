@@ -2,14 +2,14 @@
  * CONTENTS
  *
  * SETTINGS
- * Variables.............Globally-variables, local variables can go in their
- * 						component file.
+ * Variables.............Globally-variables
  *
  * TOOLS
- * Functions................Useful mixins.
+ * Functions.............Useful mixins.
  * Mixins................Useful mixins.
  *
  * GENERIC
+ * Normalize.............CSS reset.
  * Box-sizing............Better default `box-sizing`.
  *
  * BASE
@@ -19,6 +19,7 @@
  *
  * OBJECTS
  * Container.............Outer Container.
+ * Layout................Rows and Columns as Block and Elements.
  * List Unstyled.........Unstyled list.
  * List Inline...........Inline list.
  * Media.................The Media Object.
@@ -29,8 +30,9 @@
  * Footer................The main page footer.
  *
  * TRUMPS
- * Img Utilities............
- * Visibility Utilities.....
+ * Text Utilities........
+ * Img Utilities.........
+ * Visibility Utilities..
  */
 /**
  * Settings

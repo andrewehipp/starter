@@ -4,16 +4,16 @@
 
 
 /// Number of Layout Items per layout
-$layout-items-per-row:             12;
+$layout-items-per-row:        12;
 
 /// Default column gutter
-$layout-items-gutter:            20px;
+$layout-items-gutter:       20px;
 
 
-/// Generate modifier classes for layout item offsets.
+/// Generate offset modifier classes for layout items.
 $layout--offsets:          false;
 
-/// Generate modifier classes for layout item source ordering.
+/// Generate source ordering modifier classes for layout items.
 $layout--push-and-pull:    false;
 
 
