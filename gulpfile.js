@@ -14,9 +14,8 @@ var gulp =          require('gulp'),
     browserSync =   require('browser-sync'),
     reload =        browserSync.reload,
     sprite =        require('css-sprite').stream,
-      sassdoc =        require('sassdoc'),
+    sassdoc =       require('sassdoc'),
     $ =             require('gulp-load-plugins')();
-
 
 
 
@@ -57,7 +56,6 @@ gulp.task('browser-sync', function() {
 
 
 
-
 /*------------------------------------*\
     SPRITE
 \*------------------------------------*/
@@ -81,7 +79,6 @@ gulp.task('sprite', function () {
 
 
 
-
 /*------------------------------------*\
     CSS
 \*------------------------------------*/
@@ -90,11 +87,13 @@ gulp.task('sass', function() {
 
     return gulp.src('css/**/*.scss')
         .pipe($.plumber())
-        .pipe($.rubySass({ 'sourcemap=none': true }))
+        .pipe($.sourcemaps.init())
+        .pipe($.sass())
         .pipe($.autoprefixer('last 2 versions'))
         //.pipe($.combineMediaQueries({
         //  log: true
         //}))
+        .pipe($.sourcemaps.write())
         .pipe(gulp.dest('css'))
         .pipe(reload({stream:true}));
 
@@ -204,4 +203,3 @@ gulp.task('watch', ['default'], function() {
 \*------------------------------------*/
 
 gulp.task('default', ['clean', 'sprite', 'css', 'js', 'browser-sync']);
-
