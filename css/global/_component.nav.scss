@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    #NAVIGATION
+\*------------------------------------*/
+
+/**
+ * <ul> as navigation List
+ */
+.nav__list {
+	@include list-unstyled();
+}
+
+
+	/**
+	 * Navigation List item
+	 */
+	.nav__item {
+		float: left;
+		margin-right: 10px;
+	}

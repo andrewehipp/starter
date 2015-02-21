@@ -12,6 +12,8 @@ After setup run `gulp watch` to start working with gulp. You will have to instal
 
 [http://localhost:3000/](http://localhost:3000/) to view live reloads of content with [BrowserSync](http://www.browsersync.io/). [http://localhost:3001/](http://localhost:3001/) to view control panel.
 
+Make sure to set `proxy: 'localhost/starter'` to target your local server.
+
 ###Editor Config
 
 Editor config attempts to standardize the way our code editors format code. In order to read the .editorconfig file, you

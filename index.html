@@ -27,35 +27,98 @@
 
         <a id="skip-to-content" href="#content" class="sr-only">Skip to main content</a>
 
-        <header class="header container" role="banner">
-            <h2>Header</h2>
+        <header class="header" role="banner">
 
-            <nav class="nav" role="navigation">
-                <ul>
-                    <li><a href="">Link</a></li>
-                    <li><a href="">Link</a></li>
-                    <li><a href="">Link</a></li>
-                    <li><a href="">Link</a></li>
-                </ul>
-            </nav>
+            <section class="container">
+                <h2>Header</h2>
+
+                <nav class="nav" role="navigation">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="">Link</a></li>
+                        <li class="nav__item"><a href="">Link</a></li>
+                        <li class="nav__item"><a href="">Link</a></li>
+                        <li class="nav__item"><a href="">Link</a></li>
+                    </ul>
+                </nav>
+
+            </section>
 
         </header><!-- /.header -->
 
         <div id="content" class="container" role="main">
 
             <div class="layout">
-                <article class="layout__item layout__item--sm-8" role="article">
-                    <h1>Main Content</h1>
-                </article>
-                <aside class="layout__item layout__item--sm-4" role="complementary">
-                    <h4>Sidebar</h4>
-                </aside>
+
+                <div class="layout__item layout__item--sm-8">
+
+                    <article role="article">
+
+                        <h1>HTML Ipsum Presents</h1>
+
+                        <img src="http://www.placehold.it/800x300" alt="image" class="img-respond">
+
+                        <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+
+                        <h2>Header Level 2</h2>
+
+                        <ol>
+                           <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                           <li>Aliquam tincidunt mauris eu risus.</li>
+                        </ol>
+
+                        <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+
+                        <h3>Header Level 3</h3>
+
+                        <ul>
+                           <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                           <li>Aliquam tincidunt mauris eu risus.</li>
+                        </ul>
+
+                        <h4>Header Level 4</h4>
+
+                        <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+
+                    </article>
+
+                </div><!-- layout__item--sm-8 -->
+
+                <div class="layout__item layout__item--sm-4">
+
+                    <aside role="complementary">
+
+                        <h4>Sidebar</h4>
+
+                        <h5>Header Level 5</h5>
+
+                        <ol>
+                           <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                           <li>Aliquam tincidunt mauris eu risus.</li>
+                        </ol>
+
+                        <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+
+                        <h6>Header Level 6</h6>
+
+                        <ul>
+                           <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                           <li>Aliquam tincidunt mauris eu risus.</li>
+                        </ul>
+
+                    </aside>
+
+                </div><!-- layout__item--sm-4 -->
+
             </div><!-- /.layout -->
 
         </div><!-- /.container -->
 
-        <footer class="footer container" role="contentinfo">
-            Footer
+        <footer class="footer" role="contentinfo">
+            <section class="container">
+
+                Footer
+
+            </section>
         </footer><!-- /.footer -->
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
