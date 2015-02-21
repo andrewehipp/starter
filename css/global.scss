@@ -26,6 +26,7 @@
  *
  * COMPONENTS
  * Buttons...............Button elements.
+ * Navigation............Main Navigation.
  * Header................The main page header.
  * Footer................The main page footer.
  *
@@ -81,6 +82,7 @@
  * Components
  */
 @import 'global/component.buttons';
+@import 'global/component.nav';
 @import 'global/component.header';
 @import 'global/component.footer';
 
