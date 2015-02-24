@@ -45,32 +45,6 @@ gulp.task('browser-sync', function() {
 
 
 /*------------------------------------*\
-    SPRITE
-\*------------------------------------*/
-
-/**
- * Use 'retina: true' to support retina, but requires retina sized images in the
- * source folder
- */
-gulp.task('sprite', function () {
-
-    return gulp.src(path.img + '/sprite/*.png')
-        .pipe($.cssSprite.stream({
-            name: 'sprite',
-            style: '_component.sprite.scss',
-            cssPath: '../img/',
-            processor: 'scss',
-            prefix: 'sprite'
-        }))
-        .pipe($.if('*.png', gulp.dest(path.img + '/'), gulp.dest(path.css + '/global/')));
-
-});
-
-
-
-
-
-/*------------------------------------*\
     CSS
 \*------------------------------------*/
 
@@ -166,10 +140,6 @@ gulp.task('watch', ['default'], function() {
         gulp.start('css');
     });
 
-    $.watch(path.img + '/sprite/*', function () {
-        gulp.start('sprite');
-    });
-
     $.watch(path.js + '/*.js', function () {
         gulp.start('js');
     });
@@ -189,4 +159,4 @@ gulp.task('watch', ['default'], function() {
     DEFAULT
 \*------------------------------------*/
 
-gulp.task('default', ['sprite', 'css', 'js', 'browser-sync']);
+gulp.task('default', ['css', 'js', 'browser-sync']);
