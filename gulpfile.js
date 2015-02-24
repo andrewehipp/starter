@@ -25,7 +25,7 @@ var path = {
         img:   './img',
         fonts:  './fonts',
         dist:  './dist'
-    }
+    };
 
 
 
@@ -36,7 +36,12 @@ var path = {
 gulp.task('browser-sync', function() {
     $.browserSync({
         proxy: 'localhost/starter',
-        notify: false
+        notify: false,
+        ui: {
+            weinre: {
+                port: 9090
+            }
+        }
     });
 });
 
