@@ -23,7 +23,7 @@ var path = {
         css:   './css',
         js:    './js',
         img:   './img',
-        fonts:  './fonts',
+        fonts: './fonts',
         dist:  './dist'
     };
 
@@ -73,7 +73,7 @@ gulp.task('sass', function() {
 gulp.task('css', ['sass'], function(){
 
     gulp.src([
-        path.css + '/global.css'
+            path.css + '/global.css'
         ])
         .pipe($.plumber())
         .pipe($.concat('production.min.css'))
@@ -124,7 +124,7 @@ gulp.task('js', ['lint'], function(){
       SASSDOC
 \*------------------------------------*/
 
-gulp.task('sassdoc', function () {
+gulp.task('sassdoc', function() {
 
     return gulp.src(path.css + '/**/*.scss')
         .pipe($.sassdoc());
@@ -141,15 +141,15 @@ gulp.task('sassdoc', function () {
 
 gulp.task('watch', ['default'], function() {
 
-    $.watch(path.css + '/**/*.scss', function () {
+    $.watch(path.css + '/**/*.scss', function() {
         gulp.start('css');
     });
 
-    $.watch(path.js + '/*.js', function () {
+    $.watch(path.js + '/*.js', function() {
         gulp.start('js');
     });
 
-    $.watch('*.html', function () {
+    $.watch('*.html', function() {
         gulp.src('*.html')
             .pipe($.browserSync.reload({stream:true}));
     });
