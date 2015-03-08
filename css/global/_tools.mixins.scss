@@ -62,7 +62,7 @@
 		// [3]
 		@for $heading from $from through $to {
 
-			h#{$heading}, .h#{$heading} {
+			h#{$heading}, .u-h#{$heading} {
 				@extend %heading-placeholder;
 			}
 

@@ -5,7 +5,7 @@
 /**
  * Inline list
  */
-.list-inline {
+.o-list-inline {
 	@include list-unstyled();
 
 	& >  li {

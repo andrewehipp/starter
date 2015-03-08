@@ -2,7 +2,7 @@
     #HEADER
 \*------------------------------------*/
 
-.header {
+.c-header {
 	@include clearfix();
 }
 
@@ -10,6 +10,6 @@
     /**
      * Optional Title & Description
      */
-	.header__thing {
+	.c-header__thing {
 
 	}

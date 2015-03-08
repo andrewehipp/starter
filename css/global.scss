@@ -30,7 +30,7 @@
  * Header................The main page header.
  * Footer................The main page footer.
  *
- * TRUMPS
+ * UTILITIES
  * Text Utilities........
  * Img Utilities.........
  * Visibility Utilities..
@@ -87,8 +87,8 @@
 @import 'global/component.footer';
 
 /**
- * Trumps
+ * Utilities
  */
-@import 'global/trumps.text-utilities';
-@import 'global/trumps.img-utilities';
-@import 'global/trumps.visibility-utilities';
+@import 'global/utility.text-utilities';
+@import 'global/utility.img-utilities';
+@import 'global/utility.visibility-utilities';

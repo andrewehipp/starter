@@ -23,7 +23,7 @@ $layout--push-and-pull:    false;
 /**
  * Layout row
  */
-.layout {
+.o-layout {
 	margin-right:	neg(half($layout-items-gutter));
 	margin-left:	neg(half($layout-items-gutter));
 	@include clearfix;
@@ -33,7 +33,7 @@ $layout--push-and-pull:    false;
     /**
      * A layout item, used like a column
      */
-    .layout__item {
+    .o-layout__item {
         position: relative;
         width: 100%;
         float: left;
@@ -48,7 +48,7 @@ $layout--push-and-pull:    false;
      */
     @for $layout-item-span from 1 through $layout-items-per-row {
 
-        .layout__item--#{$layout-item-span} {
+        .o-layout__item--#{$layout-item-span} {
             width: (100% / $layout-items-per-row) * $layout-item-span;
         }
 
@@ -64,7 +64,7 @@ $layout--push-and-pull:    false;
 
             @for $layout-item-span from 1 through $layout-items-per-row {
 
-                .layout__item--#{$breakpoint}-#{$layout-item-span} {
+                .o-layout__item--#{$breakpoint}-#{$layout-item-span} {
                     width: (100% / $layout-items-per-row) * $layout-item-span;
                 }
 
@@ -85,7 +85,7 @@ $layout--push-and-pull:    false;
          */
         @for $layout-item-span from 1 through $layout-items-per-row {
 
-            .layout__item--offset-#{$layout-item-span} {
+            .o-layout__item--offset-#{$layout-item-span} {
                 margin-left: (100% / $layout-items-per-row) * $layout-item-span;
             }
 
@@ -100,7 +100,7 @@ $layout--push-and-pull:    false;
 
                 @for $layout-item-span from 1 through $layout-items-per-row {
 
-                    .layout__item--offset-#{$breakpoint}-#{$layout-item-span} {
+                    .o-layout__item--offset-#{$breakpoint}-#{$layout-item-span} {
                         margin-left: (100% / $layout-items-per-row) * $layout-item-span;
                     }
 
@@ -124,11 +124,11 @@ $layout--push-and-pull:    false;
          */
         @for $layout-item-span from 1 through $layout-items-per-row {
 
-            .layout__item--push-#{$layout-item-span} {
+            .o-layout__item--push-#{$layout-item-span} {
                 left: (100% / $layout-items-per-row) * $layout-item-span;
             }
 
-            .layout__item--pull-#{$layout-item-span} {
+            .o-layout__item--pull-#{$layout-item-span} {
                 left: negative((100% / $layout-items-per-row) * $layout-item-span);
             }
 
@@ -144,11 +144,11 @@ $layout--push-and-pull:    false;
 
                 @for $layout-item-span from 1 through $layout-items-per-row {
 
-                    .layout__item--push-#{$breakpoint}-#{$layout-item-span} {
+                    .o-layout__item--push-#{$breakpoint}-#{$layout-item-span} {
                         left: (100% / $layout-items-per-row) * $layout-item-span;
                     }
 
-                    .layout__item--pull-#{$breakpoint}-#{$layout-item-span} {
+                    .o-layout__item--pull-#{$breakpoint}-#{$layout-item-span} {
                         left: negative((100% / $layout-items-per-row) * $layout-item-span);
                     }
 

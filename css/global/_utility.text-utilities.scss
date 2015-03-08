@@ -7,7 +7,7 @@
  */
 @each $color, $value in $colors {
 
-	.text-#{$color} {
+	.u-text-#{$color} {
 		color: $value;
 	}
 
