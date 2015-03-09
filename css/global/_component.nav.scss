@@ -5,7 +5,7 @@
 /**
  * <ul> as navigation List
  */
-.nav__list {
+.c-nav__list {
 	@include list-unstyled();
 }
 
@@ -13,7 +13,17 @@
 	/**
 	 * Navigation List item
 	 */
-	.nav__item {
+	.c-nav__item {
 		float: left;
+        color: color('primary');
 		margin-right: 10px;
+
+		&.is-current {
+			text-decoration: underline;
+		}
+
 	}
+
+    .c-nav__link {
+        color: inherit;
+    }

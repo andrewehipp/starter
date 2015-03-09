@@ -10,27 +10,27 @@
 	margin: $spacing-unit 0;
 }
 
-h1, .h1 {
+h1, .u-h1 {
 	font-size: em(36px);
 }
 
-h2, .h2 {
+h2, .u-h2 {
 	font-size: em(30px);
 }
 
-h3, .h3 {
+h3, .u-h3 {
 	font-size: em(24px);
 }
 
-h4, .h4 {
+h4, .u-h4 {
 	font-size: em(18px);
 }
 
-h5, .h5 {
+h5, .u-h5 {
 	font-size: em(14px);
 }
 
-h6, .h6 {
+h6, .u-h6 {
 	font-size: em(12px);
 }
 
@@ -55,6 +55,7 @@ ul, ol, dl {
  * Link Styles
  */
 a {
+	color: color('primary');
 	text-decoration: none;
 
 	@include link-states(){
