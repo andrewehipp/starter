@@ -25,6 +25,8 @@
 
 
 
+
+
 /*------------------------------------*\
     #Global Variables
 \*------------------------------------*/
@@ -33,15 +35,35 @@ var $doc = 	$(document),
 	$body = $('body');
 
 
+
+
+
 $doc.ready(function(){
 
 
 	/*------------------------------------*\
-	    #SECTION
+	    #TOGGLE ACTIVE STATE
 	\*------------------------------------*/
 
+    /**
+     * Reusable Active State toggle function. To toggle active on a different
+     * element add data-target('.class') or data-target('#id')
+     *
+     * [1] Store $this as clicked
+     * [2] Check if data-target is set, and store it as $data
+     * [3] If data-target was set pass it through jQuery and use it as the
+     *     target, or assume the clicked element.
+     */
+    $('.js-toggle-active').on('click', function(){
 
+        var $clicked =  $(this), // [1]
+            $data =     $clicked.data('target'), // [2]
 
+            $target =  $data ? $($data) : $clicked; // [3]
+
+        $target.toggleClass('is-active');
+
+    });
 
 
 

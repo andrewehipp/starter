@@ -8,6 +8,6 @@ echo '\033[1;32mInstalling Node Packages\033[0m\n'
 echo '(This will take a minute)'
 
 # Install nope packages.
-sudo npm install
+sudo npm install --save-dev
 
 exit 0

@@ -109,7 +109,7 @@
 
 	} @else {
 
-		@warn "'#{$color}' is not an available version of #{$colors}. (#{map-keys($colors, $color)})"; // [2]
+		@warn "'#{$color}' is not an available version of #{$colors}. (#{map-keys($colors)})"; // [2]
 
 		@return null;
 
@@ -141,7 +141,7 @@
 
     } @else {
 
-        @warn "'#{$element}' does not have a value set in  #{$z-index}. (#{map-keys($z-index, $element)})"; // [2]
+        @warn "'#{$element}' does not have a value set in  #{$z-index}. (#{map-keys($z-index)})"; // [2]
 
         @return null;
 
