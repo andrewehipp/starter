@@ -41,6 +41,39 @@ var $doc = 	$(document),
 $doc.ready(function(){
 
 
+    /*------------------------------------*\
+        #GLOBAL PROPERTIES AND METHODS
+    \*------------------------------------*/
+
+    /**
+     * [1] Global default timer
+     * [2] Property to test against to determine if an event is occuring.
+     * [3] Method to run a function if no events are happening.
+     */
+    var $global = {
+        timer: 300, // [1]
+        events: true, // [2]
+        detectEvents: function(functionToRun){ // [3]
+
+            if($global.events){
+
+                $global.events = false;
+
+                setTimeout(function(){
+                    $global.events = true;
+                }, $global.timer);
+
+                functionToRun();
+
+            }
+
+        }
+    };
+
+
+
+
+
 	/*------------------------------------*\
 	    #TOGGLE ACTIVE STATE
 	\*------------------------------------*/
