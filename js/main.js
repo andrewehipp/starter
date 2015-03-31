@@ -50,18 +50,18 @@ $doc.ready(function(){
      * [2] Property to test against to determine if an event is occuring.
      * [3] Method to run a function if no events are happening.
      */
-    var $global = {
+    var global = {
         timer: 300, // [1]
         events: true, // [2]
         detectEvents: function(functionToRun){ // [3]
 
-            if($global.events){
+            if(global.events){
 
-                $global.events = false;
+                global.events = false;
 
                 setTimeout(function(){
-                    $global.events = true;
-                }, $global.timer);
+                    global.events = true;
+                }, global.timer);
 
                 functionToRun();
 
@@ -79,22 +79,22 @@ $doc.ready(function(){
 	\*------------------------------------*/
 
     /**
-     * Reusable Active State toggle function. To toggle active on a different
+     * Reusable Active State toggle function. To toggle 'is-active' on a different
      * element add data-target('.class') or data-target('#id')
      *
      * [1] Store $this as clicked
-     * [2] Check if data-target is set, and store it as $data
+     * [2] Check if data-target is set, and store it as _data
      * [3] If data-target was set pass it through jQuery and use it as the
      *     target, or assume the clicked element.
      */
-    $('.js-toggle-active').on('click', function(){
+    $(document.body).on('click', '.js-toggle-active', function(e){
 
-        var $clicked =  $(this), // [1]
-            $data =     $clicked.data('target'), // [2]
+        var _this =     $(this), // [1]
+            data =     _this.data('target'), // [2]
 
-            $target =  $data ? $($data) : $clicked; // [3]
+            target =   data ? $(data) : _this; // [3]
 
-        $target.toggleClass('is-active');
+        target.toggleClass('is-active');
 
     });
 

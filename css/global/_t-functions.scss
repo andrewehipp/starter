@@ -135,7 +135,7 @@
 @function z($element) {
 
     // [1]
-    @if map-has-key($z-index, $element){
+    @if map-has-key($z-index, $element) {
 
         @return map-get($z-index, $element);
 

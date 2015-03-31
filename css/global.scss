@@ -43,52 +43,52 @@
 /**
  * Settings
  */
- @import 'global/settings.variables';
+ @import 'global/s-variables';
 
 
 /**
  * Tools
  */
-@import 'global/tools.functions';
-@import 'global/tools.mixins';
+@import 'global/t-functions';
+@import 'global/t-mixins';
 
 
 /**
  * Generic
  */
-@import 'global/generic.normalize';
-@import 'global/generic.border-box';
+@import 'global/g-normalize';
+@import 'global/g-border-box';
 
 
 /**
  * Base
  */
-@import 'global/base.page';
-@import 'global/base.type';
-@import 'global/base.forms';
+@import 'global/b-page';
+@import 'global/b-type';
+@import 'global/b-forms';
 
 
 /**
  * Objects
  */
-@import 'global/object.container';
-@import 'global/object.layout';
-@import 'global/object.list-unstyled';
-@import 'global/object.list-inline';
-@import 'global/object.media';
+@import 'global/o-container';
+@import 'global/o-layout';
+@import 'global/o-list-unstyled';
+@import 'global/o-list-inline';
+@import 'global/o-media';
 
 
 /**
  * Components
  */
-@import 'global/component.buttons';
-@import 'global/component.nav';
-@import 'global/component.header';
-@import 'global/component.footer';
+@import 'global/c-buttons';
+@import 'global/c-nav';
+@import 'global/c-header';
+@import 'global/c-footer';
 
 /**
  * Utilities
  */
-@import 'global/utility.text-utilities';
-@import 'global/utility.img-utilities';
-@import 'global/utility.visibility-utilities';
+@import 'global/u-text';
+@import 'global/u-img';
+@import 'global/u-visibility';
