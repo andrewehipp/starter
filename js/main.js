@@ -49,11 +49,14 @@ $doc.ready(function(){
      * [1] Global default timer
      * [2] Property to test against to determine if an event is occuring.
      * [3] Method to run a function if no events are happening.
+     * [4] Optional timer parameter to override default.
      */
     var global = {
-        timer: 300, // [1]
+        timer: 2000, // [1]
         events: true, // [2]
-        detectEvents: function(functionToRun){ // [3]
+        detectEvents: function(functionToRun, timer){ // [3 & 4]
+
+            var _timer = timer || global.timer // [4]
 
             if(global.events){
 
@@ -61,7 +64,7 @@ $doc.ready(function(){
 
                 setTimeout(function(){
                     global.events = true;
-                }, global.timer);
+                }, _timer);
 
                 functionToRun();
 
@@ -89,12 +92,14 @@ $doc.ready(function(){
      */
     $(document.body).on('click', '.js-toggle-active', function(e){
 
-        var _this =     $(this), // [1]
-            data =     _this.data('target'), // [2]
+        e.preventDefault();
 
-            target =   data ? $(data) : _this; // [3]
+        var _this =  $(this), // [1]
+            data =   _this.data('target'), // [2]
 
-        target.toggleClass('is-active');
+            target = data ? $(data) : _this; // [3]
+
+            target.toggleClass('is-active');
 
     });
 
