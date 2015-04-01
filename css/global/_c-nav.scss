@@ -6,23 +6,23 @@
  * <ul> as navigation List
  */
 .c-nav__list {
-	@include list-unstyled();
+    @include list-unstyled();
 }
 
 
-	/**
-	 * Navigation List item
-	 */
-	.c-nav__item {
-		float: left;
+    /**
+     * Navigation List item
+     */
+    .c-nav__item {
+        float: left;
         color: color('primary');
-		margin-right: 10px;
+        margin-right: 10px;
 
-		&.is-current {
-			text-decoration: underline;
-		}
+        &.is-current {
+            text-decoration: underline;
+        }
 
-	}
+    }
 
     .c-nav__link {
         color: inherit;

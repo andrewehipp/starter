@@ -1,37 +1,37 @@
 /*------------------------------------*\
-	#TYPOGRAPY
+    #TYPOGRAPY
 \*------------------------------------*/
 
 /**
  * Headings
  */
 @include headings() {
-	line-height: $base-line-height;
-	margin: $spacing-unit 0;
+    line-height: $base-line-height;
+    margin: $spacing-unit 0;
 }
 
 h1, .u-h1 {
-	font-size: em(36px);
+    font-size: em(36px);
 }
 
 h2, .u-h2 {
-	font-size: em(30px);
+    font-size: em(30px);
 }
 
 h3, .u-h3 {
-	font-size: em(24px);
+    font-size: em(24px);
 }
 
 h4, .u-h4 {
-	font-size: em(18px);
+    font-size: em(18px);
 }
 
 h5, .u-h5 {
-	font-size: em(14px);
+    font-size: em(14px);
 }
 
 h6, .u-h6 {
-	font-size: em(12px);
+    font-size: em(12px);
 }
 
 
@@ -39,7 +39,7 @@ h6, .u-h6 {
  * Paragraphs
  */
 p {
-	margin: $spacing-unit 0;
+    margin: $spacing-unit 0;
 }
 
 
@@ -47,7 +47,7 @@ p {
  * Lists
  */
 ul, ol, dl {
-	margin: $spacing-unit 0;
+    margin: $spacing-unit 0;
 }
 
 
@@ -55,11 +55,11 @@ ul, ol, dl {
  * Link Styles
  */
 a {
-	color: color('primary');
-	text-decoration: none;
+    color: color('primary');
+    text-decoration: none;
 
-	@include link-states(){
-		text-decoration: underline;
-	}
+    @include link-states(){
+        text-decoration: underline;
+    }
 
 }

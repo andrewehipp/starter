@@ -30,9 +30,9 @@
 /*------------------------------------*\
     #Global Variables
 \*------------------------------------*/
-var $doc = 	$(document),
-	$win = 	$(window),
-	$body = $('body');
+var $doc = 	$(document);
+var $win = 	$(window);
+var $body = $('body');
 
 
 
@@ -94,10 +94,10 @@ $doc.ready(function(){
 
         e.preventDefault();
 
-        var _this =  $(this), // [1]
-            data =   _this.data('target'), // [2]
+        var _this =  $(this); // [1]
+        var data =   _this.data('target'); // [2]
 
-            target = data ? $(data) : _this; // [3]
+        var target = data ? $(data) : _this; // [3]
 
             target.toggleClass('is-active');
 

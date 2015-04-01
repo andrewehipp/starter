@@ -10,24 +10,24 @@
 ///
 @mixin link-states($parent: false) {
 
-	@if ($parent){
+    @if ($parent){
 
-		&,
-		&:hover,
-		&:active,
-		&:focus {
-			@content;
-		}
+        &,
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
 
-	} @else {
+    } @else {
 
-		&:hover,
-		&:active,
-		&:focus {
-			@content;
-		}
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
 
-	}
+    }
 
 }
 
@@ -51,24 +51,24 @@
 ///
 @mixin headings($from: 1, $to: 6) {
 
-	// [1]
-	%heading-placeholder {
-		@content;
-	}
+    // [1]
+    %heading-placeholder {
+        @content;
+    }
 
-	// [2]
-	@if $from >= 1 and $to <= 6 and $from <= $to {
+    // [2]
+    @if $from >= 1 and $to <= 6 and $from <= $to {
 
-		// [3]
-		@for $heading from $from through $to {
+        // [3]
+        @for $heading from $from through $to {
 
-			h#{$heading}, .u-h#{$heading} {
-				@extend %heading-placeholder;
-			}
+            h#{$heading}, .u-h#{$heading} {
+                @extend %heading-placeholder;
+            }
 
-		}
+        }
 
-	}
+    }
 
     @else {
         @warn "headings() only accepts two numbers between 1 & 6.";
@@ -82,9 +82,9 @@
 /// Unstyled List
 ///
 @mixin list-unstyled() {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -113,10 +113,10 @@
 /// Hide text only, intended for image replacement.
 ///
 @mixin hide-text() {
-	border: 0;
-	font: 0/0 a;
-	text-shadow: none;
-	color: transparent;
+    border: 0;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
 }
 
 
@@ -137,14 +137,14 @@
 ///
 @mixin clearfix() {
 
-	&:before,
-	&:after {
-		content: " ";	// [1]
-		display: table;	// [2]
-	}
-	&:after {
-		clear: both;
-	}
+    &:before,
+    &:after {
+        content: " "; // [1]
+        display: table;   // [2]
+    }
+    &:after {
+        clear: both;
+    }
 
 }
 
@@ -161,15 +161,15 @@
 ///
 @mixin breakpoint($name) {
 
-	@if map-has-key($breakpoints, $name) {
-		@media #{inspect(map-get($breakpoints, $name))} {
-			@content;
-		}
-	}
+    @if map-has-key($breakpoints, $name) {
+        @media #{inspect(map-get($breakpoints, $name))} {
+            @content;
+        }
+    }
 
-	@else {
-		@warn "Couldn't find a breakpoint named `#{$name}`.";
-	}
+    @else {
+        @warn "Couldn't find a breakpoint named `#{$name}`.";
+    }
 
 }
 
@@ -182,8 +182,8 @@
 ///
 @mixin high-res(){
 
-	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-		@content;
-	}
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        @content;
+    }
 
 }

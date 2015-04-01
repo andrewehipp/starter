@@ -1,5 +1,5 @@
 /*------------------------------------*\
-	#LAYOUT
+    #LAYOUT
 \*------------------------------------*/
 
 
@@ -24,9 +24,9 @@ $layout--push-and-pull:    false;
  * Layout row
  */
 .o-layout {
-	margin-right:	neg(half($layout-items-gutter));
-	margin-left:	neg(half($layout-items-gutter));
-	@include clearfix;
+    margin-right:  neg(half($layout-items-gutter));
+    margin-left:   neg(half($layout-items-gutter));
+    @include clearfix;
 }
 
 

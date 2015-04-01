@@ -1,10 +1,10 @@
 ////
-///	VARIABLES
+/// VARIABLES
 ////
 
 
 /// Generic spacing unit
-$spacing-unit:            20px;
+$spacing-unit:      20px;
 
 
 ///
@@ -12,10 +12,10 @@ $spacing-unit:            20px;
 ///
 
 /// Global font size
-$base-font-size:		  14px;
+$base-font-size:    14px;
 
 /// Calculated Line Height
-$base-line-height:	       1.5;
+$base-line-height:   1.5;
 
 
 
@@ -24,8 +24,8 @@ $base-line-height:	       1.5;
 /// Global sass map for the primary color palette.
 ///
 $colors: (
-	'primary':		blue,
-	'secondary':	red
+    'primary':      blue,
+    'secondary':    red
 );
 
 
@@ -36,10 +36,10 @@ $colors: (
 /// Social Network's brand colors (just nice to have)
 ///
 $social-networks: (
-	'facebook':		#0e639e,
-	'twitter':		#44c1ed,
-	'pinterest':	#ff0000,
-	'youtube':		#c90909
+    'facebook':     #0e639e,
+    'twitter':      #44c1ed,
+    'pinterest':    #ff0000,
+    'youtube':      #c90909
 );
 
 
@@ -50,11 +50,11 @@ $social-networks: (
 /// Breakpoints for @mixin breakpoint();
 ///
 $breakpoints: (
-	'xs':			screen and (min-width:  480px),
-	'sm':			screen and (min-width:  768px),
-	'md':			screen and (min-width: 1024px),
-	'lg':			screen and (min-width: 1200px),
-	'xl':			screen and (min-width: 1500px)
+    'xs':           screen and (min-width:  480px),
+    'sm':           screen and (min-width:  768px),
+    'md':           screen and (min-width: 1024px),
+    'lg':           screen and (min-width: 1200px),
+    'xl':           screen and (min-width: 1500px)
 );
 
 
@@ -65,5 +65,5 @@ $breakpoints: (
 /// Z-index Map for @function z();
 ///
 $z-index: (
-	'lightbox':		1000
+    'lightbox':     1000
 );
