@@ -63,3 +63,12 @@ a {
     }
 
 }
+
+/**
+ * Images
+ *
+ * [1] remove spacing below inline images.
+ */
+img {
+    vertical-align: middle; // [1]
+}
