@@ -56,7 +56,7 @@ $doc.ready(function(){
         events: true, // [2]
         detectEvents: function(functionToRun, timer){ // [3 & 4]
 
-            var _timer = timer || global.timer // [4]
+            var _timer = timer || global.timer; // [4]
 
             if(global.events){
 

@@ -67,7 +67,7 @@ gulp.task('sass', function() {
         }))
         .pipe($.sourcemaps.write())
         .pipe($.autoprefixer('last 2 versions'))
-        .pipe(gulp.dest('css'))
+        .pipe(gulp.dest(path.css))
         .pipe($.browserSync.reload(
             {stream:true}
         ));
