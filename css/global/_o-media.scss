@@ -12,37 +12,37 @@
 }
 
 
-    /**
-     * Side element floats left and pushes content away. Stacks on mobile.
-     *
-     * [1] Flip the image to the right with modifier
-     */
-    .o-media__img {
-        display: block;
-        margin: 1em 0 0;
+/**
+ * Side element floats left and pushes content away. Stacks on mobile.
+ *
+ * [1] Flip the image to the right with modifier
+ */
+.o-media__img {
+    display: block;
+    margin: 1em 0 0;
+
+    @include breakpoint(xs) {
+        max-width: 30%;
+        float: left;
+        margin: 0 1em 1em 0;
+    }
+
+    // [1]
+    .o-media--flip & {
 
         @include breakpoint(xs) {
-            max-width: 30%;
-            float: left;
-            margin: 0 1em 1em 0;
-        }
-
-        // [1]
-        .o-media--flip & {
-
-            @include breakpoint(xs) {
-                float: right;
-                margin: 0 0 1em 1em;
-            }
-
+            float: right;
+            margin: 0 0 1em 1em;
         }
 
     }
 
+}
 
-    /**
-     * Content Block
-     */
-    .o-media__content {
-        overflow: hidden;
-    }
+
+/**
+ * Content Block
+ */
+.o-media__content {
+    overflow: hidden;
+}

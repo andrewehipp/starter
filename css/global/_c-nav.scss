@@ -10,20 +10,23 @@
 }
 
 
-    /**
-     * Navigation List item
-     */
-    .c-nav__item {
-        float: left;
-        color: color('primary');
-        margin-right: 10px;
+/**
+ * Navigation List item
+ */
+.c-nav__item {
+    float: left;
+    color: color('primary');
+    margin-right: 10px;
 
-        &.is-current {
-            text-decoration: underline;
-        }
-
+    &.is-current {
+        text-decoration: underline;
     }
 
-    .c-nav__link {
-        color: inherit;
-    }
+}
+
+/**
+ * Navigation link
+ */
+.c-nav__link {
+    color: inherit;
+}

@@ -55,7 +55,18 @@ gulp.task('browser-sync', function() {
     CSS
 \*------------------------------------*/
 
-gulp.task('sass', function() {
+gulp.task('scss-lint', function() {
+
+    gulp.src(path.css + '/**/*.scss')
+        .pipe($.plumber())
+        .pipe($.scssLint({
+            'config': './scss-lint.yml'
+        }))
+
+});
+
+
+gulp.task('sass', ['scss-lint'], function() {
 
     return gulp.src(path.css + '/**/*.scss')
         .pipe($.plumber())
@@ -81,6 +92,7 @@ gulp.task('sass', function() {
 gulp.task('css', ['sass'], function(){
 
     gulp.src([
+            path.css + '/normalize.css',
             path.css + '/global.css'
         ])
         .pipe($.plumber())

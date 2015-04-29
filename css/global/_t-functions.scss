@@ -31,7 +31,7 @@
 }
 
 /// @alias negative
-@function neg($args...){
+@function neg($args...) {
     @return negative($args...);
 }
 
@@ -46,7 +46,7 @@
 }
 
 /// @alias halve
-@function half($args...){
+@function half($args...) {
     @return halve($args...);
 }
 
@@ -61,7 +61,7 @@
 }
 
 /// @alias quarter
-@function fourth($args...){
+@function fourth($args...) {
     @return quarter($args...);
 }
 
@@ -102,18 +102,18 @@
 ///
 @function color($color) {
 
-	// [1]
-	@if map-has-key($colors, $color){
+    // [1]
+    @if map-has-key($colors, $color) {
 
-		@return map-get($colors, $color);
+        @return map-get($colors, $color);
 
-	} @else {
+    } @else {
 
-		@warn "'#{$color}' is not an available version of #{$colors}. (#{map-keys($colors)})"; // [2]
+        @warn "'#{$color}' is not an available version of #{$colors}. (#{map-keys($colors)})"; // [2]
 
-		@return null;
+        @return null;
 
-	}
+    }
 
 }
 

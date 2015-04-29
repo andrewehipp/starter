@@ -8,7 +8,7 @@
 .o-list-inline {
     @include list-unstyled();
 
-    & >  li {
+    & > li {
         display: inline-block;
         padding: 0 2px;
         vertical-align: top;

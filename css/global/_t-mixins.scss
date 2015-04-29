@@ -68,10 +68,8 @@
 
         }
 
-    }
-
-    @else {
-        @warn "headings() only accepts two numbers between 1 & 6.";
+    } @else {
+        @warn 'headings() only accepts two numbers between 1 & 6.';
     }
 
 }
@@ -95,13 +93,12 @@
 /// Hide's content in a screen reader friendly way.
 ///
 @mixin hide() {
-    position: absolute !important;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    position: absolute;
     clip: rect(1px, 1px, 1px, 1px);
-    padding:0 !important;
-    border:0 !important;
-    height: 1px !important;
-    width: 1px !important;
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
     overflow: hidden;
 }
 
@@ -139,9 +136,10 @@
 
     &:before,
     &:after {
-        content: " "; // [1]
+        content: ' '; // [1]
         display: table;   // [2]
     }
+
     &:after {
         clear: both;
     }
@@ -165,10 +163,8 @@
         @media #{inspect(map-get($breakpoints, $name))} {
             @content;
         }
-    }
-
-    @else {
-        @warn "Couldn't find a breakpoint named `#{$name}`.";
+    } @else {
+        @warn 'Couldn\'t find a breakpoint named \'#{$name}\'.';
     }
 
 }
@@ -180,7 +176,7 @@
 ///
 /// High Resolution Media Querie
 ///
-@mixin high-res(){
+@mixin high-res() {
 
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         @content;

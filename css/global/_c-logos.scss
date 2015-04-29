@@ -1,0 +1,37 @@
+/*------------------------------------*\
+    #LOGOS
+\*------------------------------------*/
+
+/**
+ * Map of logos, good for building out several at a time by passing info to
+ * this configuration map.
+ */
+$logos-config: (
+    'example': (
+        'width':    100px,
+        'height':   100px
+    )
+);
+
+
+
+
+
+.c-logo {
+    @include hide-text();
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+/**
+ * Loop through the logos and generate modifiers.
+ */
+@each $logo, $config in $logos-config {
+
+    .c-logo--#{$logo} {
+        width:  map-get($config, 'width');
+        height: map-get($config, 'height');
+    }
+
+}

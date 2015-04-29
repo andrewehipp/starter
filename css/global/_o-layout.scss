@@ -6,9 +6,10 @@
 /// Number of Layout Items per layout
 $layout-items-per-row:        12;
 
-/// Default column gutter
-$layout-items-gutter:       20px;
-
+/// Column Gutters, anything other than default builds out modifier classes.
+$layout-items-gutters: (
+    'default':  20px
+);
 
 /// Generate offset modifier classes for layout items.
 $layout--offsets:          false;
@@ -22,34 +23,149 @@ $layout--push-and-pull:    false;
 
 /**
  * Layout row
+ *
+ * [1] Additional modifier classes for layout gutters.
  */
 .o-layout {
-    margin-right:  neg(half($layout-items-gutter));
-    margin-left:   neg(half($layout-items-gutter));
     @include clearfix;
+    margin-right:  neg(half(map-get($layout-items-gutters, 'default')));
+    margin-left:   neg(half(map-get($layout-items-gutters, 'default')));
+}
+
+// [1]
+@each $layout-gutter, $layout-gutter-value in $layout-items-gutters {
+
+    // Skip the default value.
+    @if ($layout-gutter != 'default') {
+
+        .o-layout--#{$layout-gutter} {
+            margin-right:  neg(half($layout-gutter-value));
+            margin-left:   neg(half($layout-gutter-value));
+        }
+
+    }
+
 }
 
 
-    /**
-     * A layout item, used like a column
-     */
-    .o-layout__item {
-        position: relative;
-        width: 100%;
-        float: left;
-        min-height: 1px;
-        padding-right:  half($layout-items-gutter);
-        padding-left:   half($layout-items-gutter);
+/**
+ * A layout item, used like a column
+ *
+ * [1] Additional modifier classes for layout gutters.
+ */
+.o-layout__item {
+    position: relative;
+    width: 100%;
+    float: left;
+    min-height: 1px;
+    padding-right:  half(map-get($layout-items-gutters, 'default'));
+    padding-left:   half(map-get($layout-items-gutters, 'default'));
+
+    // [1]
+    @each $layout-gutter, $layout-gutter-value in $layout-items-gutters {
+
+        // Skip the default value.
+        @if ($layout-gutter != 'default') {
+
+            .o-layout--#{$layout-gutter} > & {
+                padding-right:  half($layout-gutter-value);
+                padding-left:   half($layout-gutter-value);
+            }
+
+        }
+
     }
 
+}
+
+
+/**
+ * Build The layout item span modifiers
+ */
+@for $layout-item-span from 1 through $layout-items-per-row {
+
+    .o-layout__item--#{$layout-item-span} {
+        width: (100% / $layout-items-per-row) * $layout-item-span;
+    }
+
+}
+
+
+//
+// Do the same as above but for each breakpoint
+//
+@each $breakpoint, $media-querie in $breakpoints {
+
+    @include breakpoint($breakpoint) {
+
+        @for $layout-item-span from 1 through $layout-items-per-row {
+
+            .o-layout__item--#{$breakpoint}-#{$layout-item-span} {
+                width: (100% / $layout-items-per-row) * $layout-item-span;
+            }
+
+        }
+
+    }
+
+}
+
+
+
+
+// Conditionally output layout offsets.
+@if $layout--offsets {
 
     /**
-     * Build The layout item span modifiers
+     * Offset modifiers for layout items.
      */
     @for $layout-item-span from 1 through $layout-items-per-row {
 
-        .o-layout__item--#{$layout-item-span} {
-            width: (100% / $layout-items-per-row) * $layout-item-span;
+        .o-layout__item--offset-#{$layout-item-span} {
+            margin-left: (100% / $layout-items-per-row) * $layout-item-span;
+        }
+
+    }
+
+    //
+    // Do the same as above but for each breakpoint
+    //
+    @each $breakpoint, $media-querie in $breakpoints {
+
+        @include breakpoint($breakpoint) {
+
+            @for $layout-item-span from 1 through $layout-items-per-row {
+
+                .o-layout__item--offset-#{$breakpoint}-#{$layout-item-span} {
+                    margin-left: (100% / $layout-items-per-row) * $layout-item-span;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+
+
+
+
+// Conditionally output layout source ordering.
+@if $layout--push-and-pull {
+
+    /**
+     * Push and Pull modifiers for layout items.
+     */
+    @for $layout-item-span from 1 through $layout-items-per-row {
+
+        .o-layout__item--push-#{$layout-item-span} {
+            left: (100% / $layout-items-per-row) * $layout-item-span;
+        }
+
+        .o-layout__item--pull-#{$layout-item-span} {
+            left: negative((100% / $layout-items-per-row) * $layout-item-span);
         }
 
     }
@@ -64,8 +180,12 @@ $layout--push-and-pull:    false;
 
             @for $layout-item-span from 1 through $layout-items-per-row {
 
-                .o-layout__item--#{$breakpoint}-#{$layout-item-span} {
-                    width: (100% / $layout-items-per-row) * $layout-item-span;
+                .o-layout__item--push-#{$breakpoint}-#{$layout-item-span} {
+                    left: (100% / $layout-items-per-row) * $layout-item-span;
+                }
+
+                .o-layout__item--pull-#{$breakpoint}-#{$layout-item-span} {
+                    left: negative((100% / $layout-items-per-row) * $layout-item-span);
                 }
 
             }
@@ -74,88 +194,4 @@ $layout--push-and-pull:    false;
 
     }
 
-
-
-
-    // Conditionally output layout offsets.
-    @if $layout--offsets {
-
-        /**
-         * Offset modifiers for layout items.
-         */
-        @for $layout-item-span from 1 through $layout-items-per-row {
-
-            .o-layout__item--offset-#{$layout-item-span} {
-                margin-left: (100% / $layout-items-per-row) * $layout-item-span;
-            }
-
-        }
-
-        //
-        // Do the same as above but for each breakpoint
-        //
-        @each $breakpoint, $media-querie in $breakpoints {
-
-            @include breakpoint($breakpoint) {
-
-                @for $layout-item-span from 1 through $layout-items-per-row {
-
-                    .o-layout__item--offset-#{$breakpoint}-#{$layout-item-span} {
-                        margin-left: (100% / $layout-items-per-row) * $layout-item-span;
-                    }
-
-                }
-
-            }
-
-        }
-
-    }
-
-
-
-
-
-    // Conditionally output layout source ordering.
-    @if $layout--push-and-pull {
-
-        /**
-         * Push and Pull modifiers for layout items.
-         */
-        @for $layout-item-span from 1 through $layout-items-per-row {
-
-            .o-layout__item--push-#{$layout-item-span} {
-                left: (100% / $layout-items-per-row) * $layout-item-span;
-            }
-
-            .o-layout__item--pull-#{$layout-item-span} {
-                left: negative((100% / $layout-items-per-row) * $layout-item-span);
-            }
-
-        }
-
-
-        //
-        // Do the same as above but for each breakpoint
-        //
-        @each $breakpoint, $media-querie in $breakpoints {
-
-            @include breakpoint($breakpoint) {
-
-                @for $layout-item-span from 1 through $layout-items-per-row {
-
-                    .o-layout__item--push-#{$breakpoint}-#{$layout-item-span} {
-                        left: (100% / $layout-items-per-row) * $layout-item-span;
-                    }
-
-                    .o-layout__item--pull-#{$breakpoint}-#{$layout-item-span} {
-                        left: negative((100% / $layout-items-per-row) * $layout-item-span);
-                    }
-
-                }
-
-            }
-
-        }
-
-    }
+}
