@@ -3,8 +3,42 @@
 ////
 
 
+////
+/// Layout Configuration
+///
+/// [1] Number of Layout Items per layout
+/// [2] Column Gutters, anything other than default builds out modifier classes
+/// [3] Generate offset modifier classes for layout items
+/// [4] Generate source ordering modifier classes for layout items
+///
+////
+$layout-config: (
+    'rows':          12,
+    'gutters': (
+        'default':   20px
+    ),
+    'offsets':       false,
+    'push-and-pull': false
+);
+
+
+
 /// Generic spacing unit
 $spacing-unit:      20px;
+
+
+
+
+///
+// Colors
+///
+$colors: (
+    'primary':      #00f,
+    'secondary':    #f00
+);
+
+
+
 
 
 ///
@@ -20,20 +54,9 @@ $base-line-height:   1.5;
 
 
 
-///
-/// Global sass map for the primary color palette.
-///
-$colors: (
-    'primary':      #00f,
-    'secondary':    #f00
-);
-
-
-
-
 
 ///
-/// Social Network's brand colors (just nice to have)
+// Social Network's brand colors (just nice to have)
 ///
 $social-networks: (
     'facebook':     #0e639e,
@@ -47,7 +70,7 @@ $social-networks: (
 
 
 ///
-/// Breakpoints for @mixin breakpoint();
+// Breakpoints for @mixin breakpoint();
 ///
 $breakpoints: (
     'xs':           screen and (min-width:  480px),
@@ -62,7 +85,7 @@ $breakpoints: (
 
 
 ///
-/// Z-index Map for @function z();
+// Z-index Map for @function z();
 ///
 $z-index: (
     'lightbox':     1000
