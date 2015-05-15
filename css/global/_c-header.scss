@@ -3,5 +3,5 @@
 \*------------------------------------*/
 
 .c-header {
-    @include clearfix();
+    padding: $spacing-unit 0;
 }

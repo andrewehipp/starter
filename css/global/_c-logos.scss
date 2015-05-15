@@ -4,23 +4,41 @@
 
 /**
  * Map of logos, good for building out several at a time by passing info to
- * this configuration map.
+ * this configuration map. They can have a single static size or multiple
+ * sizes at specific breakpoints.
+ *
+ * [1] You can provide a map of sizes for different breakpoints, or just the
+ * one size globally.
  */
 $logos-config: (
-    'example': (
-        'width':    100px,
-        'height':   100px
+    'sample': (
+        'width':    140px,
+        'height':   156px
+    ),
+    'sample-responsive': (
+        'base': (
+            'width':    150px,
+            'height':   150px
+        ),
+        'sm': (
+            'width':    250px,
+            'height':   150px
+        )
     )
 );
 
 
 
 
-
+/**
+ * [1] Relies on background-size to shrink large logos to smaller sizes.
+ */
 .c-logo {
     @include hide-text();
     display: inline-block;
     vertical-align: middle;
+    background: center no-repeat;
+    background-size: contain; // [1]
 }
 
 
@@ -29,9 +47,41 @@ $logos-config: (
  */
 @each $logo, $config in $logos-config {
 
-    .c-logo--#{$logo} {
-        width:  map-get($config, 'width');
-        height: map-get($config, 'height');
+    // If the config's first key is a 'base' map
+    @if map-get($config, 'base') {
+
+        // Store 'base' config as a var for reference.
+        $base: map-get($config, 'base');
+
+        .c-logo--#{$logo} {
+            width:  map-get($base, 'width');
+            height: map-get($base, 'height');
+            background-image: url('../img/logo-#{$logo}.png');
+
+            // Remove the base size, since it doesn't need a media querie.
+            $config: map-remove($config, 'base');
+
+            // Generate the sizes and at their breakpoints
+            @each $size, $size-config in $config {
+
+                @include breakpoint(#{$size}) {
+                    width:  map-get($size-config, 'width');
+                    height: map-get($size-config, 'height');
+                }
+
+            }
+
+        }
+
+    // If not a base map just make the one size.
+    } @else {
+
+        .c-logo--#{$logo} {
+            width:  map-get($config, 'width');
+            height: map-get($config, 'height');
+            background-image: url('../img/logo-#{$logo}.png');
+        }
+
     }
 
 }
