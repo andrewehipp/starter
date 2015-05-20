@@ -103,9 +103,9 @@
 /// @param {pixel} $px - Target equivalent pixel value to output as ems.
 /// @param {pixel} $base [$base-font-size] - Base pixel value to calculate against.
 ///
-/// @require {variable} $base-font-size
+/// @require {variable} $base-config
 ///
-@function em($px, $base: base('font-size')) {
+@function em($px, $base: map-get($base-config, 'font-size')) {
 
     @return ($px / $base) * 1em;
 
