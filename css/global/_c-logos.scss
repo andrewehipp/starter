@@ -2,14 +2,14 @@
     #LOGOS
 \*------------------------------------*/
 
-/**
- * Map of logos, good for building out several at a time by passing info to
- * this configuration map. They can have a single static size or multiple
- * sizes at specific breakpoints.
- *
- * [1] You can provide a map of sizes for different breakpoints, or just the
- * one size globally.
- */
+//
+// Map of logos, good for building out several at a time by passing info to
+// this configuration map. They can have a single static size or multiple
+// sizes at specific breakpoints.
+//
+// [1] You can provide a map of sizes for different breakpoints, or just the
+// one size globally.
+//
 $logos-config: (
     'sample': (
         'width':    140px,
@@ -30,9 +30,9 @@ $logos-config: (
 
 
 
-/**
- * [1] Relies on background-size to shrink large logos to smaller sizes.
- */
+//
+// [1] Relies on background-size to shrink large logos to smaller sizes.
+//
 .c-logo {
     @include hide-text();
     display: inline-block;
@@ -42,9 +42,9 @@ $logos-config: (
 }
 
 
-/**
- * Loop through the logos and generate modifiers.
- */
+//
+// Loop through the logos and generate modifiers.
+//
 @each $logo, $config in $logos-config {
 
     // If the config's first key is a 'base' map

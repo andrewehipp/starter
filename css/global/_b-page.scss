@@ -2,14 +2,14 @@
     #PAGE
 \*------------------------------------*/
 
-/**
- * Body
- */
+//
+// Body
+//
 body {
     background: #fff;
-    font-family: $base-font-family;
-    font-size: $base-font-size;
-    line-height: $base-line-height;
+    font-family: base('font-family');
+    font-size: base('font-size');
+    line-height: base('line-height');
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

@@ -2,21 +2,21 @@
     #MEDIA
 \*------------------------------------*/
 
-/**
- * A generic layout with an item floated to the side and content block that
- * doesn't wrap underneath it.
- */
+//
+// A generic layout with an item floated to the side and content block that
+// doesn't wrap underneath it.
+//
 .o-media {
     @include clearfix();
     margin-bottom: 1em;
 }
 
 
-/**
- * Side element floats left and pushes content away. Stacks on mobile.
- *
- * [1] Flip the image to the right with modifier
- */
+//
+// Side element floats left and pushes content away. Stacks on mobile.
+//
+// [1] Flip the image to the right with modifier
+//
 .o-media__img {
     display: block;
     margin: 1em 0 0;
@@ -40,9 +40,9 @@
 }
 
 
-/**
- * Content Block
- */
+//
+// Content Block
+//
 .o-media__content {
     overflow: hidden;
 }

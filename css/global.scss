@@ -1,75 +1,75 @@
-/**
- * CONTENTS
- *
- * SETTINGS
- * Variables.............Globally-variables
- *
- * TOOLS
- * Functions.............Useful mixins.
- * Mixins................Useful mixins.
- *
- * GENERIC
- * Normalize.............CSS reset.
- * Box-sizing............Better default `box-sizing`.
- *
- * BASE
- * Page..................The Page.
- * Type..................Typepography.
- * Forms.................Form Elements default styles.
- *
- * OBJECTS
- * Container.............Outer Container.
- * Layout................Rows and Columns as Block and Elements.
- * List Unstyled.........Unstyled list.
- * List Inline...........Inline list.
- * Media.................The Media Object.
- *
- * COMPONENTS
- * Buttons...............Button elements.
- * Navigation............Main Navigation.
- * Header................The main page header.
- * Footer................The main page footer.
- *
- * UTILITIES
- * Text Utilities........
- * Img Utilities.........
- * Visibility Utilities..
- */
+///
+// CONTENTS
+//
+// SETTINGS
+// Variables.............Globally-variables
+//
+// TOOLS
+// Functions.............Useful mixins.
+// Mixins................Useful mixins.
+//
+// GENERIC
+// Normalize.............CSS reset.
+// Box-sizing............Better default `box-sizing`.
+//
+// BASE
+// Page..................The Page.
+// Type..................Typepography.
+// Forms.................Form Elements default styles.
+//
+// OBJECTS
+// Container.............Outer Container.
+// Layout................Rows and Columns as Block and Elements.
+// List Unstyled.........Unstyled list.
+// List Inline...........Inline list.
+// Media.................The Media Object.
+//
+// COMPONENTS
+// Buttons...............Button elements.
+// Navigation............Main Navigation.
+// Header................The main page header.
+// Footer................The main page footer.
+//
+// UTILITIES
+// Text Utilities........
+// Img Utilities.........
+// Visibility Utilities..
+///
 
 
 
 
 
-/**
- * Settings
- */
+//
+// Settings
+//
 @import 'global/s-variables';
 
 
-/**
- * Tools
- */
+//
+// Tools
+//
 @import 'global/t-functions';
 @import 'global/t-mixins';
 
 
-/**
- * Generic
- */
+//
+// Generic
+//
 @import 'global/g-border-box';
 
 
-/**
- * Base
- */
+//
+// Base
+//
 @import 'global/b-page';
 @import 'global/b-type';
 @import 'global/b-forms';
 
 
-/**
- * Objects
- */
+//
+// Objects
+//
 @import 'global/o-container';
 @import 'global/o-layout';
 @import 'global/o-list-unstyled';
@@ -77,18 +77,18 @@
 @import 'global/o-media';
 
 
-/**
- * Components
- */
+//
+// Components
+//
 @import 'global/c-logos';
 @import 'global/c-buttons';
 @import 'global/c-nav';
 @import 'global/c-header';
 @import 'global/c-footer';
 
-/**
- * Utilities
- */
+//
+// Utilities
+//
 @import 'global/u-text';
 @import 'global/u-img';
 @import 'global/u-visibility';

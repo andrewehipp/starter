@@ -3,15 +3,31 @@
 ////
 
 
-////
-/// Layout Configuration
+
+
+
 ///
-/// [1] Number of Layout Items per layout
-/// [2] Column Gutters, anything other than default builds out modifier classes
-/// [3] Generate offset modifier classes for layout items
-/// [4] Generate source ordering modifier classes for layout items
+// Base global defaults
 ///
-////
+$base-config: (
+    'font-family':  sans-serif,
+    'font-size':    14px,
+    'line-height':  1.5
+);
+
+
+
+
+
+///
+// Layout Configuration
+//
+// [1] Number of Layout Items per layout
+// [2] Column Gutters, anything other than default builds out modifier classes
+// [3] Generate offset modifier classes for layout items
+// [4] Generate source ordering modifier classes for layout items
+//
+///
 $layout-config: (
     'rows':          12,
     'gutters': (
@@ -42,23 +58,6 @@ $colors: (
 
 
 ///
-// Typography
-///
-
-/// Global font size
-$base-font-family:  sans-serif;
-
-/// Global font size
-$base-font-size:    14px;
-
-/// Calculated Line Height
-$base-line-height:   1.5;
-
-
-
-
-
-///
 // Social Network's brand colors (just nice to have)
 ///
 $social-networks: (
@@ -72,9 +71,7 @@ $social-networks: (
 
 
 
-///
-// Breakpoints for @mixin breakpoint();
-///
+/// Breakpoints only used to build $breakpoints-config and $breakpoints-config-extended
 $breakpoints: (
     'xs':    480px,
     'sm':    768px,
@@ -84,10 +81,10 @@ $breakpoints: (
 );
 
 
-// Basic breakpoints
+/// Basic breakpoints config map.
 $breakpoints-config: ();
 
-// Extended breakpoints that have 'less-than-' and '-only' versions
+/// Extended breakpoints config map that have 'less-than-' and '-only' variations included.
 $breakpoints-config-extended: ();
 
 
@@ -95,41 +92,43 @@ $breakpoints-config-extended: ();
 $breakpoints-keys: map-keys($breakpoints);
 $breakpoints-values: map-values($breakpoints);
 
-// Number of breakpoint's were need to loop through
+// Number of breakpoint's were need to loop through.
 $breakpoints-count: length($breakpoints-keys);
 
 
-/**
- * Build Min and Max Width media queries by building new sass-map and merging
- * it to $breakpoints.
- */
+///
+// Build Min and Max Width media queries by building new sass-map and merging
+// it to $breakpoints.
+///
 @for $counter from 1 through $breakpoints-count {
 
-    // Get the viewport at this counter position
+    // Get the viewport at this counter position.
     $viewport: nth($breakpoints-keys, $counter);
 
-    // Get the viewport's size at this counter position
+    // Get the viewport's size at this counter position.
     $size: nth($breakpoints-values, $counter);
 
 
-    // Breakpoint for less than viewport size
+    // Breakpoint for less than viewport size.
     $breakpoint-less-than: (
         'less-than-#{$viewport}': 'screen and (max-width: #{$size - 1px})'
     );
 
-    // Add New Breakpoints to extended config
+    // Add New Breakpoints to extended config.
     $breakpoints-config-extended: map-merge($breakpoints-config-extended, $breakpoint-less-than);
+
 
     $breakpoint: (
         #{$viewport}: 'screen and (min-width: #{$size})'
     );
 
-    // Add New Breakpoints to config and extended config
+    // Add New Breakpoints to config and extended config.
     $breakpoints-config: map-merge($breakpoints-config, $breakpoint);
     $breakpoints-config-extended: map-merge($breakpoints-config-extended, $breakpoint);
 
+
     // Check if we're at the end of the breakpoints available.
-    // We don't want to build a 'only-' for the largest one
+    // There's no point in building a 'only-' for the largest one.
     @if $counter < $breakpoints-count {
 
         $breakpoint-only: (

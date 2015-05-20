@@ -2,11 +2,11 @@
     #TYPOGRAPY
 \*------------------------------------*/
 
-/**
- * Headings
- */
+//
+// Headings
+//
 @include headings() {
-    line-height: $base-line-height;
+    line-height: base('line-height');
     margin: $spacing-unit 0;
 }
 
@@ -35,25 +35,25 @@ h6, .u-h6 {
 }
 
 
-/**
- * Paragraphs
- */
+//
+// Paragraphs
+//
 p {
     margin: $spacing-unit 0;
 }
 
 
-/**
- * Lists
- */
+//
+// Lists
+//
 ul, ol, dl {
     margin: $spacing-unit 0;
 }
 
 
-/**
- * Link Styles
- */
+//
+// Link Styles
+//
 a {
     color: color('primary');
     text-decoration: none;
@@ -64,11 +64,11 @@ a {
 
 }
 
-/**
- * Images
- *
- * [1] remove spacing below inline images.
- */
+//
+// Images
+//
+// [1] remove spacing below inline images.
+//
 img {
     vertical-align: middle; // [1]
 }

@@ -12,11 +12,11 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
 
 
 
-/**
- * Layout row
- *
- * [1] Additional modifier classes for layout gutters.
- */
+//
+// Layout row
+//
+// [1] Additional modifier classes for layout gutters.
+//
 .o-layout {
     @include clearfix;
     margin-right: neg(halve(map-get($layout-gutters, 'default')));
@@ -39,11 +39,11 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
 }
 
 
-/**
- * A layout item, used like a column
- *
- * [1] Additional modifier classes for layout gutters.
- */
+//
+// A layout item, used like a column
+//
+// [1] Additional modifier classes for layout gutters.
+//
 .o-layout__item {
     position: relative;
     width: 100%;
@@ -70,9 +70,7 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
 }
 
 
-/**
- * Build The layout item span modifiers
- */
+// Layout Columns
 @for $layout-item-span from 1 through $layout-rows {
 
     .o-layout__item--#{$layout-item-span} {

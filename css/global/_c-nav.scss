@@ -2,18 +2,18 @@
     #NAVIGATION
 \*------------------------------------*/
 
-/**
- * <ul> as navigation List
- */
+//
+// <ul> as navigation List
+//
 .c-nav__list {
     @include list-unstyled();
     @include clearfix();
 }
 
 
-/**
- * Navigation List item
- */
+//
+// Navigation List item
+//
 .c-nav__item {
     float: left;
     color: color('primary');
@@ -25,9 +25,9 @@
 
 }
 
-/**
- * Navigation link
- */
+//
+// Navigation link
+//
 .c-nav__link {
     color: inherit;
 }

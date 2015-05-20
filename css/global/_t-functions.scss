@@ -3,88 +3,36 @@
 ////
 
 
-///
-/// Return EM value
-///
-/// @param {pixel} $px - Target equivalent pixel value to output as ems.
-/// @param {pixel} $base [$base-font-size] - Base pixel value to calculate against.
-///
-/// @require {variable} $base-font-size
-///
-@function em($px, $base: $base-font-size) {
 
-    @return ($px / $base) * 1em;
+
+
+///
+/// Retrieve base default from sass map $base-config
+///
+/// @param {string} $property - Name of base default to return from $base-config.
+///
+/// @require {variable} $base-config
+///
+/// @ignore
+/// [1] Check if $property exists in $base-config.
+/// [2] If not pass an error.
+///
+@function base($property) {
+
+    // [1]
+    @if map-has-key($base-config, $property) {
+
+        @return map-get($base-config, $property);
+
+    } @else {
+
+        @warn "'#{$property}' is not an available version of #{$base-config}. (#{map-keys($base-config)})"; // [2]
+
+        @return null;
+
+    }
 
 }
-
-
-
-
-
-///
-/// Returns the number as a negative.
-///
-/// @param {number} $number
-///
-@function negative($number) {
-    @return -($number);
-}
-
-/// @alias negative
-@function neg($args...) {
-    @return negative($args...);
-}
-
-
-///
-/// Returns number as rounded half the number passed.
-///
-/// @param {number} $number
-///
-@function halve($number) {
-    @return round($number / 2);
-}
-
-/// @alias halve
-@function half($args...) {
-    @return halve($args...);
-}
-
-
-///
-/// Returns number as rounded quarter the number passed.
-///
-/// @param {number} $number
-///
-@function quarter($number) {
-    @return round($number / 4);
-}
-
-/// @alias quarter
-@function fourth($args...) {
-    @return quarter($args...);
-}
-
-
-///
-/// Returns number as rounded double the number passed.
-///
-/// @param {number} $number
-///
-@function double($number) {
-    @return round($number * 2);
-}
-
-
-///
-/// Returns number as rounded quadruple the number passed.
-///
-/// @param {number} $number
-///
-@function quadruple($number) {
-    @return round($number * 4);
-}
-
 
 
 
@@ -147,4 +95,96 @@
 
     }
 
+}
+
+///
+/// Return EM value
+///
+/// @param {pixel} $px - Target equivalent pixel value to output as ems.
+/// @param {pixel} $base [$base-font-size] - Base pixel value to calculate against.
+///
+/// @require {variable} $base-font-size
+///
+@function em($px, $base: base('font-size')) {
+
+    @return ($px / $base) * 1em;
+
+}
+
+
+
+
+
+///
+/// Returns the number as a negative.
+///
+/// @param {number} $number
+///
+@function negative($number) {
+    @return -($number);
+}
+
+/// @alias negative
+@function neg($args...) {
+    @return negative($args...);
+}
+
+
+///
+/// Returns number as rounded half the number passed.
+///
+/// @param {number} $number
+///
+@function halve($number) {
+    @return round($number / 2);
+}
+
+/// @alias halve
+@function half($args...) {
+    @return halve($args...);
+}
+
+
+///
+/// Returns number as rounded quarter the number passed.
+///
+/// @param {number} $number
+///
+@function quarter($number) {
+    @return round($number / 4);
+}
+
+/// @alias quarter
+@function fourth($args...) {
+    @return quarter($args...);
+}
+
+
+///
+/// Returns as double the number passed.
+///
+/// @param {number} $number
+///
+@function double($number) {
+    @return $number * 2;
+}
+
+
+///
+/// Returns as triple the number passed.
+///
+/// @param {number} $number
+///
+@function triple($number) {
+    @return $number * 3;
+}
+
+
+///
+/// Returns as quadruple the number passed.
+///
+/// @param {number} $number
+///
+@function quadruple($number) {
+    @return $number * 4;
 }

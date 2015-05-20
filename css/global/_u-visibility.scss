@@ -2,17 +2,17 @@
     #VISIBILITY UTILITIES
 \*------------------------------------*/
 
-/**
- * Hide the content
- */
+//
+// Hide the content
+//
 .u-hidden {
     display: none;
 }
 
 
-/**
- * Generate visibility classes for all breakpoints
- */
+//
+// Generate visibility classes for all breakpoints
+//
 @each $breakpoint, $media-querie in $breakpoints-config {
 
     .u-hidden-#{$breakpoint} {
@@ -27,9 +27,9 @@
 
 
 
-/**
- * Screen Readers only
- */
+//
+// Screen Readers only
+//
 .u-sr-only {
     @include hide();
 }
