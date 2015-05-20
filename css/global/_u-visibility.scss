@@ -11,6 +11,23 @@
 
 
 /**
+ * Generate visibility classes for all breakpoints
+ */
+@each $breakpoint, $media-querie in $breakpoints-config {
+
+    .u-hidden-#{$breakpoint} {
+
+        @include breakpoint($breakpoint) {
+            display: none;
+        }
+
+    }
+
+}
+
+
+
+/**
  * Screen Readers only
  */
 .u-sr-only {

@@ -85,7 +85,7 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
 //
 // Do the same as above but for each breakpoint
 //
-@each $breakpoint, $media-querie in $breakpoints {
+@each $breakpoint, $media-querie in $breakpoints-config {
 
     @include breakpoint($breakpoint) {
 
@@ -121,7 +121,7 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
     //
     // Do the same as above but for each breakpoint
     //
-    @each $breakpoint, $media-querie in $breakpoints {
+    @each $breakpoint, $media-querie in $breakpoints-config {
 
         @include breakpoint($breakpoint) {
 
@@ -165,7 +165,7 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
     //
     // Do the same as above but for each breakpoint
     //
-    @each $breakpoint, $media-querie in $breakpoints {
+    @each $breakpoint, $media-querie in $breakpoints-config {
 
         @include breakpoint($breakpoint) {
 

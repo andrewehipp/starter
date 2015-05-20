@@ -153,14 +153,14 @@
 ///
 /// Media Queries
 ///
-/// @param {string} $name - $key to use from $breakpoints
+/// @param {string} $name - $key to use from $breakpoints-config-extended
 ///
-/// @require {variable} $breakpoints
+/// @require {variable} $breakpoints-config-extended
 ///
 @mixin breakpoint($name) {
 
-    @if map-has-key($breakpoints, $name) {
-        @media #{inspect(map-get($breakpoints, $name))} {
+    @if map-has-key($breakpoints-config-extended, $name) {
+        @media #{inspect(map-get($breakpoints-config-extended, $name))} {
             @content;
         }
     } @else {

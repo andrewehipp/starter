@@ -76,13 +76,72 @@ $social-networks: (
 // Breakpoints for @mixin breakpoint();
 ///
 $breakpoints: (
-    'xs':           screen and (min-width:  480px),
-    'sm':           screen and (min-width:  768px),
-    'md':           screen and (min-width: 1024px),
-    'lg':           screen and (min-width: 1200px),
-    'xl':           screen and (min-width: 1500px)
+    'xs':    480px,
+    'sm':    768px,
+    'md':   1024px,
+    'lg':   1200px,
+    'xl':   1500px
 );
 
+
+// Basic breakpoints
+$breakpoints-config: ();
+
+// Extended breakpoints that have 'less-than-' and '-only' versions
+$breakpoints-config-extended: ();
+
+
+// Lists of keys and values
+$breakpoints-keys: map-keys($breakpoints);
+$breakpoints-values: map-values($breakpoints);
+
+// Number of breakpoint's were need to loop through
+$breakpoints-count: length($breakpoints-keys);
+
+
+/**
+ * Build Min and Max Width media queries by building new sass-map and merging
+ * it to $breakpoints.
+ */
+@for $counter from 1 through $breakpoints-count {
+
+    // Get the viewport at this counter position
+    $viewport: nth($breakpoints-keys, $counter);
+
+    // Get the viewport's size at this counter position
+    $size: nth($breakpoints-values, $counter);
+
+
+    // Breakpoint for less than viewport size
+    $breakpoint-less-than: (
+        'less-than-#{$viewport}': 'screen and (max-width: #{$size - 1px})'
+    );
+
+    // Add New Breakpoints to extended config
+    $breakpoints-config-extended: map-merge($breakpoints-config-extended, $breakpoint-less-than);
+
+    $breakpoint: (
+        #{$viewport}: 'screen and (min-width: #{$size})'
+    );
+
+    // Add New Breakpoints to config and extended config
+    $breakpoints-config: map-merge($breakpoints-config, $breakpoint);
+    $breakpoints-config-extended: map-merge($breakpoints-config-extended, $breakpoint);
+
+    // Check if we're at the end of the breakpoints available.
+    // We don't want to build a 'only-' for the largest one
+    @if $counter < $breakpoints-count {
+
+        $breakpoint-only: (
+            '#{$viewport}-only': 'screen and (min-width: #{$size}) and (max-width: #{nth($breakpoints-values, $counter + 1) - 1px})'
+        );
+
+        // Add New Breakpoints to extended config
+        $breakpoints-config-extended: map-merge($breakpoints-config-extended, $breakpoint-only);
+
+    }
+
+}
 
 
 
