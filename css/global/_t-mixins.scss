@@ -93,13 +93,13 @@
 /// Hide's content in a screen reader friendly way.
 ///
 @mixin hide() {
-    position: absolute;
+    overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
-    padding: 0;
-    border: 0;
     height: 1px;
     width: 1px;
-    overflow: hidden;
+    padding: 0;
+    border: 0;
+    position: absolute;
 }
 
 
