@@ -2,21 +2,23 @@
 
 ###Setup
 
-`cd` to the project root and run `./setup`. Currently installs local node packages.
+*   Download and install [node.js](https://nodejs.org/) which will include [Node Package Manager](https://www.npmjs.com/).
+*   Install [Gulp](http://gulpjs.com) globally `npm install --global gulp`.
+
+*   [SCSS linting](https://github.com/brigade/scss-lint)  `gem install scss-lint` to install the gem.
+
+*   `cd` to the project root with Terminal and run `sudo npm install --save-dev` or `./setup`. Enter your system password if prompted. This will install local node packages.
 
 ###Gulp
 
 After setup run `gulp watch` to start working with gulp. You will have to install any global dependencies gulp needs that aren't included in the `setup`
 
-###SCSS Linting
+#####Gulp Tools
 
-SCSS linting requires the [scss-lint](https://github.com/brigade/scss-lint) ruby gem. Run `gem install scss-lint` to install the gem.
-
-###Browser Sync
-
-[http://localhost:3000/](http://localhost:3000/) to view live reloads of content with [BrowserSync](http://www.browsersync.io/). [http://localhost:3001/](http://localhost:3001/) to view control panel.
-
-Make sure to set `proxy: 'localhost/starter'` to target your local server.
+*   [BrowserSync](http://www.browsersync.io/docs/gulp/) - Time-saving synchronised browser testing.
+*   [SCSS Linting](https://www.npmjs.com/package/gulp-scss-lint)
+*   [SassDoc for gulp](http://sassdoc.com/gulp/) - Node generated sass & scss documentation using [SassDoc](http://sassdoc.com/)
+*   [JS Linting](https://www.npmjs.com/package/gulp-jshint)
 
 ###Editor Config
 
