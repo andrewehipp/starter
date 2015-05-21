@@ -1,24 +1,43 @@
 #Starter
 
-###Setup
+###Dependencies
 
-*   Download and install [node.js](https://nodejs.org/) which will include [Node Package Manager](https://www.npmjs.com/).
-*   Install [Gulp](http://gulpjs.com) globally `npm install --global gulp`.
+##### [Node.js](https://nodejs.org/)
 
-*   [SCSS linting](https://github.com/brigade/scss-lint)  `gem install scss-lint` to install the gem.
+Download and install [node.js](https://nodejs.org/) which will include [Node Package Manager](https://www.npmjs.com/).
 
-*   `cd` to the project root with Terminal and run `sudo npm install --save-dev` or `./setup`. Enter your system password if prompted. This will install local node packages.
+#####[Gulp](http://gulpjs.com)
+
+    npm install --global gulp
+
+#####[SCSS linting](https://github.com/brigade/scss-lint)
+
+    gem install scss-lint` to install the gem
+
+----
+
+### Setup
+
+`cd` to the project root with Terminal and run `sudo npm install --save-dev` or `./setup` which will install all node packages for the project. Enter your system password if prompted.
+
+----
 
 ###Gulp
 
-After setup run `gulp watch` to start working with gulp. You will have to install any global dependencies gulp needs that aren't included in the `setup`
+Gulp must be running to complete certain operations like sass compilation and building production files.
 
-#####Gulp Tools
+    gulp watch
+
+See `gulpfile.js` for a list of all the tasks available.
+
+#####Important Node Packages
 
 *   [BrowserSync](http://www.browsersync.io/docs/gulp/) - Time-saving synchronised browser testing.
+*   [SassDoc for gulp](http://sassdoc.com/gulp/) - Node generated sass & scss documentation.
 *   [SCSS Linting](https://www.npmjs.com/package/gulp-scss-lint)
-*   [SassDoc for gulp](http://sassdoc.com/gulp/) - Node generated sass & scss documentation using [SassDoc](http://sassdoc.com/)
 *   [JS Linting](https://www.npmjs.com/package/gulp-jshint)
+
+----
 
 ###Editor Config
 
@@ -30,3 +49,4 @@ will need to install a plugin or extension for you editor of choice.
 *   [Brackets](https://github.com/kidwm/brackets-editorconfig/#readme)
 *   [Atom](https://github.com/sindresorhus/atom-editorconfig#readme)
 *   [IntelliJ IDEA](https://github.com/JetBrains/intellij-community/tree/master/plugins/editorconfig)
+*   [Textmate](https://github.com/Mr0grog/editorconfig-textmate)
