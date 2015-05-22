@@ -160,7 +160,7 @@
 @mixin breakpoint($name) {
 
     @if map-has-key($breakpoints-config-extended, $name) {
-        @media #{inspect(map-get($breakpoints-config-extended, $name))} {
+        @media #{map-get($breakpoints-config-extended, $name)} {
             @content;
         }
     } @else {

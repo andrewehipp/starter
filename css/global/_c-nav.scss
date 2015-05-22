@@ -6,7 +6,6 @@
 // <ul> as navigation List
 //
 .c-nav__list {
-    @include list-unstyled();
     @include clearfix();
 }
 
