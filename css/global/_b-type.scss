@@ -7,7 +7,7 @@
 //
 @include headings() {
     line-height: base('line-height');
-    margin: $spacing-unit 0;
+    margin: 0 0 $spacing-unit;
 }
 
 h1, .u-h1 {
@@ -39,7 +39,7 @@ h6, .u-h6 {
 // Paragraphs
 //
 p {
-    margin: $spacing-unit 0;
+    margin: 0 0 $spacing-unit;
 }
 
 
@@ -47,7 +47,7 @@ p {
 // Lists
 //
 ul, ol, dl {
-    margin: $spacing-unit 0;
+    margin: 0 0 $spacing-unit;
 }
 
 
@@ -71,4 +71,13 @@ a {
 //
 img {
     vertical-align: middle; // [1]
+    margin: 0 0 $spacing-unit;
+}
+
+
+
+hr {
+    margin: 0 0 $spacing-unit;
+    border: solid color('grey-25');
+    border-width: 0 0 1px;
 }
