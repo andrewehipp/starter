@@ -8,3 +8,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.c-btn--primary {
+    padding: em(10px) em(20px);
+    background: color('primary');
+    border: 0;
+    color: #fff;
+    font-weight: bold;
+}

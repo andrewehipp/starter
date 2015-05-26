@@ -1,0 +1,183 @@
+/*------------------------------------*\
+    #FLEX LAYOUT
+\*------------------------------------*/
+
+$flex-config: (
+    'columns':          12,
+    'gutter':           30px,
+    'offset':           false,
+    'justify-content':  false,
+    'order':            false
+);
+
+
+/// Store $flex-config map as variables...
+$flex-gutter:          map-get($flex-config, 'gutter');
+$flex-columns:         map-get($flex-config, 'columns');
+$flex-offset:          map-get($flex-config, 'offset');
+$flex-justify-content: map-get($flex-config, 'justify-content');
+$flex-order:           map-get($flex-config, 'order');
+
+
+/**
+ * A Row
+ */
+.o-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 neg($flex-gutter);
+}
+
+
+@if $flex-justify-content {
+
+    /**
+     * Alignment of items in a Flex Row
+     */
+    .o-flex--center {
+        justify-content: center;
+    }
+
+    .o-flex--end {
+        justify-content: flex-end;
+    }
+
+    .o-flex--between {
+        justify-content: space-between;
+    }
+
+    .o-flex--around {
+        justify-content: space-around;
+    }
+
+
+    @each $breakpoint, $media-querie in $breakpoints-layout-config {
+
+        @include breakpoint($breakpoint) {
+
+            .o-flex--#{$breakpoint}-center {
+                justify-content: center;
+            }
+
+            .o-flex--#{$breakpoint}-end {
+                justify-content: flex-end;
+            }
+
+            .o-flex--#{$breakpoint}-between {
+                justify-content: space-between;
+            }
+
+            .o-flex--#{$breakpoint}-around {
+                justify-content: space-around;
+            }
+
+        }
+
+    }
+
+}
+
+
+
+/**
+ * A Column.
+ */
+.o-flex__item {
+    padding: 0 15px;
+}
+
+
+@for $columns from 1 through $flex-columns {
+
+    .o-flex__item--#{$columns} {
+        flex-basis: $columns / $flex-columns  * 100%;
+        max-width:  $columns / $flex-columns  * 100%;
+    }
+
+}
+
+@each $breakpoint, $media-querie in $breakpoints-layout-config {
+
+    @include breakpoint($breakpoint) {
+
+        .o-flex__item--#{$breakpoint} {
+            flex-basis: 0;
+            max-width:  100%;
+        }
+
+        @for $columns from 1 through $flex-columns {
+
+            .o-flex__item--#{$breakpoint}-#{$columns} {
+                flex-basis: $columns / $flex-columns  * 100%;
+                max-width:  $columns / $flex-columns  * 100%;
+            }
+
+        }
+
+    }
+
+}
+
+
+@if $flex-offset {
+
+    @for $columns from 1 through $flex-columns {
+
+        .o-flex__item--offset-#{$columns} {
+            margin-left:  $columns / $flex-columns  * 100%;
+        }
+
+    }
+
+    @each $breakpoint, $media-querie in $breakpoints-layout-config {
+
+        @include breakpoint($breakpoint) {
+
+            @for $columns from 1 through $flex-columns {
+
+                .o-flex__item--#{$breakpoint}-offset-#{$columns} {
+                    margin-left: $columns / $flex-columns  * 100%;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+
+@if $flex-order {
+
+    /**
+     * Force an item to be appear at the end or beginning.
+     */
+    .o-flex__item--last {
+        order: 99;
+    }
+
+    .o-flex__item--first {
+        order: -1;
+    }
+
+
+    @each $breakpoint, $media-querie in $breakpoints-layout-config {
+
+        @include breakpoint($breakpoint) {
+
+            .o-flex__item--#{$breakpoint}-last {
+                order: 99;
+            }
+
+            .o-flex__item--#{$breakpoint}-first {
+                order: -1;
+            }
+
+
+        }
+
+    }
+
+}

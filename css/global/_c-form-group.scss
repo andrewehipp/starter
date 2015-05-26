@@ -1,0 +1,76 @@
+/*------------------------------------*\
+    #FORM GROUP
+\*------------------------------------*/
+
+.c-form-group {
+    margin-bottom: halve($spacing-unit);
+}
+
+.c-form-group__label {
+    display: block;
+    cursor: pointer;
+    padding: quarter($spacing-unit) 0;
+}
+
+.c-form-group__input {
+    display: block;
+    width: 100%;
+    margin-bottom: halve($spacing-unit);
+    padding: em(10px);
+    font-family: base('font-family');
+    font-size: base('font-size');
+    line-height: 1.2;
+
+    .c-form-group__label & {
+        display: inline-block;
+        width: auto;
+        margin: 0 quarter($spacing-unit) 0 0;
+    }
+
+}
+
+.c-form-group__select {
+    display: block;
+    width: 100%;
+}
+
+.c-form-group__help-block {
+    display: block;
+    margin: 0 0 quarter($spacing-unit);
+    font-size: em(12px);
+
+    &:last-child {
+        margin: 0;
+    }
+}
+
+
+
+
+
+
+/**
+ * Validation element to be used with help-block's. Behavior classes on the
+ * parent determine what type of validation it is.
+ */
+.c-form-group__validation {
+    display: block;
+    padding: em(10px);
+    background-color: lighten(color('grey-25'), 20%);
+    border: 1px solid color('grey-25');
+    color: color('grey-50');
+    font-weight: bold;
+}
+
+
+.c-form-group__validation--error {
+    background-color: lighten(color('error'), 15%);
+    border-color: color('error');
+    color: #fff;
+}
+
+.c-form-group__validation--success {
+    background-color: lighten(color('success'), 15%);
+    border-color: color('success');
+    color: #fff;
+}
