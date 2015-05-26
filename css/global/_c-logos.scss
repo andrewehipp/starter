@@ -16,11 +16,12 @@
 //                 ('breakpoint-2', width, height, 'image-url')
 //             ))
 //
+
+
 $logos-config: (
-    'simple': (140px, 156px, '../img/logo-simple.png'),
-    'responsive': (150px, 150px, '../img/logo-responsive.png', (
-        ('sm', 250px, 250px),
-        ('md', 350px, 350px, '../img/logo-responsive-small.png')
+    'sample': (39px, 52px, '../img/logo-sample.jpg'),
+    'responsive': (236px, 118px, '../img/logo-responsive.png', (
+        'sm': (118px, 59px)
     ))
 );
 
@@ -61,21 +62,22 @@ $logos-config: (
             // logo's breakpoints list
             $logo-breakpoints-config: nth($logo-config, 4);
 
-            @each $logo-breakpoint-config in $logo-breakpoints-config {
+            @each $logo-breakpoint, $logo-breakpoint-config in $logo-breakpoints-config {
+
+                @debug $logo-breakpoint-config;
 
                 // Logo's properties at this breakpoint
-                $breakpoint: nth($logo-breakpoint-config, 1);
-                $width:      nth($logo-breakpoint-config, 2);
-                $height:     nth($logo-breakpoint-config, 3);
+                $breakpoint-width:      nth($logo-breakpoint-config, 1);
+                $breakpoint-height:     nth($logo-breakpoint-config, 2);
 
-                @include breakpoint(#{$breakpoint}) {
-                    width:  $width;
-                    height: $height;
+                @include breakpoint(#{$logo-breakpoint}) {
+                    width:  $breakpoint-width;
+                    height: $breakpoint-height;
 
                     // Check if an optional image size is provided for this
                     // breakpoint.
-                    @if length($logo-breakpoint-config) == 4 {
-                        $url:    nth($logo-breakpoint-config, 4);
+                    @if length($logo-breakpoint-config) == 3 {
+                        $url:    nth($logo-breakpoint-config, 3);
 
                         background-image: url($url);
                     }
