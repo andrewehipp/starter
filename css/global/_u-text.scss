@@ -3,12 +3,18 @@
 \*------------------------------------*/
 
 //
-// Generate color classes for each color in $colors
+// Generate color classes for each color in $color-utilites
 //
-@each $color, $value in $colors {
+$color-utilites: (
+    'primary',
+    'secondary',
+    'grey-50'
+);
+
+@each $color in $color-utilites {
 
     .u-text-#{$color} {
-        color: $value;
+        color: color($color);
     }
 
 }

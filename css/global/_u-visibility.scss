@@ -13,7 +13,7 @@
 //
 // Generate visibility classes for all breakpoints
 //
-@each $breakpoint, $media-querie in $breakpoints-config {
+@each $breakpoint, $media-querie in $breakpoints-layout-config {
 
     .u-hidden-#{$breakpoint} {
 

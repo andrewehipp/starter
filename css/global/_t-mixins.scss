@@ -153,20 +153,27 @@
 ///
 /// Media Queries
 ///
-/// @param {string} $name - $key to use from $breakpoints-config-extended
+/// @param {string} $name - $key to use from $breakpoints-extended-config
 ///
-/// @require {variable} $breakpoints-config-extended
+/// @require {variable} $breakpoints-extended-config
 ///
 @mixin breakpoint($name) {
 
-    @if map-has-key($breakpoints-config-extended, $name) {
-        @media #{map-get($breakpoints-config-extended, $name)} {
+    @if map-has-key($breakpoints-extended-config, $name) {
+        @media #{map-get($breakpoints-extended-config, $name)} {
             @content;
         }
     } @else {
         @warn 'Couldn\'t find a breakpoint named \'#{$name}\'.';
     }
 
+}
+
+
+@mixin bp($name) {
+    @include breakpoint($name) {
+        @content;
+    }
 }
 
 

@@ -2,28 +2,17 @@
     #FORMS
 \*------------------------------------*/
 
-//
-// Error Message
-//
-.has-error {
-    display: block;
-    margin-top: 5px;
-    color: #000;
-    background-color: #f2dede;
-    font-size: 14px;
-    vertical-align: top;
-    border-color: #eed3d7;
-    padding: 5px 10px;
-    border-radius: 2px;
+input,
+textarea,
+select {
+    background: #fff;
+    border: 1px solid color('grey-25');
+    border-radius: 0;
+}
 
-    &:before {
-        content: '';
-        display: inline-block;
-        vertical-align: middle;
-        width: 14px;
-        height: 17px;
-        background: url('../img/icon-error.png') no-repeat top center;
-        margin-right: 5px;
-    }
 
+select {
+    // scss-lint:disable Indentation
+    -webkit-appearance: none;
+       -moz-appearance: none;
 }
