@@ -1,7 +1,7 @@
 {
   "name": "Starter",
   "description": "Project description",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "repository": "bitbucket.org/haven_agency/starter",
   "devDependencies": {
     "browser-sync": "^2.0.1",
