@@ -64,8 +64,6 @@ $logos-config: (
 
             @each $logo-breakpoint, $logo-breakpoint-config in $logo-breakpoints-config {
 
-                @debug $logo-breakpoint-config;
-
                 // Logo's properties at this breakpoint
                 $breakpoint-width:      nth($logo-breakpoint-config, 1);
                 $breakpoint-height:     nth($logo-breakpoint-config, 2);
