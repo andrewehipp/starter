@@ -3,19 +3,19 @@
 \*------------------------------------*/
 
 .c-form-group {
-    margin-bottom: halve($spacing-unit);
+    margin-bottom: spacer(.5);
 }
 
 .c-form-group__label {
     display: block;
     cursor: pointer;
-    padding: quarter($spacing-unit) 0;
+    padding: spacer(.25) 0;
 }
 
 .c-form-group__input {
     display: block;
     width: 100%;
-    margin-bottom: halve($spacing-unit);
+    margin-bottom: spacer(.5);
     padding: em(10px);
     font-family: base('font-family');
     font-size: base('font-size');
@@ -24,7 +24,7 @@
     .c-form-group__label & {
         display: inline-block;
         width: auto;
-        margin: 0 quarter($spacing-unit) 0 0;
+        margin: 0 spacer(.25) 0 0;
     }
 
 }
@@ -34,19 +34,18 @@
     width: 100%;
 }
 
+
+/**
+ * Generic text block to add text after a field, used with validation elements.
+ */
 .c-form-group__help-block {
     display: block;
-    margin: 0 0 quarter($spacing-unit);
     font-size: em(12px);
 
-    &:last-child {
-        margin: 0;
+    &:not(:last-child) {
+        margin: 0 0 spacer(.25);
     }
 }
-
-
-
-
 
 
 /**

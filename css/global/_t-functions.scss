@@ -47,23 +47,18 @@
 /// @require {variable} $colors
 ///
 /// @ignore
-/// [1] Check if $color exists in $colors.
-/// [2] If not pass an error.
+/// [1] Either get the $color from $colors if it exists OR keep the original $color
+/// [2] Recursively call $color if it's in $colors or keep $color
 ///
 @function color($color) {
 
     // [1]
-    @if map-has-key($colors, $color) {
+    $color: map-get($colors, $color) or $color;
 
-        @return map-get($colors, $color);
+    // [2]
+    $color: if(map-has-key($colors, $color), color($color), $color);
 
-    } @else {
-
-        @warn "'#{$color}' is not an available version of #{$colors}. (#{map-keys($colors)})"; // [2]
-
-        @return null;
-
-    }
+    @return $color;
 
 }
 
@@ -189,4 +184,17 @@
 ///
 @function quadruple($number) {
     @return $number * 4;
+}
+
+
+
+
+
+///
+/// Returns as the base spacing unit times the number passed.
+///
+/// @param {number} $number
+///
+@function spacer($number: 1) {
+    @return round($number * $spacing-unit);
 }

@@ -8,7 +8,7 @@
 //
 .o-media {
     @include clearfix();
-    margin-bottom: 1em;
+    margin-bottom: spacer(1);
 }
 
 
@@ -19,12 +19,12 @@
 //
 .o-media__img {
     display: block;
-    margin: 1em 0 0;
+    margin: spacer(1) 0 0;
 
     @include breakpoint(xs) {
         max-width: 30%;
         float: left;
-        margin: 0 1em 1em 0;
+        margin: 0 spacer(1) spacer(1) 0;
     }
 
     // [1]
@@ -32,7 +32,7 @@
 
         @include breakpoint(xs) {
             float: right;
-            margin: 0 0 1em 1em;
+            margin: 0 0 spacer(1) spacer(1);
         }
 
     }

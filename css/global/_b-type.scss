@@ -7,7 +7,7 @@
 //
 @include headings() {
     line-height: base('line-height');
-    margin: 0 0 $spacing-unit;
+    margin: 0 0 spacer(1);
 }
 
 h1, .u-h1 {
@@ -39,7 +39,7 @@ h6, .u-h6 {
 // Paragraphs
 //
 p {
-    margin: 0 0 $spacing-unit;
+    margin: 0 0 spacer(1);
 }
 
 
@@ -47,7 +47,7 @@ p {
 // Lists
 //
 ul, ol, dl {
-    margin: 0 0 $spacing-unit;
+    margin: 0 0 spacer(1);
 }
 
 
@@ -55,7 +55,7 @@ ul, ol, dl {
 // Link Styles
 //
 a {
-    color: color('primary');
+    color: color('link');
     text-decoration: none;
 
     @include link-states() {
@@ -71,13 +71,13 @@ a {
 //
 img {
     vertical-align: middle; // [1]
-    margin: 0 0 $spacing-unit;
+    margin: 0 0 spacer(1);
 }
 
 
 
 hr {
-    margin: 0 0 $spacing-unit;
+    margin: 0 0 spacer(1);
     border: solid color('grey-25');
     border-width: 0 0 1px;
 }
