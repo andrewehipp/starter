@@ -1,6 +1,7 @@
-/*------------------------------------*\
- # Avoid `console` errors in browsers that lack a console.
-\*------------------------------------*/
+/**
+ * Avoid `console` errors in browsers that lack a console.
+ */
+
 (function() {
     var method;
     var noop = function () {};
@@ -27,9 +28,10 @@
 
 
 
-/*------------------------------------*\
-    #Global Variables
-\*------------------------------------*/
+/**
+ * Global Variables
+ */
+
 var $doc = 	$(document);
 var $win = 	$(window);
 var $body = $('body');
@@ -40,17 +42,15 @@ var $body = $('body');
 
 $doc.ready(function(){
 
-
-    /*------------------------------------*\
-        #GLOBAL PROPERTIES AND METHODS
-    \*------------------------------------*/
-
     /**
+     * GLOBAL PROPERTIES AND METHODS
+     *
      * [1] Global default timer
      * [2] Property to test against to determine if an event is occuring.
      * [3] Method to run a function if no events are happening.
      * [4] Optional timer parameter to override default.
      */
+
     var global = {
         timer: 2000, // [1]
         events: true, // [2]
@@ -77,11 +77,9 @@ $doc.ready(function(){
 
 
 
-	/*------------------------------------*\
-	    #TOGGLE ACTIVE STATE
-	\*------------------------------------*/
-
     /**
+     * TOGGLE ACTIVE STATE
+     *
      * Reusable Active State toggle function. To toggle 'is-active' on a different
      * element add data-target('.class') or data-target('#id')
      *
@@ -90,6 +88,7 @@ $doc.ready(function(){
      * [3] If data-target was set pass it through jQuery and use it as the
      *     target, or assume the clicked element.
      */
+
     $(document.body).on('click', '.js-toggle-active', function(e){
 
         e.preventDefault();
@@ -102,7 +101,6 @@ $doc.ready(function(){
             target.toggleClass('is-active');
 
     });
-
 
 
 });
