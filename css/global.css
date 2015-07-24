@@ -73,7 +73,7 @@ ul, ol, dl {
  * Link Styles
  */
 a {
-  color: #00587d;
+  color: #00f;
   text-decoration: none; }
   a:hover, a:active, a:focus {
     text-decoration: underline; }
@@ -485,13 +485,13 @@ input, textarea, select {
   font-weight: bold; }
 
 .c-form-group__validation--error {
-  background-color: #feae82;
-  border-color: #fe7d36;
+  background-color: #ff4d4d;
+  border-color: #f00;
   color: #fff; }
 
 .c-form-group__validation--success {
-  background-color: #008eca;
-  border-color: #00587d;
+  background-color: #4d4dff;
+  border-color: #00f;
   color: #fff; }
 
 /*------------------------------------*\
@@ -502,7 +502,7 @@ input, textarea, select {
  */
 .c-btn {
   display: inline-block;
-  color: #00587d;
+  color: #00f;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
@@ -511,7 +511,7 @@ input, textarea, select {
  */
 .c-btn--primary {
   padding: 0.71429em 1.42857em;
-  background: #00587d;
+  background: #00f;
   border: 0;
   color: #fff;
   font-weight: bold; }
@@ -531,7 +531,7 @@ input, textarea, select {
  * [1] Stateful 'current' version of navigation item.
  */
 .c-nav__item {
-  color: #00587d; }
+  color: #00f; }
   .c-nav__item.is-current {
     text-decoration: underline; }
 
@@ -560,10 +560,10 @@ input, textarea, select {
  * Color utilities to force a specific color.
  */
 .u-text-primary {
-  color: #00587d; }
+  color: #00f; }
 
 .u-text-secondary {
-  color: #fe7d36; }
+  color: #f00; }
 
 .u-text-grey-50 {
   color: #7f7f7f; }
