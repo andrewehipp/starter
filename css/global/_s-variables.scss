@@ -19,28 +19,9 @@ $base-config: (
 
 
 
-///
-// Layout Configuration
-//
-// [1] Number of Layout Items per layout
-// [2] Column Gutters, anything other than default builds out modifier classes
-// [3] Generate offset modifier classes for layout items
-// [4] Generate source ordering modifier classes for layout items
-//
-///
-$layout-config: (
-    'rows':          12,
-    'gutters': (
-        'default':   20px
-    ),
-    'offsets':       false,
-    'push-and-pull': false
-);
-
-
-
 /// Generic spacing unit
 $spacing-unit:      20px;
+
 
 
 
@@ -49,13 +30,15 @@ $spacing-unit:      20px;
 // Colors
 ///
 $colors: (
+    'body':         #333,
+    'headings':     #00587d,
     'primary':      #00587d,
     'secondary':    #fe7d36,
     'grey-25':      #bfbfbf,
     'grey-50':      #7f7f7f,
     'link':         'primary',
-    'error':        #e43a35,
-    'success':      #5cb85c
+    'success':      'primary',
+    'error':        'secondary'
 );
 
 

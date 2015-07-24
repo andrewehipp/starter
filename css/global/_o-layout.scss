@@ -2,7 +2,26 @@
     #LAYOUT
 \*------------------------------------*/
 
-/// Store $layout-config map as variables...
+///
+// Layout Configuration
+//
+// [1] Number of Layout Items per layout
+// [2] Column Gutters, anything other than default builds out modifier classes
+// [3] Generate offset modifier classes for layout items
+// [4] Generate source ordering modifier classes for layout items
+///
+
+$layout-config: (
+    'rows':          12,
+    'gutters': (
+        'default':   20px
+    ),
+    'offsets':       false,
+    'push-and-pull': false
+);
+
+
+// Store $layout-config map as variables...
 $layout-gutters:        map-get($layout-config, 'gutters');
 $layout-rows:           map-get($layout-config, 'rows');
 $layout-offsets:        map-get($layout-config, 'offsets');
@@ -11,12 +30,11 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
 
 
 
-
-//
-// Layout row
-//
-// [1] Additional modifier classes for layout gutters.
-//
+/**
+ * Layout row
+ *
+ * [1] Additional modifier classes for layout gutters.
+ */
 .o-layout {
     @include clearfix;
     margin-right: neg(halve(map-get($layout-gutters, 'default')));
@@ -39,11 +57,11 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
 }
 
 
-//
-// A layout item, used like a column
-//
-// [1] Additional modifier classes for layout gutters.
-//
+/**
+ * A layout item, used like a column
+ *
+ * [1] Additional modifier classes for layout gutters.
+ */
 .o-layout__item {
     position: relative;
     width: 100%;
@@ -69,8 +87,9 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
 
 }
 
-
-// Layout Columns
+/**
+ * Layout Columns
+ */
 @for $layout-item-span from 1 through $layout-rows {
 
     .o-layout__item--#{$layout-item-span} {
@@ -80,9 +99,9 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
 }
 
 
-//
-// Do the same as above but for each breakpoint
-//
+/**
+ * Do the same as above but for each breakpoint
+ */
 @each $breakpoint, $media-querie in $breakpoints-layout-config {
 
     @include breakpoint($breakpoint) {
@@ -116,9 +135,9 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
 
     }
 
-    //
-    // Do the same as above but for each breakpoint
-    //
+    /**
+     * Offset modifiers for layout items at each breakpoint
+     */
     @each $breakpoint, $media-querie in $breakpoints-layout-config {
 
         @include breakpoint($breakpoint) {
@@ -159,10 +178,9 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
 
     }
 
-
-    //
-    // Do the same as above but for each breakpoint
-    //
+    /**
+     * Do the same as above but for each breakpoint
+     */
     @each $breakpoint, $media-querie in $breakpoints-layout-config {
 
         @include breakpoint($breakpoint) {
