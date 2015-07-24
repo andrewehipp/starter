@@ -2,21 +2,23 @@
     #NAVIGATION
 \*------------------------------------*/
 
-//
-// <ul> as navigation List
-//
+/**
+ * Navigation list
+ */
+
 .c-nav__list {
-    @include clearfix();
+    margin: 0 0 spacer(1);
 }
 
 
-//
-// Navigation List item
-//
+/**
+ * Navigation List item
+ *
+ * [1] Stateful 'current' version of navigation item.
+ */
+
 .c-nav__item {
-    float: left;
     color: color('primary');
-    margin-right: 10px;
 
     &.is-current {
         text-decoration: underline;
@@ -24,9 +26,11 @@
 
 }
 
-//
-// Navigation link
-//
+
+/**
+ * Navigation link
+ */
+
 .c-nav__link {
     color: inherit;
 }

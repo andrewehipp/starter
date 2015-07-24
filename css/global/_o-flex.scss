@@ -22,6 +22,7 @@ $flex-order:           map-get($flex-config, 'order');
 /**
  * A Row
  */
+
 .o-flex {
     display: flex;
     flex-direction: row;
@@ -35,6 +36,7 @@ $flex-order:           map-get($flex-config, 'order');
     /**
      * Alignment of items in a Flex Row
      */
+
     .o-flex--center {
         justify-content: center;
     }
@@ -83,6 +85,7 @@ $flex-order:           map-get($flex-config, 'order');
 /**
  * A Column.
  */
+
 .o-flex__item {
     padding: 0 15px;
 }
@@ -154,6 +157,7 @@ $flex-order:           map-get($flex-config, 'order');
     /**
      * Force an item to be appear at the end or beginning.
      */
+
     .o-flex__item--last {
         order: 99;
     }

@@ -2,17 +2,20 @@
     #IMAGE UTILITIES
 \*------------------------------------*/
 
-//
-// Image conforms to it's container's width
-//
+/**
+ * Image's max width conforms to the parent's width.
+ */
+
 .u-img-respond {
     max-width: 100%;
     height: auto;
 }
 
-//
-// Image matches it's containers width
-//
+
+/**
+ * Image matches it's containers width
+ */
+
 .u-img-full {
     width: 100%;
     height: auto;

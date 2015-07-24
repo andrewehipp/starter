@@ -2,9 +2,10 @@
     #LIST UNSTYLED
 \*------------------------------------*/
 
-//
-// Remove list styling from list
-//
+/**
+ * Remove list styling from list
+ */
+
 .o-list-unstyled {
     @include list-unstyled();
 }

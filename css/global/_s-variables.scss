@@ -3,12 +3,10 @@
 ////
 
 
-
-
-
 ///
 // Base global defaults
 ///
+
 $base-config: (
     'font-family':  sans-serif,
     'font-size':    14px,
@@ -20,6 +18,7 @@ $base-config: (
 
 
 /// Generic spacing unit
+
 $spacing-unit:      20px;
 
 
@@ -29,6 +28,7 @@ $spacing-unit:      20px;
 ///
 // Colors
 ///
+
 $colors: (
     'body':         #333,
     'headings':     #00587d,
@@ -48,6 +48,7 @@ $colors: (
 ///
 // Social Network's brand colors (just nice to have)
 ///
+
 $social-networks: (
     'facebook':     #0e639e,
     'twitter':      #44c1ed,
@@ -60,6 +61,7 @@ $social-networks: (
 ///
 // Breakpoints
 ///
+
 $breakpoints: (
     'xs':      480px,
     'sm':      768px,
@@ -73,6 +75,7 @@ $breakpoints: (
 );
 
 
+// Container for generated media queries based of those listed in $breakpoints
 $breakpoints-layout-config: ();
 
 // Extended breakpoints for generating utility classes. Includes some defaults.

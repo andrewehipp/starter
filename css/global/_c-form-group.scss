@@ -2,6 +2,10 @@
     #FORM GROUP
 \*------------------------------------*/
 
+/**
+ * A form group block
+ */
+
 .c-form-group {
     margin-bottom: spacer(.5);
 }
@@ -11,6 +15,13 @@
     cursor: pointer;
     padding: spacer(.25) 0;
 }
+
+/**
+ * Form group inputs
+ *
+ * [1] When the form input is nested in a comment, like with a radio button or
+ * checkbox, set the input to display inline with the label's text.
+ */
 
 .c-form-group__input {
     display: block;
@@ -35,9 +46,13 @@
 }
 
 
+
+
+
 /**
  * Generic text block to add text after a field, used with validation elements.
  */
+
 .c-form-group__help-block {
     display: block;
     font-size: em(12px);
@@ -45,13 +60,18 @@
     &:not(:last-child) {
         margin: 0 0 spacer(.25);
     }
+
 }
+
+
+
 
 
 /**
  * Validation element to be used with help-block's. Behavior classes on the
  * parent determine what type of validation it is.
  */
+
 .c-form-group__validation {
     display: block;
     padding: em(10px);

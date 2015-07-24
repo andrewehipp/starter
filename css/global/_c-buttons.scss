@@ -2,12 +2,21 @@
     #BUTTONS
 \*------------------------------------*/
 
+/**
+ * Base button class, extended by modifiers.
+ */
+
 .c-btn {
     display: inline-block;
     color: color('primary');
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+
+/**
+ * Modifiers for the buttons
+ */
 
 .c-btn--primary {
     padding: em(10px) em(20px);

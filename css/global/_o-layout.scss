@@ -35,6 +35,7 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
  *
  * [1] Additional modifier classes for layout gutters.
  */
+
 .o-layout {
     @include clearfix;
     margin-right: neg(halve(map-get($layout-gutters, 'default')));
@@ -62,6 +63,7 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
  *
  * [1] Additional modifier classes for layout gutters.
  */
+
 .o-layout__item {
     position: relative;
     width: 100%;

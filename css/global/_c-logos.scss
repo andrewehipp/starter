@@ -29,9 +29,12 @@ $logos-config: (
 
 
 
-//
-// [1] Relies on background-size to shrink large logos to smaller sizes.
-//
+/**
+ * Logo base class. Applies shared properties for all logos.
+ *
+ * [1] Relies on background-size to shrink large logos to smaller sizes.
+ */
+
 .c-logo {
     @include hide-text();
     display: inline-block;

@@ -2,9 +2,15 @@
     #TYPOGRAPY
 \*------------------------------------*/
 
-//
-// Headings
-//
+/**
+ * Headings
+ *
+ * In most cases you should avoid styling a specific heading type to have
+ * custom distinct styles that would apply to all headings of that type.
+ * Instead create a new component like c-heading or c-title. This may not
+ * be the case when a CMS needs default headings to appear a specific way.
+ */
+
 @include headings() {
     line-height: base('line-height');
     margin: 0 0 spacer(1);
@@ -35,25 +41,27 @@ h6, .u-h6 {
 }
 
 
-//
-// Paragraphs
-//
+/**
+ * Paragraphs
+ */
 p {
     margin: 0 0 spacer(1);
 }
 
 
-//
-// Lists
-//
-ul, ol, dl {
+/**
+ * Lists
+ */
+ul,
+ol,
+dl {
     margin: 0 0 spacer(1);
 }
 
 
-//
-// Link Styles
-//
+/**
+ * Link Styles
+ */
 a {
     color: color('link');
     text-decoration: none;
@@ -64,18 +72,21 @@ a {
 
 }
 
-//
-// Images
-//
-// [1] remove spacing below inline images.
-//
+
+/**
+ * Images
+ *
+ * [1] remove spacing below inline images.
+ */
 img {
     vertical-align: middle; // [1]
     margin: 0 0 spacer(1);
 }
 
 
-
+/**
+ * Horizontal Rule
+ */
 hr {
     margin: 0 0 spacer(1);
     border: solid color('grey-25');

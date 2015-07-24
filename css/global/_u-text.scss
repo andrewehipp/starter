@@ -2,14 +2,20 @@
     #TEXT UTILITES
 \*------------------------------------*/
 
-//
 // Generate color classes for each color in $color-utilites
-//
 $color-utilites: (
     'primary',
     'secondary',
     'grey-50'
 );
+
+
+
+
+
+/**
+ * Color utilities to force a specific color.
+ */
 
 @each $color in $color-utilites {
 
