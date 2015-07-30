@@ -141,12 +141,25 @@ gulp.task('lint', function() {
 
 });
 
+/**
+ * JavaScript Code Style (http://jscs.info/rules.html)
+ */
+
+gulp.task('jscs', ['lint'], function() {
+
+    return gulp.src(path.js + '/main.js')
+        .pipe($.jscs({
+            verbose: true
+        }));
+
+});
+
 
 /**
  * Build Production.min.js
  */
 
-gulp.task('js', ['lint'], function(){
+gulp.task('js', ['jscs'], function(){
 
     return gulp.src(path.js + '/*.js')
         .pipe($.plumber())

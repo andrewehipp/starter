@@ -2,7 +2,7 @@
  * Avoid `console` errors in browsers that lack a console.
  */
 
-(function() {
+(function () {
     var method;
     var noop = function () {};
     var methods = [
@@ -32,8 +32,8 @@
  * Store usefull Dom elements
  */
 
-var $doc = 	$(document);
-var $win = 	$(window);
+var $doc =  $(document);
+var $win =  $(window);
 var $body = $('body');
 
 
@@ -52,15 +52,15 @@ var $body = $('body');
 var global = {
     timer: 2000, // [1]
     events: true, // [2]
-    detectEvents: function(functionToRun, timer){ // [3 & 4]
+    detectEvents: function (functionToRun, timer) { // [3 & 4]
 
         var _timer = timer || global.timer; // [4]
 
-        if(global.events){
+        if (global.events) {
 
             global.events = false;
 
-            setTimeout(function(){
+            setTimeout(function () {
                 global.events = true;
             }, _timer);
 
@@ -87,7 +87,7 @@ var global = {
  *     target, or assume the clicked element.
  */
 
-$(document.body).on('click', '.js-toggle-active', function(e){
+$(document.body).on('click', '.js-toggle-active', function (e) {
 
     e.preventDefault();
 
@@ -96,6 +96,6 @@ $(document.body).on('click', '.js-toggle-active', function(e){
 
     var target = data ? $(data) : _this; // [3]
 
-        target.toggleClass('is-active');
+    target.toggleClass('is-active');
 
 });
