@@ -94,7 +94,7 @@ gulp.task('sass', ['scss-lint'], function() {
 
         // Inline images as base64 into the css
         .pipe($.inlineBase64({
-            baseDir: './assets/bilgewater/css/',
+            baseDir: path.css,
             maxSize: 1024 * 12, // 12kb
             debug: false // Debug output in the console
         }))
