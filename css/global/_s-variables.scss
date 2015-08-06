@@ -124,6 +124,7 @@ $breakpoint-props: map-values($breakpoints);
     $breakpoint-min: ('#{$breakpoint}': '(min-#{$direction}: #{$size})');
     $breakpoint-less-than: ('less-than-#{$breakpoint}': '(max-#{$direction}: #{$size - 1})');
 
+    // Add the generated sizes to the extended config map.
     $breakpoints-extended-config: map-merge($breakpoints-extended-config, $breakpoint-min);
     $breakpoints-extended-config: map-merge($breakpoints-extended-config, $breakpoint-less-than);
 
