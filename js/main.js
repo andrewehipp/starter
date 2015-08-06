@@ -1,8 +1,5 @@
 /**
  * Avoid `console` errors in browsers that lack a console.
- *
- * @namespace Console
- * @type {function}
  */
 (function () {
 
@@ -63,32 +60,19 @@ var $body = $('body');
 /**
  * An events object that lets you prevent javascript queuing.
  *
- * @namespace Events
+ * @namespace
+ * @property {number} timer - Default event timer
+ * @property {boolean} eventsLocked - Wether an event called with events.detectEvents is currently running.
  * @type {Object}
  */
 var events = {
-
-    /**
-     * Default event timer
-     *
-     * @memberOf Events
-     * @type {Number}
-     */
     timer: 2000,
-
-    /**
-     * Wether an event called with events.detectEvents is currently running.
-     *
-     * @memberOf Events
-     * @type {Boolean}
-     */
     eventsLocked: false,
 
     /**
      * Run a function and prevent other functions called with this method from
      * firing until the timeout finishes.
      *
-     * @memberOf Events
      * @param {function} functionToRun - Method to run a function if no events
      * are happening
      * @param {number=} timer - Optional timer parameter to override default.
@@ -123,8 +107,7 @@ var events = {
  * Reusable Active State toggle function. To toggle 'is-active' on a different
  * element add data-target('.class') or data-target('#id')
  *
- * @namespace Toggle
- * @param {event} The event
+ * @namespace
  */
 $(document.body).on('click', '.js-toggle-active', function (e) {
 
