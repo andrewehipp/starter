@@ -1,14 +1,14 @@
 /**
  * Avoid `console` errors in browsers that lack a console.
  */
-(function () {
+(function() {
 
     // Placeholder for assigning the tested method.
     var method;
 
     // An empty function. If the browser doesn't have support for a console
     // method reference this empty one.
-    var noop = function () {};
+    var noop = function() {};
 
     // Array of methods to test for.
     var methods = [
@@ -40,16 +40,19 @@
 
 /**
  * jQuery reference to the document
+ * @type {jQuery}
  */
 var $doc =  $(document);
 
 /**
  * jQuery reference to the window
+ * @type {jQuery}
  */
 var $win =  $(window);
 
 /**
  * jQuery reference to the body tag
+ * @type {jQuery}
  */
 var $body = $('body');
 
@@ -77,7 +80,7 @@ var events = {
      * are happening
      * @param {number=} timer - Optional timer parameter to override default.
      */
-    detectEvents: function (functionToRun, timer) {
+    detectEvents: function(functionToRun, timer) {
 
         var _this = this;
 
@@ -88,7 +91,7 @@ var events = {
 
             _this.eventsLocked = true;
 
-            setTimeout(function () {
+            setTimeout(function() {
                 _this.eventsLocked = false;
             }, _timer);
 
@@ -109,7 +112,7 @@ var events = {
  *
  * @namespace
  */
-$(document.body).on('click', '.js-toggle-active', function (e) {
+$(document.body).on('click', '.js-toggle-active', function(e) {
 
     e.preventDefault();
 
