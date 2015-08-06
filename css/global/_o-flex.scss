@@ -104,14 +104,9 @@ $flex-order:           map-get($flex-config, 'order');
 
     @include breakpoint($breakpoint) {
 
-        .o-flex__item--#{$breakpoint} {
-            flex-basis: 0;
-            max-width:  100%;
-        }
-
         @for $columns from 1 through $flex-columns {
 
-            .o-flex__item--#{$breakpoint}-#{$columns} {
+            .o-flex__item--#{$columns}\@#{$breakpoint} {
                 flex-basis: $columns / $flex-columns  * 100%;
                 max-width:  $columns / $flex-columns  * 100%;
             }
@@ -139,7 +134,7 @@ $flex-order:           map-get($flex-config, 'order');
 
             @for $columns from 1 through $flex-columns {
 
-                .o-flex__item--#{$breakpoint}-offset-#{$columns} {
+                .o-flex__item--offset-#{$columns}\@#{$breakpoint} {
                     margin-left: $columns / $flex-columns  * 100%;
                 }
 
@@ -171,11 +166,11 @@ $flex-order:           map-get($flex-config, 'order');
 
         @include breakpoint($breakpoint) {
 
-            .o-flex__item--#{$breakpoint}-last {
+            .o-flex__item--last\@#{$breakpoint} {
                 order: 99;
             }
 
-            .o-flex__item--#{$breakpoint}-first {
+            .o-flex__item--first\@#{$breakpoint} {
                 order: -1;
             }
 

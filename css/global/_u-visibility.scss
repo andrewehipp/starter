@@ -14,7 +14,7 @@
 // Switch to $breakpoints-extended-config for max width versions.
 @each $breakpoint, $media-querie in $breakpoints-layout-config {
 
-    .u-hidden-#{$breakpoint} {
+    .u-hidden\@#{$breakpoint} {
 
         @include breakpoint($breakpoint) {
             display: none;

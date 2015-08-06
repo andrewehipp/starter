@@ -110,7 +110,7 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
 
         @for $layout-item-span from 1 through $layout-rows {
 
-            .o-layout__item--#{$breakpoint}-#{$layout-item-span} {
+            .o-layout__item--#{$layout-item-span}\@#{$breakpoint} {
                 width: (100% / $layout-rows) * $layout-item-span;
             }
 
@@ -146,7 +146,7 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
 
             @for $layout-item-span from 1 through $layout-rows {
 
-                .o-layout__item--offset-#{$breakpoint}-#{$layout-item-span} {
+                .o-layout__item--offset-#{$layout-item-span}\@#{$breakpoint} {
                     margin-left: (100% / $layout-rows) * $layout-item-span;
                 }
 
@@ -189,11 +189,11 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
 
             @for $layout-item-span from 1 through $layout-rows {
 
-                .o-layout__item--push-#{$breakpoint}-#{$layout-item-span} {
+                .o-layout__item--push-#{$layout-item-span}\@#{$breakpoint} {
                     left: (100% / $layout-rows) * $layout-item-span;
                 }
 
-                .o-layout__item--pull-#{$breakpoint}-#{$layout-item-span} {
+                .o-layout__item--pull-#{$layout-item-span}\@#{$breakpoint} {
                     left: negative((100% / $layout-rows) * $layout-item-span);
                 }
 
