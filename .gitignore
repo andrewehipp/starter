@@ -22,3 +22,6 @@ sassdoc
 # Ignore temporary files BrowserSync makes.
 css/_*
 js/_*
+
+# Ignore jsDoc.
+js/out
