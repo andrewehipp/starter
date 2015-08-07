@@ -64,9 +64,11 @@ var $body = $('body');
  * An events object that lets you prevent javascript queuing.
  *
  * @namespace
- * @property {number} timer - Default event timer
- * @property {boolean} eventsLocked - Wether an event called with events.detectEvents is currently running.
  * @type {Object}
+ *
+ * @property {number} timer - Default event timer
+ * @property {boolean} eventsLocked - Wether an event called with
+ * events.detectEvents is currently running.
  */
 var events = {
     timer: 2000,
@@ -75,6 +77,7 @@ var events = {
     /**
      * Run a function and prevent other functions called with this method from
      * firing until the timeout finishes.
+     * @type {function}
      *
      * @param {function} functionToRun - Method to run a function if no events
      * are happening
