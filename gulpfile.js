@@ -28,7 +28,7 @@ var gulp =  require('gulp'),
  * enviornments.
  */
 
-var path = {
+var PATH = {
     css:   './css',
     js:    './js',
     img:   './img',
