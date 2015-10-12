@@ -6,6 +6,7 @@
  * Navigation list
  */
 .c-nav__list {
+    @include clearfix();
     margin: 0 0 spacer(1);
 }
 
@@ -19,18 +20,23 @@
  * [1] Stateful 'current' version of navigation item.
  */
 .c-nav__item {
-    color: color('primary');
-
-    &.is-current {
-        text-decoration: underline;
-    }
-
+    margin-right: 10px;
+    float: left;
 }
+
+
+
 
 
 /**
  * Navigation link
  */
 .c-nav__link {
-    color: inherit;
+    display: block;
+    color: color('link');
+
+    .c-nav__item.is-current & {
+        text-decoration: underline;
+    }
+
 }
