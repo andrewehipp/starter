@@ -10,11 +10,11 @@
  * Instead create a new component like c-heading or c-title. This may not
  * be the case when a CMS needs default headings to appear a specific way.
  */
-
 @include headings() {
+    margin-bottom: spacer(1);
     line-height: base('line-height');
-    margin: 0 0 spacer(1);
 }
+
 
 h1, .u-h1 {
     font-size: em(36px);
@@ -41,12 +41,18 @@ h6, .u-h6 {
 }
 
 
+
+
+
 /**
  * Paragraphs
  */
 p {
     margin: 0 0 spacer(1);
 }
+
+
+
 
 
 /**
@@ -57,6 +63,9 @@ ol,
 dl {
     margin: 0 0 spacer(1);
 }
+
+
+
 
 
 /**
@@ -73,6 +82,9 @@ a {
 }
 
 
+
+
+
 /**
  * Images
  *
@@ -82,6 +94,9 @@ img {
     vertical-align: middle; // [1]
     margin: 0 0 spacer(1);
 }
+
+
+
 
 
 /**

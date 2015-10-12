@@ -10,13 +10,9 @@ $color-utilites: (
 );
 
 
-
-
-
 /**
  * Color utilities to force a specific color.
  */
-
 @each $color in $color-utilites {
 
     .u-text-#{$color} {

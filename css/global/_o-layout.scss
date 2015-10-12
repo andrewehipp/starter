@@ -30,12 +30,12 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
 
 
 
+
 /**
  * Layout row
  *
  * [1] Additional modifier classes for layout gutters.
  */
-
 .o-layout {
     @include clearfix;
     margin-right: neg(halve(map-get($layout-gutters, 'default')));
@@ -58,19 +58,21 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
 }
 
 
+
+
+
 /**
  * A layout item, used like a column
  *
  * [1] Additional modifier classes for layout gutters.
  */
-
 .o-layout__item {
     position: relative;
-    width: 100%;
-    float: left;
-    min-height: 1px;
     padding-right:  halve(map-get($layout-gutters, 'default'));
     padding-left:   halve(map-get($layout-gutters, 'default'));
+    width: 100%;
+    min-height: 1px;
+    float: left;
 
     // [1]
     @each $layout-gutter, $layout-gutter-value in $layout-gutters {
@@ -88,6 +90,10 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
     }
 
 }
+
+
+
+
 
 /**
  * Layout Columns
@@ -119,6 +125,7 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
     }
 
 }
+
 
 
 
@@ -179,6 +186,7 @@ $layout-push-and-pull:  map-get($layout-config, 'push-and-pull');
         }
 
     }
+
 
     /**
      * Do the same as above but for each breakpoint

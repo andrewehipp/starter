@@ -5,10 +5,12 @@
 /**
  * Navigation list
  */
-
 .c-nav__list {
     margin: 0 0 spacer(1);
 }
+
+
+
 
 
 /**
@@ -16,7 +18,6 @@
  *
  * [1] Stateful 'current' version of navigation item.
  */
-
 .c-nav__item {
     color: color('primary');
 
@@ -30,7 +31,6 @@
 /**
  * Navigation link
  */
-
 .c-nav__link {
     color: inherit;
 }

@@ -11,13 +11,13 @@ $container-padding:       20px;
 
 
 
+
 /**
  * An outer container for site content. A container should never be a child of
  * instance of it's self.
  */
-
 .o-container {
-    max-width: $container-padding + $container-width + $container-padding;
-    margin: 0 auto;
     padding: 0 $container-padding;
+    margin: 0 auto;
+    max-width: $container-padding + $container-width + $container-padding;
 }

@@ -6,11 +6,12 @@
  * A generic layout with an item floated to the side and content block that
  * doesn't wrap underneath it.
  */
-
 .o-media {
     @include clearfix();
     margin-bottom: spacer(1);
 }
+
+
 
 
 
@@ -19,23 +20,22 @@
  *
  * [1] Flip the image to the right with modifier
  */
-
 .o-media__graphic {
     display: block;
     margin: spacer(1) 0 0;
 
     @include breakpoint(xs) {
+        margin: 0 spacer(1) spacer(1) 0;
         max-width: 30%;
         float: left;
-        margin: 0 spacer(1) spacer(1) 0;
     }
 
     // [1]
     .o-media--flip & {
 
         @include breakpoint(xs) {
-            float: right;
             margin: 0 0 spacer(1) spacer(1);
+            float: right;
         }
 
     }
@@ -43,10 +43,12 @@
 }
 
 
+
+
+
 /**
  * Content Block
  */
-
 .o-media__content {
     overflow: hidden;
 }
