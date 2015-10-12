@@ -11,7 +11,7 @@
  * be the case when a CMS needs default headings to appear a specific way.
  */
 @include headings() {
-    margin-bottom: spacer(1);
+    margin: 0 0 spacer(1);
     line-height: base('line-height');
 }
 
