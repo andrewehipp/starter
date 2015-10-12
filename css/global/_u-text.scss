@@ -4,8 +4,7 @@
 
 // Generate color classes for each color in $color-utilites
 $color-utilites: (
-    'primary',
-    'secondary',
+    'link',
     'grey-50'
 );
 
@@ -19,4 +18,15 @@ $color-utilites: (
         color: color($color);
     }
 
+}
+
+
+
+
+
+/**
+ * Text Alignment
+ */
+.u-text-center {
+    text-align: center;
 }

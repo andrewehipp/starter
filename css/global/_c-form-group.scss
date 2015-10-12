@@ -39,16 +39,15 @@
     line-height: 1.2;
 
     .c-form-group__label & {
-        display: inline-block;
-        width: auto;
         margin: 0 spacer(.25) 0 0;
     }
 
 }
 
-.c-form-group__select {
-    display: block;
-    width: 100%;
+
+.c-form-group__input--inline {
+    display: inline-block;
+    width: auto;
 }
 
 
@@ -79,21 +78,9 @@
 .c-form-group__validation {
     display: block;
     padding: em(10px);
-    background-color: lighten(color('grey-25'), 20%);
     border: 1px solid color('grey-25');
+    background-color: lighten(color('grey-25'), 15%);
     color: color('grey-50');
     font-weight: bold;
-}
-
-
-.c-form-group__validation--error {
-    background-color: lighten(color('error'), 15%);
-    border-color: color('error');
-    color: #fff;
-}
-
-.c-form-group__validation--success {
-    background-color: lighten(color('success'), 15%);
-    border-color: color('success');
-    color: #fff;
+    position: relative;
 }

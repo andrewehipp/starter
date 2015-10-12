@@ -51,11 +51,16 @@
 /// [2] Check that only 1-6 is being requested and $from is smaller than $to.
 /// [3] Loop through the range of $from and $to to generate and @extend the
 ///     the correct classes to the placeholder.
+/// [4] $headings-counter prevents multiple headings() calls from combining on all
+///     previous %heading-placeholder by making it unique for each call
 ///
+
+$headings-counter: 0; // [4]
+
 @mixin headings($from: 1, $to: 6) {
 
-    // [1]
-    %heading-placeholder {
+    // [1 & 4]
+    %heading-placeholder-#{$headings-counter} {
         @content;
     }
 
@@ -66,7 +71,7 @@
         @for $heading from $from through $to {
 
             h#{$heading}, .u-h#{$heading} {
-                @extend %heading-placeholder;
+                @extend %heading-placeholder-#{$headings-counter}; // [4]
             }
 
         }
@@ -74,6 +79,8 @@
     } @else {
         @warn 'headings() only accepts two numbers between 1 & 6.';
     }
+
+    $headings-counter: $headings-counter + 1; // [4]
 
 }
 
@@ -133,7 +140,6 @@
 ///     that are clearfixed.
 /// [2] The use of `table` rather than `block` is only necessary if using
 ///     `:before` to contain the top-margins of child elements.
-///
 ///
 @mixin clearfix() {
 

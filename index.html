@@ -52,7 +52,7 @@
 
                     <div class="o-layout__item o-layout__item--8@sm">
 
-                        <article role="article">
+                        <article role="article" class="o-island">
 
                             <h1>HTML Ipsum Presents</h1>
 
@@ -82,125 +82,130 @@
 
                         </article>
 
-                        <hr>
+                        <section class="o-island">
 
-                        <form action="">
+                            <form action="">
 
-                            <h1>Sample Form</h1>
+                                <h1>Sample Form</h1>
 
-                            <div class="o-layout">
+                                <div class="o-layout">
 
-                                <div class="o-layout__item o-layout__item--6@sm">
+                                    <div class="o-layout__item o-layout__item--6@sm">
 
-                                    <div class="c-form-group">
-                                        <label for="first-name" class="c-form-group__label">First Name</label>
-                                        <input type="text" id="first-name" name="first-name" class="c-form-group__input" aria-describedby="#help-text">
-                                        <p id="help-text" class="c-form-group__help-block c-form-group__validation c-form-group__validation--error">Validation Error</p>
-                                        <p id="help-text" class="c-form-group__help-block c-form-group__validation c-form-group__validation--success">Validation Success</p>
-                                        <p id="help-text-3" class="c-form-group__help-block">Help Text</p>
-                                    </div><!-- /.c-form-group -->
+                                        <div class="c-form-group">
+                                            <label for="full-name" class="c-form-group__label">Name</label>
+                                            <input type="text" id="full-name" name="full-name" class="c-form-group__input" aria-describedby="#help-text">
+                                            <p id="help-text" class="c-form-group__help-block c-form-group__validation">Default validation message</p>
+                                        </div><!-- /.c-form-group -->
 
-                                </div>
-
-                                <div class="o-layout__item o-layout__item--6@sm">
-
-                                    <div class="c-form-group">
-                                        <label for="last-name" class="c-form-group__label">Last Name</label>
-                                        <input type="text" id="last-name" name="last-name" class="c-form-group__input">
-                                        <p id="help-text-3" class="c-form-group__help-block">Help Text</p>
-                                    </div><!-- /.c-form-group -->
-
-                                </div>
-
-                            </div><!-- /.o-layout -->
-
-                            <div class="o-layout">
-
-                                <div class="o-layout__item o-layout__item--6@sm">
-                                    <div class="c-form-group">
-                                        <label for="email" class="c-form-group__label">Email</label>
-                                        <input type="text" id="email" name="email" class="c-form-group__input">
-                                    </div><!-- /.c-form-group -->
-                                </div>
-
-                                <div class="o-layout__item o-layout__item--6@sm">
-                                    <div class="c-form-group">
-                                        <label for="phone-1" class="c-form-group__label">Phone Number</label>
-                                        <div class="o-layout">
-                                            <div class="o-layout__item o-layout__item--xs-4">
-                                                <input type="text" id="phone-1" name="phone-1" class="c-form-group__input" aria-describedby="#help-text-2">
-                                            </div>
-                                            <div class="o-layout__item o-layout__item--xs-4">
-                                                <input type="text" id="phone-2" name="phone-2" class="c-form-group__input">
-                                            </div>
-                                            <div class="o-layout__item o-layout__item--xs-4">
-                                                <input type="text" id="phone-3" name="phone-3" class="c-form-group__input">
-                                            </div>
-                                        </div>
-                                        <p id="help-text-2" class="c-form-group__help-block c-form-group__validation">Default validation message</p>
-                                    </div><!-- /.c-form-group -->
-                                </div>
-
-                            </div><!-- /.o-layout -->
-
-                            <div class="o-layout">
-
-                                <div class="o-layout__item o-layout__item--6@sm">
-                                    <div class="c-form-group">
-                                        <label for="state" class="c-form-group__label">State</label>
-                                        <select id="state" name="state" class="c-form-group__input c-form-group__select" aria-describedby="#help-text-3">
-                                            <option value="">Choose one...</option>
-                                            <option value="CA">CA</option>
-                                            <option value="MN">MN</option>
-                                            <option value="NY">NY</option>
-                                        </select>
                                     </div>
-                                </div>
 
-                            </div><!-- /.o-layout -->
+                                    <div class="o-layout__item o-layout__item--6@sm">
 
-                            <div class="o-layout">
+                                        <div class="c-form-group">
+                                            <label for="email" class="c-form-group__label">Email</label>
+                                            <input type="text" id="email" name="email" class="c-form-group__input">
+                                        </div><!-- /.c-form-group -->
 
-                                <div class="o-layout__item o-layout__item--6@sm">
-                                    <div class="c-form-group">
-                                        <label for="emails" class="c-form-group__label"><input type="checkbox" id="emails" name="emails" class="c-form-group__input"> I agree to the <a href="#">Official Rules</a></label>
+                                    </div>
 
-                                        <label for="opt1" class="c-form-group__label"><input type="checkbox" id="opt1" name="opt1" class="c-form-group__input"> Yes, I would like to receive more information from Neil Diamond.<span class="u-text-primary">*</span></label>
+                                </div><!-- /.o-layout -->
 
-                                        <label for="opt2" class="c-form-group__label"><input type="checkbox" id="opt2" name="opt2" class="c-form-group__input"> Yes, I would like concert information from Live Nation.<span class="u-text-primary">*</span></label>
-                                   </div><!-- /.c-form-group -->
+                                <div class="o-layout">
 
-                                </div>
-                            </div><!-- /.o-layout -->
+                                    <div class="o-layout__item o-layout__item--6@sm">
+                                        <div class="c-form-group">
+                                            <label for="phone-1" class="c-form-group__label">Phone Number</label>
+                                            <div class="o-layout">
+                                                <div class="o-layout__item o-layout__item--4@xs">
+                                                    <input type="text" id="phone-1" name="phone-1" class="c-form-group__input" maxlength="3">
+                                                </div>
+                                                <div class="o-layout__item o-layout__item--4@xs">
+                                                    <input type="text" id="phone-2" name="phone-2" class="c-form-group__input" maxlength="3">
+                                                </div>
+                                                <div class="o-layout__item o-layout__item--4@xs">
+                                                    <input type="text" id="phone-3" name="phone-3" class="c-form-group__input" maxlength="4">
+                                                </div>
+                                            </div>
+                                        </div><!-- /.c-form-group -->
+                                    </div>
 
-                            <div class="o-layout">
+                                    <div class="o-layout__item o-layout__item--6@sm">
+                                        <div class="c-form-group">
+                                            <label for="phone-1" class="c-form-group__label">Phone Number</label>
+                                            <div class="o-layout">
+                                                <div class="o-layout__item">
+                                                    <input type="text" id="phone-1" name="phone-1" class="c-form-group__input c-form-group__input--inline u-text-center" style="width: 50px" maxlength="3"> &ndash;
+                                                    <input type="text" id="phone-2" name="phone-2" class="c-form-group__input c-form-group__input--inline u-text-center" style="width: 50px" maxlength="3"> &ndash;
+                                                    <input type="text" id="phone-3" name="phone-3" class="c-form-group__input c-form-group__input--inline u-text-center" style="width: 55px" maxlength="4">
+                                                </div>
+                                            </div>
+                                            <p id="help-text" class="c-form-group__help-block">Alternate phone number layout using inline-block element modifier.</p>
+                                        </div><!-- /.c-form-group -->
+                                    </div>
 
-                                <div class="o-layout__item o-layout__item--6@sm">
+                                </div><!-- /.o-layout -->
 
-                                    <div class="c-form-group">
+                                <div class="o-layout">
 
-                                        <label class="c-form-group__label">Which color?</label>
-                                        <label for="red" class="c-form-group__label"><input type="radio" id="red" name="color" class="c-form-group__input"> Red</label>
-                                        <label for="blue" class="c-form-group__label"><input type="radio" id="blue" name="color" class="c-form-group__input"> Blue</label>
-                                        <label for="green" class="c-form-group__label"><input type="radio" id="green" name="color" class="c-form-group__input"> Green</label>
+                                    <div class="o-layout__item o-layout__item--6@sm">
+                                        <div class="c-form-group">
+                                            <label for="state" class="c-form-group__label">State</label>
+                                            <select id="state" name="state" class="c-form-group__input" aria-describedby="#help-text-3">
+                                                <option value="">Choose one...</option>
+                                                <option value="CA">CA</option>
+                                                <option value="MN">MN</option>
+                                                <option value="NY">NY</option>
+                                            </select>
+                                        </div>
+                                    </div>
 
-                                   </div><!-- /.c-form-group -->
+                                </div><!-- /.o-layout -->
 
-                                    <div class="c-form-group">
-                                        <p id="help-text-3" class="c-form-group__help-block"><span class="u-text-primary">*</span> Optional</p>
-                                   </div><!-- /.c-form-group -->
+                                <div class="o-layout">
 
-                                </div>
+                                    <div class="o-layout__item o-layout__item--6@sm">
+                                        <div class="c-form-group">
+                                            <label for="emails" class="c-form-group__label"><input type="checkbox" id="emails" name="emails" class="c-form-group__input c-form-group__input--inline"> I agree to the <a href="#">Official Rules</a></label>
 
-                            </div><!-- /.o-layout -->
+                                            <label for="opt1" class="c-form-group__label"><input type="checkbox" id="opt1" name="opt1" class="c-form-group__input c-form-group__input--inline"> Yes, I would like to receive more information from Neil Diamond.<span class="u-text-primary">*</span></label>
 
-                            <div class="o-layout">
-                                <div class="o-layout__item o-layout__item--6@sm">
-                                    <input type="submit" class="c-btn c-btn--primary">
-                                </div>
-                            </div><!-- /.o-layout -->
+                                            <label for="opt2" class="c-form-group__label"><input type="checkbox" id="opt2" name="opt2" class="c-form-group__input c-form-group__input--inline"> Yes, I would like concert information from Live Nation.<span class="u-text-primary">*</span></label>
+                                       </div><!-- /.c-form-group -->
 
-                        </form>
+                                    </div>
+                                </div><!-- /.o-layout -->
+
+                                <div class="o-layout">
+
+                                    <div class="o-layout__item o-layout__item--6@sm">
+
+                                        <div class="c-form-group">
+
+                                            <label class="c-form-group__label">Which color?</label>
+                                            <label for="red" class="c-form-group__label"><input type="radio" id="red" name="color" class="c-form-group__input c-form-group__input--inline"> Red</label>
+                                            <label for="blue" class="c-form-group__label"><input type="radio" id="blue" name="color" class="c-form-group__input c-form-group__input--inline"> Blue</label>
+                                            <label for="green" class="c-form-group__label"><input type="radio" id="green" name="color" class="c-form-group__input c-form-group__input--inline"> Green</label>
+
+                                       </div><!-- /.c-form-group -->
+
+                                        <div class="c-form-group">
+                                            <p id="help-text-3" class="c-form-group__help-block"><span class="u-text-primary">*</span> Optional</p>
+                                       </div><!-- /.c-form-group -->
+
+                                    </div>
+
+                                </div><!-- /.o-layout -->
+
+                                <div class="o-layout">
+                                    <div class="o-layout__item o-layout__item--6@sm">
+                                        <input type="submit" class="c-btn c-btn--primary">
+                                    </div>
+                                </div><!-- /.o-layout -->
+
+                            </form>
+
+                        </section><!-- /.o-island -->
 
                     </div><!-- o-layout__item -->
 
@@ -208,23 +213,31 @@
 
                         <aside role="complementary">
 
-                            <h4>Sidebar</h4>
+                            <section class="o-island">
 
-                            <h5>Header Level 5</h5>
+                                <h4>Sidebar</h4>
 
-                            <ol>
-                               <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                               <li>Aliquam tincidunt mauris eu risus.</li>
-                            </ol>
+                                <h5>Header Level 5</h5>
 
-                            <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+                                <ol>
+                                   <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                                   <li>Aliquam tincidunt mauris eu risus.</li>
+                                </ol>
 
-                            <h6>Header Level 6</h6>
+                                <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
 
-                            <ul>
-                               <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                               <li>Aliquam tincidunt mauris eu risus.</li>
-                            </ul>
+                            </section><!-- /.o-island -->
+
+                            <section class="o-island">
+
+                                <h6>Header Level 6</h6>
+
+                                <ul>
+                                   <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                                   <li>Aliquam tincidunt mauris eu risus.</li>
+                                </ul>
+
+                            </section><!-- /.o-island -->
 
                         </aside>
 
