@@ -154,6 +154,15 @@ input, textarea, select {
       padding-left: 10px; }
 
 /*------------------------------------*\
+    #ISLAND
+\*------------------------------------*/
+/**
+ * Add a nice gap below a block of content.
+ */
+.o-island {
+  margin-bottom: 60px; }
+
+/*------------------------------------*\
     #LAYOUT
 \*------------------------------------*/
 /**
