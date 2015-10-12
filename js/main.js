@@ -65,40 +65,54 @@ var $body = $('body');
  *
  * @namespace
  * @type {Object}
- *
  * @property {number} timer - Default event timer
- * @property {boolean} eventsLocked - Wether an event called with
+ * @property {boolean} state - Wether an event called with
  * events.detectEvents is currently running.
  */
 var events = {
     timer: 2000,
-    eventsLocked: false,
+    state: false,
+
+    /**
+     * Switch or set the state of events.
+     * @param {boolean} newState If set will set the state to that.
+     */
+    setState: function(newState) {
+        this.state = newState || !this.state;
+    },
+
+    /**
+     * Get the current state
+     * @return {boolean}
+     */
+    getState: function() {
+        return this.state;
+    },
 
     /**
      * Run a function and prevent other functions called with this method from
      * firing until the timeout finishes.
      * @type {function}
-     *
-     * @param {function} functionToRun - Method to run a function if no events
+     * @param {function} cb - Function to call after timeout if no events
      * are happening
      * @param {number=} timer - Optional timer parameter to override default.
      */
-    detectEvents: function(functionToRun, timer) {
+    detectEvents: function(cb, timer) {
 
         var _this = this;
 
         // If no timer is passed use the default
         var _timer = timer || _this.timer;
 
-        if (!_this.eventsLocked) {
+        if (!_this.getState()) {
 
-            _this.eventsLocked = true;
+            _this.setState(true);
 
             setTimeout(function() {
-                _this.eventsLocked = false;
+                _this.setState(false);
             }, _timer);
 
-            functionToRun();
+            cb();
 
         }
 
