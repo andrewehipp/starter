@@ -68,7 +68,7 @@ gulp.task('browser-sync', function() {
 
 gulp.task('scss-lint', function() {
 
-    gulp.src(path.css + '/**/*.scss')
+    gulp.src(PATH.css + '/**/*.scss')
         .pipe($.plumber())
         .pipe($.scssLint({
             'config': './scss-lint.yml'
@@ -83,7 +83,7 @@ gulp.task('scss-lint', function() {
 
 gulp.task('sass', ['scss-lint'], function() {
 
-    return gulp.src(path.css + '/**/*.scss')
+    return gulp.src(PATH.css + '/**/*.scss')
         .pipe($.plumber())
         .pipe($.sourcemaps.init())
         .pipe($.sass({
@@ -94,13 +94,13 @@ gulp.task('sass', ['scss-lint'], function() {
 
         // Inline images as base64 into the css
         .pipe($.inlineBase64({
-            baseDir: path.css,
+            baseDir: PATH.css,
             maxSize: 1024 * 12, // 12kb
             debug: false // Debug output in the console
         }))
         .pipe($.sourcemaps.write())
         .pipe($.autoprefixer('last 2 versions'))
-        .pipe(gulp.dest(path.css))
+        .pipe(gulp.dest(PATH.css))
         .pipe($.browserSync.reload(
             {stream:true}
         ));
@@ -115,13 +115,13 @@ gulp.task('sass', ['scss-lint'], function() {
 gulp.task('css', ['sass'], function(){
 
     gulp.src([
-            path.css + '/normalize.css',
-            path.css + '/global.css'
+            PATH.css + '/normalize.css',
+            PATH.css + '/global.css'
         ])
         .pipe($.plumber())
         .pipe($.concat('production.min.css'))
         .pipe($.minifyCss())
-        .pipe(gulp.dest(path.dist));
+        .pipe(gulp.dest(PATH.dist));
 
 });
 
@@ -135,7 +135,7 @@ gulp.task('css', ['sass'], function(){
 
 gulp.task('lint', function() {
 
-    return gulp.src(path.js + '/main.js')
+    return gulp.src(PATH.js + '/main.js')
         .pipe($.jshint())
         .pipe($.jshint.reporter('jshint-stylish'));
 
@@ -147,7 +147,7 @@ gulp.task('lint', function() {
 
 gulp.task('jscs', ['lint'], function() {
 
-    return gulp.src(path.js + '/main.js')
+    return gulp.src(PATH.js + '/main.js')
         .pipe($.jscs({
             verbose: true
         }));
@@ -161,11 +161,11 @@ gulp.task('jscs', ['lint'], function() {
 
 gulp.task('js', ['jscs'], function(){
 
-    return gulp.src(path.js + '/*.js')
+    return gulp.src(PATH.js + '/*.js')
         .pipe($.plumber())
         .pipe($.concat('production.min.js'))
         .pipe($.uglify())
-        .pipe(gulp.dest(path.dist))
+        .pipe(gulp.dest(PATH.dist))
         .pipe($.browserSync.reload(
             {stream:true}
         ));
@@ -182,7 +182,7 @@ gulp.task('js', ['jscs'], function(){
 
 gulp.task('sassdoc', function() {
 
-    return gulp.src(path.css + '/**/*.scss')
+    return gulp.src(PATH.css + '/**/*.scss')
         .pipe($.sassdoc());
 
 });
@@ -197,11 +197,11 @@ gulp.task('sassdoc', function() {
 
 gulp.task('watch', ['default'], function() {
 
-    $.watch(path.css + '/**/*.scss', function() {
+    $.watch(PATH.css + '/**/*.scss', function() {
         gulp.start('css');
     });
 
-    $.watch(path.js + '/*.js', function() {
+    $.watch(PATH.js + '/*.js', function() {
         gulp.start('js');
     });
 
