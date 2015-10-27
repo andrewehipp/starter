@@ -5,16 +5,17 @@
 // Variables.............Globally-variables
 //
 // TOOLS
-// Functions.............Useful mixins.
+// Functions.............Useful Functions.
 // Mixins................Useful mixins.
 //
 // GENERIC
-// Normalize.............CSS reset.
 // Box-sizing............Better default `box-sizing`.
+// Fonts.................@font-face's.
 //
-// BASE
+// ELEMENTS
 // Page..................The Page.
 // Type..................Typepography.
+// Image.................Image tag.
 // Forms.................Form Elements default styles.
 //
 // OBJECTS
@@ -57,14 +58,16 @@
 // Generic
 //
 @import 'global/g-border-box';
+@import 'global/g-fonts';
 
 
 //
-// Base
+// Elements
 //
-@import 'global/b-page';
-@import 'global/b-type';
-@import 'global/b-forms';
+@import 'global/e-page';
+@import 'global/e-type';
+@import 'global/e-image';
+@import 'global/e-forms';
 
 
 //
@@ -76,7 +79,6 @@
 @import 'global/o-list-inline';
 @import 'global/o-island';
 @import 'global/o-layout';
-// @import 'global/o-flex';
 @import 'global/o-media';
 
 

@@ -1,0 +1,11 @@
+/*------------------------------------*\
+    #IMAGES
+\*------------------------------------*/
+
+/**
+ * [1] remove spacing below inline images.
+ */
+img {
+    vertical-align: middle; // [1]
+    margin: 0 0 spacer(1);
+}
