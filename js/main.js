@@ -61,64 +61,125 @@ var $body = $('body');
 
 
 /**
- * An events object that lets you prevent javascript queuing.
+ * Returns a function, that, as long as it continues to be invoked, will not
+ * be triggered. The function will be called after it stops being called for
+ * N milliseconds.
  *
- * @namespace
- * @type {Object}
- * @property {number} timer - Default event timer
- * @property {boolean} state - Wether an event called with
- * events.detectEvents is currently running.
+ * @param {function} func Function you want debounced
+ * @param {integer} wait Time in ms to wait
+ * @param {boolean} immediate If `immediate` is passed, trigger the function on
+ * the leading edge, instead of the trailing
+ *
+ * @author http://davidwalsh.name/javascript-debounce-function
  */
-var events = {
-    timer: 2000,
-    state: false,
+function debounce(func, wait, immediate) {
 
-    /**
-     * Switch or set the state of events.
-     * @param {boolean} newState If set will set the state to that.
-     */
-    setState: function(newState) {
-        this.state = newState || !this.state;
-    },
+    var timeout;
 
-    /**
-     * Get the current state
-     * @return {boolean}
-     */
-    getState: function() {
-        return this.state;
-    },
+    return function() {
+        var context = this;
+        var args = arguments;
 
-    /**
-     * Run a function and prevent other functions called with this method from
-     * firing until the timeout finishes.
-     * @type {function}
-     * @param {function} cb - Function to call after timeout if no events
-     * are happening
-     * @param {number=} timer - Optional timer parameter to override default.
-     */
-    detectEvents: function(cb, timer) {
+        var later = function() {
+            timeout = null;
+            if (!immediate) {
+                func.apply(context, args);
+            }
+        };
 
-        var _this = this;
+        var callNow = immediate && !timeout;
 
-        // If no timer is passed use the default
-        var _timer = timer || _this.timer;
+        clearTimeout(timeout);
 
-        if (!_this.getState()) {
+        timeout = setTimeout(later, wait);
 
-            _this.setState(true);
-
-            setTimeout(function() {
-                _this.setState(false);
-            }, _timer);
-
-            cb();
-
+        if (callNow) {
+            func.apply(context, args);
         }
 
+    };
+
+}
+
+
+
+
+/**
+ * Returns a function, that, when invoked, will only be triggered at most once
+ * during a given window of time. Normally, the throttled function will run
+ * as much as it can, without ever going more than once per `wait` duration;
+ * but if you'd like to disable the execution on the leading edge, pass
+ * `{leading: false}`. To disable execution on the trailing edge, ditto.
+ */
+throttle = function(func, wait, options) {
+
+    var context, args, result;
+    var timeout = null;
+    var previous = 0;
+
+    if (!options) {
+        options = {};
     }
+
+    var later = function() {
+        previous = options.leading === false ? 0 : getNow();
+        timeout = null;
+        result = func.apply(context, args);
+
+        if (!timeout) {
+            context = args = null;
+        }
+
+    };
+
+    return function() {
+
+        var now = getNow();
+
+        if (!previous && options.leading === false) {
+            previous = now;
+        }
+
+        var remaining = wait - (now - previous);
+        context = this;
+        args = arguments;
+
+        if (remaining <= 0 || remaining > wait) {
+
+            if (timeout) {
+                clearTimeout(timeout);
+                timeout = null;
+            }
+
+            previous = now;
+            result = func.apply(context, args);
+
+            if (!timeout) {
+                context = args = null;
+            }
+
+        } else if (!timeout && options.trailing !== false) {
+            timeout = setTimeout(later, remaining);
+        }
+
+        return result;
+
+    };
+
 };
 
+
+
+
+
+/**
+ * Get current timestamp
+ */
+function getNow() {
+    return Date.now() || function() {
+        return new Date().getTime();
+    }
+}
 
 
 
