@@ -196,7 +196,7 @@
 @function spacer($args...) {
 
     // Limit of 4 args.
-    @if length($args) < 5 {
+    @if length($args) > 5 {
 
         @warn 'Spacer() accepts a maximum of four properties just like `padding` and `margin`';
         @return null;
