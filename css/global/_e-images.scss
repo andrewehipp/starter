@@ -9,3 +9,28 @@ img {
     vertical-align: middle; // [1]
     margin: 0 0 spacer(1);
 }
+
+
+
+
+
+/**
+ * Figure
+ */
+figure {
+    margin: 0 0 spacer(1);
+
+    img {
+        margin-bottom: spacer(0.25);
+    }
+
+}
+
+
+
+
+
+figcaption {
+    font-size: em(12px);
+    font-style: italic;
+}
