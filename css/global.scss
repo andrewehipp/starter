@@ -2,11 +2,27 @@
 // CONTENTS
 //
 // SETTINGS
-// Variables.............Globally-variables
+// Variables.............Global Variables
 //
 // TOOLS
-// Functions.............Useful Functions.
-// Mixins................Useful mixins.
+//
+// Functions
+// Spacer................Spacer Function.
+// Math..................Useful Math Functions.
+// Z Index...............Track z-index on global scale.
+// Timer.................Store and retrieve timers.
+// Color.................Return colors from a map.
+// Em....................Convert to em's.
+//
+// Mixins
+// Media Queries.........Control Media queries from one place.
+// Clearfix..............Clearfix mixin.
+// Hide..................Accessible hide content.
+// Screen Reader Only....Accessible hide text.
+// Font Size.............Control Font Sizes in an easy way.
+// Headings..............Loop through heading tags.
+// Link States...........Assign content to all link states of parent.
+// List Unstyled.........Remove default list styles.
 //
 // GENERIC
 // Box-sizing............Better default `box-sizing`.
@@ -19,15 +35,19 @@
 // Forms.................Form Elements default styles.
 //
 // OBJECTS
+// Wrap..................Wrapping container that hides overflows.
 // Container.............Outer Container.
-// Layout................Rows and Columns as Block and Elements.
 // List Unstyled.........Unstyled list.
 // List Inline...........Inline list.
+// Grid..................Row and Columns.
+// Island................Add space below content.
 // Media.................The Media Object.
 //
 // COMPONENTS
+// Logos.................Robust Logo creation.
+// Form Group............Form group with label, inputs, and messaging.
 // Buttons...............Button elements.
-// Navigation............Main Navigation.
+// Nav...................Main Navigation.
 // Header................The main page header.
 // Footer................The main page footer.
 //
@@ -35,6 +55,7 @@
 // Text Utilities........
 // Image Utilities.......
 // Visibility Utilities..
+// Color Utilities.......
 ///
 
 
@@ -48,10 +69,28 @@
 
 
 //
+// QA
+//
+@import 'global/qa-debug';
+
+
+//
 // Tools
 //
-@import 'global/t-functions';
-@import 'global/t-mixins';
+@import 'global/t-fn-spacer';
+@import 'global/t-fn-math';
+@import 'global/t-fn-timer';
+@import 'global/t-fn-z-index';
+@import 'global/t-fn-color';
+@import 'global/t-fn-em';
+@import 'global/t-mx-media-queries';
+@import 'global/t-mx-clearfix';
+@import 'global/t-mx-hide-text';
+@import 'global/t-mx-sr-only';
+@import 'global/t-mx-font-size';
+@import 'global/t-mx-headings';
+@import 'global/t-mx-link-states';
+@import 'global/t-mx-list-unstyled';
 
 
 //
@@ -78,7 +117,7 @@
 @import 'global/o-list-unstyled';
 @import 'global/o-list-inline';
 @import 'global/o-island';
-@import 'global/o-layout';
+@import 'global/o-grid';
 @import 'global/o-media';
 
 
@@ -98,3 +137,4 @@
 @import 'global/u-text';
 @import 'global/u-images';
 @import 'global/u-visibility';
+@import 'global/u-colors';

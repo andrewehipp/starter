@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<!--[if IE 8]>      <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<html class="no-js" lang="en">
     <head>
 
         <meta charset="utf-8">
-
         <!-- IE: Force to always use the latest version - if chrome frame is installed use this instead -->
         <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-
-        <title>Starter Template</title>
-
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Starter Template</title>
 
         <link rel="icon" href="img/favicon.ico" type="image/x-icon">
         <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-precomposed.png">
@@ -29,7 +26,8 @@
             <header class="c-header" role="banner">
 
                 <section class="o-container">
-                    <h2>Header</h2>
+
+                    <h2 class="c-logo c-logo--sample">Site Name</h2>
 
                     <nav class="c-nav" role="navigation">
                         <ul class="o-list-unstyled c-nav__list">
@@ -46,16 +44,16 @@
 
             <div id="content" class="o-container" role="main">
 
-                <div class="o-layout">
+                <div class="o-grid">
 
-                    <div class="o-layout__item o-layout__item--8@sm">
+                    <div class="o-grid__column o-grid__column--8@md">
 
                         <article role="article" class="o-island">
 
                             <h1>HTML Ipsum Presents</h1>
 
                             <figure>
-                                <img src="http://www.placehold.it/800x300" alt="image" class="u-img-respond">
+                                <img src="http://www.placehold.it/820x460" alt="image" class="u-img-respond">
                                 <figcaption>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. </figcaption>
                             </figure>
 
@@ -89,70 +87,71 @@
 
                                 <h1>Sample Form</h1>
 
-                                <div class="o-layout">
+                                <div class="o-grid">
 
-                                    <div class="o-layout__item o-layout__item--6@sm">
+                                    <div class="o-grid__column o-grid__column--6@md">
 
                                         <div class="c-form-group">
                                             <label for="full-name" class="c-form-group__label">Name</label>
-                                            <input type="text" id="full-name" name="full-name" class="c-form-group__input" aria-describedby="#help-text">
-                                            <p id="help-text" class="c-form-group__help-block c-form-group__validation">Default validation message</p>
+                                            <input type="text" id="full-name" name="full-name" class="c-form-group__input" aria-describedby="#full-name-description">
+                                            <label id="full-name-description" for="full-name" class="c-form-group__help-block c-form-group__validation">Default validation message</label>
                                         </div><!-- /.c-form-group -->
 
                                     </div>
 
-                                    <div class="o-layout__item o-layout__item--6@sm">
+                                    <div class="o-grid__column o-grid__column--6@sm">
 
-                                        <div class="c-form-group">
+                                        <div class="c-form-group has-error">
                                             <label for="email" class="c-form-group__label">Email</label>
-                                            <input type="text" id="email" name="email" class="c-form-group__input">
+                                            <input type="text" id="email" name="email" class="c-form-group__input" aria-describedby="#email-description">
+                                            <label id="email-description" for="email" class="c-form-group__help-block c-form-group__validation">Validation error message</label>
                                         </div><!-- /.c-form-group -->
 
                                     </div>
 
-                                </div><!-- /.o-layout -->
+                                </div><!-- /.o-grid -->
 
-                                <div class="o-layout">
+                                <div class="o-grid">
 
-                                    <div class="o-layout__item o-layout__item--6@sm">
+                                    <div class="o-grid__column o-grid__column--6@sm">
                                         <div class="c-form-group">
                                             <label for="phone-1" class="c-form-group__label">Phone Number</label>
-                                            <div class="o-layout">
-                                                <div class="o-layout__item o-layout__item--4@xs">
+                                            <div class="o-grid">
+                                                <div class="o-grid__column o-grid__column--4@xs">
                                                     <input type="text" id="phone-1" name="phone-1" class="c-form-group__input" maxlength="3">
                                                 </div>
-                                                <div class="o-layout__item o-layout__item--4@xs">
+                                                <div class="o-grid__column o-grid__column--4@xs">
                                                     <input type="text" id="phone-2" name="phone-2" class="c-form-group__input" maxlength="3">
                                                 </div>
-                                                <div class="o-layout__item o-layout__item--4@xs">
+                                                <div class="o-grid__column o-grid__column--4@xs">
                                                     <input type="text" id="phone-3" name="phone-3" class="c-form-group__input" maxlength="4">
                                                 </div>
                                             </div>
                                         </div><!-- /.c-form-group -->
                                     </div>
 
-                                    <div class="o-layout__item o-layout__item--6@sm">
+                                    <div class="o-grid__column o-grid__column--6@sm">
                                         <div class="c-form-group">
-                                            <label for="phone-1" class="c-form-group__label">Phone Number</label>
-                                            <div class="o-layout">
-                                                <div class="o-layout__item">
-                                                    <input type="text" id="phone-1" name="phone-1" class="c-form-group__input c-form-group__input--inline u-text-center" style="width: 50px" maxlength="3"> &ndash;
-                                                    <input type="text" id="phone-2" name="phone-2" class="c-form-group__input c-form-group__input--inline u-text-center" style="width: 50px" maxlength="3"> &ndash;
-                                                    <input type="text" id="phone-3" name="phone-3" class="c-form-group__input c-form-group__input--inline u-text-center" style="width: 55px" maxlength="4">
+                                            <label for="phone-alt-1" class="c-form-group__label">Phone Number</label>
+                                            <div class="o-grid">
+                                                <div class="o-grid__column">
+                                                    <input type="text" id="phone-alt-1" name="phone-1" class="c-form-group__input c-form-group__input--inline u-text-center" style="width: 50px" maxlength="3"> &ndash;
+                                                    <input type="text" id="phone-alt-2" name="phone-2" class="c-form-group__input c-form-group__input--inline u-text-center" style="width: 50px" maxlength="3"> &ndash;
+                                                    <input type="text" id="phone-alt-3" name="phone-3" class="c-form-group__input c-form-group__input--inline u-text-center" style="width: 60px" maxlength="4">
                                                 </div>
                                             </div>
-                                            <p id="help-text" class="c-form-group__help-block">Alternate phone number layout using inline-block element modifier.</p>
+                                            <label id="phone-alt-text" for="phone-alt-1" class="c-form-group__help-block">Alternate phone number layout using inline-block element modifier.</label>
                                         </div><!-- /.c-form-group -->
                                     </div>
 
-                                </div><!-- /.o-layout -->
+                                </div><!-- /.o-grid -->
 
-                                <div class="o-layout">
+                                <div class="o-grid">
 
-                                    <div class="o-layout__item o-layout__item--6@sm">
+                                    <div class="o-grid__column o-grid__column--6@sm">
                                         <div class="c-form-group">
                                             <label for="state" class="c-form-group__label">State</label>
-                                            <select id="state" name="state" class="c-form-group__input" aria-describedby="#help-text-3">
+                                            <select id="state" name="state" class="c-form-group__input">
                                                 <option value="">Choose one...</option>
                                                 <option value="CA">CA</option>
                                                 <option value="MN">MN</option>
@@ -161,11 +160,11 @@
                                         </div>
                                     </div>
 
-                                </div><!-- /.o-layout -->
+                                </div><!-- /.o-grid -->
 
-                                <div class="o-layout">
+                                <div class="o-grid">
 
-                                    <div class="o-layout__item o-layout__item--6@sm">
+                                    <div class="o-grid__column o-grid__column--6@sm">
                                         <div class="c-form-group">
                                             <label for="emails" class="c-form-group__label"><input type="checkbox" id="emails" name="emails" class="c-form-group__input c-form-group__input--inline"> I agree to the <a href="#">Official Rules</a></label>
 
@@ -175,42 +174,45 @@
                                        </div><!-- /.c-form-group -->
 
                                     </div>
-                                </div><!-- /.o-layout -->
+                                </div><!-- /.o-grid -->
 
-                                <div class="o-layout">
+                                <div class="o-grid">
 
-                                    <div class="o-layout__item o-layout__item--6@sm">
+                                    <div class="o-grid__column o-grid__column--6@sm">
 
                                         <div class="c-form-group">
 
                                             <label class="c-form-group__label">Which color?</label>
-                                            <label for="red" class="c-form-group__label"><input type="radio" id="red" name="color" class="c-form-group__input c-form-group__input--inline"> Red</label>
-                                            <label for="blue" class="c-form-group__label"><input type="radio" id="blue" name="color" class="c-form-group__input c-form-group__input--inline"> Blue</label>
-                                            <label for="green" class="c-form-group__label"><input type="radio" id="green" name="color" class="c-form-group__input c-form-group__input--inline"> Green</label>
+
+                                            <ul class="o-list-unstyled">
+                                                <li><label for="red" class="c-form-group__label"><input type="radio" id="red" name="color" class="c-form-group__input c-form-group__input--inline"> Red</label></li>
+                                                <li><label for="blue" class="c-form-group__label"><input type="radio" id="blue" name="color" class="c-form-group__input c-form-group__input--inline"> Blue</label></li>
+                                                <li><label for="green" class="c-form-group__label"><input type="radio" id="green" name="color" class="c-form-group__input c-form-group__input--inline"> Green</label></li>
+                                            </ul>
 
                                        </div><!-- /.c-form-group -->
 
                                         <div class="c-form-group">
-                                            <p id="help-text-3" class="c-form-group__help-block"><span class="u-text-primary">*</span> Optional</p>
+                                            <p class="c-form-group__help-block"><span class="u-text-primary">*</span> Optional</p>
                                        </div><!-- /.c-form-group -->
 
                                     </div>
 
-                                </div><!-- /.o-layout -->
+                                </div><!-- /.o-grid -->
 
-                                <div class="o-layout">
-                                    <div class="o-layout__item o-layout__item--6@sm">
+                                <div class="o-grid">
+                                    <div class="o-grid__column o-grid__column--6@sm">
                                         <input type="submit" class="c-btn c-btn--primary">
                                     </div>
-                                </div><!-- /.o-layout -->
+                                </div><!-- /.o-grid -->
 
                             </form>
 
                         </section><!-- /.o-island -->
 
-                    </div><!-- o-layout__item -->
+                    </div><!-- o-grid__column -->
 
-                    <div class="o-layout__item o-layout__item--4@sm">
+                    <div class="o-grid__column o-grid__column--4@sm">
 
                         <aside role="complementary">
 
@@ -242,9 +244,9 @@
 
                         </aside>
 
-                    </div><!-- o-layout__item -->
+                    </div><!-- o-grid__column -->
 
-                </div><!-- /.o-layout -->
+                </div><!-- /.o-grid -->
 
             </div><!-- /.o-container -->
 

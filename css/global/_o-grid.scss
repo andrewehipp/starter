@@ -1,0 +1,171 @@
+/*------------------------------------*\
+    #LAYOUT
+\*------------------------------------*/
+
+///
+// Grid Configuration
+//
+// [1] Number of columns per grid layout
+// [2] Column gutters, anything additional items other than `default` builds out
+// modifier classes
+// [3] Generate offset modifier classes for layout items that push content to
+// the right as if the set number of columns was to the left of it.
+// [4] Generate source ordering modifier classes for layout items so you can
+// swap the stacking on mobile verses desktop.
+///
+
+$grid-config: (
+    'columns':       12,
+    'gutters': (
+        'default':   30px
+    ),
+    'offsets':       false,
+    'push-and-pull': false
+);
+
+
+// Store $grid-config map as variables...
+$grid-gutters:            map-get($grid-config, 'gutters');
+$grid-gutters-default:    map-get($grid-gutters, 'default');
+$grid-columns:            map-get($grid-config, 'columns');
+$grid-offsets:            map-get($grid-config, 'offsets');
+$grid-push-and-pull:      map-get($grid-config, 'push-and-pull');
+
+
+
+
+
+/**
+ * Layout row
+ *
+ * [1] Additional modifier classes for layout gutters.
+ */
+.o-grid {
+    @include clearfix;
+    margin-right: neg(halve($grid-gutters-default));
+    margin-left:  neg(halve($grid-gutters-default));
+}
+
+// [1]
+@each $grid-gutter, $grid-gutter-value in $grid-gutters {
+
+    // Skip the default value.
+    @if ($grid-gutter != 'default') {
+
+        .o-grid--#{$grid-gutter} {
+            margin-right:  neg(halve($grid-gutter-value));
+            margin-left:   neg(halve($grid-gutter-value));
+        }
+
+    }
+
+}
+
+
+
+
+
+/**
+ * A layout item, used like a column
+ *
+ * [1] Additional modifier classes for layout gutters.
+ */
+.o-grid__column {
+    position: relative;
+    padding-right:  halve($grid-gutters-default);
+    padding-left:   halve($grid-gutters-default);
+    width: 100%;
+    min-height: 1px;
+    float: left;
+
+    // [1]
+    @each $grid-gutter, $grid-gutter-value in $grid-gutters {
+
+        // Skip the default value.
+        @if ($grid-gutter != 'default') {
+
+            .o-grid--#{$grid-gutter} > & {
+                padding-right:  halve($grid-gutter-value);
+                padding-left:   halve($grid-gutter-value);
+            }
+
+        }
+
+    }
+
+}
+
+
+
+
+
+/**
+ * Layout Columns
+ */
+@for $grid-item-span from 1 through $grid-columns {
+
+    .o-grid__column--#{$grid-item-span} {
+
+        @include loop-breakpoints() {
+            width: (100% / $grid-columns) * $grid-item-span;
+        }
+
+    }
+
+}
+
+
+
+
+
+// Conditionally output layout offsets.
+@if $grid-offsets {
+
+    /**
+     * Offset modifiers for layout items.
+     */
+    @for $grid-item-span from 1 through $grid-columns {
+
+        .o-grid__column--offset-#{$grid-item-span} {
+
+            @include loop-breakpoints() {
+                margin-left: (100% / $grid-columns) * $grid-item-span;
+            }
+
+        }
+
+    }
+
+}
+
+
+
+
+
+// Conditionally output layout source ordering.
+@if $grid-push-and-pull {
+
+    /**
+     * Push and Pull modifiers for layout items.
+     */
+    @for $grid-item-span from 1 through $grid-columns {
+
+        .o-grid__column--push-#{$grid-item-span} {
+
+            @include loop-breakpoints() {
+                left: (100% / $grid-columns) * $grid-item-span;
+            }
+
+        }
+
+        .o-grid__column--pull-#{$grid-item-span} {
+
+            @include loop-breakpoints() {
+                left: neg((100% / $grid-columns) * $grid-item-span);
+            }
+
+        }
+
+    }
+
+}

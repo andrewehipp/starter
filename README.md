@@ -1,16 +1,16 @@
-#Starter
+# Starter
 
-###Dependencies
+### Dependencies
 
 ##### [Node.js](https://nodejs.org/)
 
 Download and install [node.js](https://nodejs.org/) which will include [Node Package Manager](https://www.npmjs.com/).
 
-#####[Gulp](http://gulpjs.com)
+##### [Gulp](http://gulpjs.com)
 
     npm install --global gulp
 
-#####[SCSS linting](https://github.com/brigade/scss-lint)
+##### [SCSS linting](https://github.com/brigade/scss-lint)
 
     gem install scss-lint` to install the gem
 
@@ -22,7 +22,7 @@ Download and install [node.js](https://nodejs.org/) which will include [Node Pac
 
 ----
 
-###Gulp
+### Gulp
 
 Gulp must be running to complete certain operations like sass compilation and building production files.
 
@@ -30,7 +30,7 @@ Gulp must be running to complete certain operations like sass compilation and bu
 
 See `gulpfile.js` for a list of all the tasks available.
 
-#####Important Node Packages
+##### Important Node Packages
 
 *   [BrowserSync](http://www.browsersync.io/docs/gulp/) - Time-saving synchronised browser testing.
 *   [SassDoc for gulp](http://sassdoc.com/gulp/) - Node generated sass & scss documentation.
@@ -39,7 +39,7 @@ See `gulpfile.js` for a list of all the tasks available.
 
 ----
 
-###Editor Config
+### Editor Config
 
 Editor config attempts to standardize the way our code editors format code. In order to read the .editorconfig file, you
 will need to install a plugin or extension for you editor of choice.

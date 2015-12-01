@@ -1,0 +1,194 @@
+///
+/// MEDIA QUERIES
+///
+
+
+///
+// Breakpoints
+///
+$breakpoints: (
+    'xs':      480px,
+    'sm':      768px,
+    'md':     1024px,
+    'lg':     1200px,
+    'xl':     1500px,
+
+    'short':   480px vertical,
+    'medium':  768px vertical,
+    'tall':   1024px vertical
+);
+
+
+
+
+
+// Container for generated media queries based of those listed in $breakpoints
+$breakpoints-layout-config: ();
+
+
+// Extended breakpoints for generating utility classes. Includes some defaults.
+$breakpoints-extended-config: (
+    'screen':   'screen',
+    'print':    'print',
+    'high-res': '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)'
+);
+
+
+// Get the keys for the breakpoints.
+$breakpoint-keys: map-keys($breakpoints);
+
+// Get a list of the breakpoints properties.
+$breakpoint-props: map-values($breakpoints);
+
+@each $breakpoint in $breakpoint-keys {
+
+    // Index of position in list
+    $index: index($breakpoint-keys, $breakpoint);
+
+    // Properties of the current breakpoint
+    $props: nth($breakpoint-props, $index);
+
+    // The size should be the first one.
+    $size: nth($props, 1);
+
+    // Assume a width
+    $direction: 'width';
+
+    // Loop through and check id the breakpoint has a vertical property.
+    @each $item in $props {
+        @if($item == vertical) {
+
+            // If so change to height
+            $direction: 'height';
+        }
+    }
+
+    // Add this breakpoint to the layout breakpoints
+    @if $direction == 'width' {
+        $breakpoints-layout-config: map-merge($breakpoints-layout-config, ('#{$breakpoint}': '(min-#{$direction}: #{$size})'));
+    }
+
+    // Generate Extended sizes
+    $breakpoint-min: ('#{$breakpoint}': '(min-#{$direction}: #{$size})');
+    $breakpoint-less-than: ('less-than-#{$breakpoint}': '(max-#{$direction}: #{$size - 1})');
+
+    // Add the generated sizes to the extended config map.
+    $breakpoints-extended-config: map-merge($breakpoints-extended-config, $breakpoint-min);
+    $breakpoints-extended-config: map-merge($breakpoints-extended-config, $breakpoint-less-than);
+
+    @if $index < length($breakpoint-keys) {
+
+        $next-props: nth($breakpoint-props, $index + 1);
+        $next-size: nth($next-props, 1);
+
+        $next-direction: 'width';
+
+        @each $item in $next-props {
+            @if($item == vertical) {
+                $next-direction: 'height';
+            }
+        }
+
+        // Check to make sure this direction matches the next item's direction.
+        // We don't want to mix vertical and horizontal
+        @if $direction == $next-direction {
+
+            $breakpoint-only: (
+                '#{$breakpoint}-only': 'screen and (min-#{$direction}: #{$size}) and (max-#{$direction}: #{$next-size - 1})'
+            );
+
+            $breakpoints-extended-config: map-merge($breakpoints-extended-config, $breakpoint-only);
+
+        }
+
+    }
+
+}
+
+
+
+
+
+///
+/// Media Queries
+///
+/// @param {string} $name - $key to use from $breakpoints-extended-config
+///
+/// @require {variable} $breakpoints-extended-config
+///
+@mixin media($name) {
+
+    @if map-has-key($breakpoints-extended-config, $name) {
+        @media #{map-get($breakpoints-extended-config, $name)} {
+            @content;
+        }
+    } @else {
+        @warn 'Couldn\'t find a breakpoint named `#{$name}`.';
+    }
+
+}
+
+
+
+
+
+///
+// Alias the media mixin.
+///
+@mixin breakpoint($args...) {
+
+    @warn '`@include breakpoint()` and `@include bp()` is depricated and will be removed. Please use @media';
+
+    @include media($args...) {
+        @content;
+    }
+
+}
+
+
+@mixin bp($args...) {
+    @include breakpoint($args...) {
+        @content;
+    }
+}
+
+
+@mixin mq($args...) {
+    @include media($args...) {
+        @content;
+    }
+}
+
+
+
+
+///
+/// Loop through the breakpoints (layout/extended), output the parent scope and
+/// nest the content in each media query. The mixin must be nested in the class
+/// you wish to generate all the breakpoint modifiers for.
+///
+/// @param {boolean} $extended - Should the mixin use the
+/// $breakpoints-extended-config
+///
+@mixin loop-breakpoints($extended: false) {
+
+    // Output a non-namespaced version. So we don't have to repeat ourselves.
+    & {
+        @content;
+    }
+
+    // Check which breakpoint config we're using.
+    $loop-breakpoints-config: if($extended, $breakpoints-extended-config, $breakpoints-layout-config);
+
+    // Loop through the breakpoints.
+    @each $breakpoint, $media-querie in $loop-breakpoints-config {
+
+        // Append the `@breakpoint` namespace
+        &\@#{$breakpoint} {
+            @include media($breakpoint) {
+                @content;
+            }
+        }
+    }
+
+}

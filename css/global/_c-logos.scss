@@ -13,15 +13,15 @@
 // OR
 // responsive: (width, height, 'image-url', (
 //                 'breakpoint': (width, height),
-//                 'breakpoint-2': (width, height, 'image-url')
+//                 'breakpoint-2': (width, height, '../img/image.png')
 //             ))
 //
 
 
 $logos-config: (
-    'sample': (39px, 52px, '../img/logo-sample.jpg'),
-    'responsive': (236px, 118px, '../img/logo-responsive.png', (
-        'sm': (118px, 59px)
+    'sample': (150px, 75px, 'http://www.placehold.it/150x75?text=Logo'),
+    'responsive': (250px, 120px, 'http://www.placehold.it/250x120?text=Logo', (
+        'sm': (125px, 60px)
     ))
 );
 
@@ -72,14 +72,14 @@ $logos-config: (
                 $breakpoint-width:      nth($logo-breakpoint-config, 1);
                 $breakpoint-height:     nth($logo-breakpoint-config, 2);
 
-                @include breakpoint(#{$logo-breakpoint}) {
+                @include media(#{$logo-breakpoint}) {
                     width:  $breakpoint-width;
                     height: $breakpoint-height;
 
                     // Check if an optional image size is provided for this
                     // breakpoint.
                     @if length($logo-breakpoint-config) == 3 {
-                        $url:    nth($logo-breakpoint-config, 3);
+                        $url: nth($logo-breakpoint-config, 3);
 
                         background-image: url($url);
                     }

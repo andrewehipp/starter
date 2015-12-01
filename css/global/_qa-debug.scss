@@ -1,0 +1,96 @@
+///
+/// DEBUG
+///
+
+// Make sure we have a way to turn debugging on/off.
+$debug: true;
+
+@if ($debug) {
+
+    // List of selectors that we’re deprecating (and their replacements, if any).
+    // Example $deprecated-selectors: (
+    //     '.foo': null,
+    //     '.error': '.has-error'
+    // );
+
+    $deprecated-selectors: (
+        '.o-layout': '.o-grid',
+        '.o-layout__item': '.o-grid__column'
+    );
+
+    // Create a placeholder to DRY out any of our shared styles.
+    %deprecated-selectors-shared-styles {
+        position: relative;
+        outline: 1px solid #f00;
+
+        &:after {
+            width: 100%;
+            padding: 5px 10px;
+            font-size: 14px;
+            line-height: 1.2;
+            background: #f00;
+            outline: 1px solid #f00;
+            color: #fff;
+            position: absolute;
+            left: 0;
+            bottom: 100%;
+        }
+
+    }
+
+    @each $selector, $replacement in $deprecated-selectors {
+
+        #{$selector} {
+
+            // Share the cosmetic styles rather than repeat them per selector.
+            @extend %deprecated-selectors-shared-styles;
+
+            &:after {
+                @if ($replacement != null) {
+                    /**
+                     * If we have a replacement selector, tell people what it is.
+                     */
+                    content: 'Warning: Selector `#{$selector}` is deprecated, use `#{$replacement}` instead.';
+                } @else {
+                    /**
+                     * If we have no replacement, just tell people to stop using the
+                     * selector.
+                     */
+                    content: 'Warning: Selector `#{$selector}` is deprecated.';
+                }
+            }
+        }
+
+    }
+
+
+
+
+
+    /**
+     * If an element has a class attribute containing two hyphens but no space
+     * (i.e. only one class is being used, and it’s a Modifier), provide visual
+     * feedback in the DOM.
+     *
+     * N.B. This isn’t bulletproof: `class="foo--bar baz"` would pass, as would
+     * `class=" foo--bar"`. Use with a pinch of salt.
+     */
+    [class*="--"]:not([class*=" "]) {
+        position: relative;
+        outline: 1px solid #f00;
+
+        &:after {
+            content: 'Error: Cannot have a Modifier (i.e. `.' attr(class) '`) without a Block.';
+            background: #fff;
+            color: #f00;
+            font-family: monospace;
+            white-space: nowrap;
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+        }
+
+    }
+
+
+}

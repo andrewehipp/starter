@@ -6,19 +6,9 @@
  * Visibility classes for all breakpoints
  */
 .u-hidden {
-    display: none;
-}
 
-// Generate visibility classes at different breakpoints.
-// Switch to $breakpoints-extended-config for max width versions.
-@each $breakpoint, $media-querie in $breakpoints-layout-config {
-
-    .u-hidden\@#{$breakpoint} {
-
-        @include breakpoint($breakpoint) {
-            display: none;
-        }
-
+    @include loop-breakpoints() {
+        display: none;
     }
 
 }
@@ -31,5 +21,5 @@
  * Screen Readers only
  */
 .u-sr-only {
-    @include hide();
+    @include sr-only();
 }

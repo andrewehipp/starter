@@ -12,32 +12,32 @@
  */
 @include headings() {
     margin: 0 0 spacer(1);
-    line-height: base('line-height');
+    line-height: $base-line-height;
 }
 
 
-h1, .u-h1 {
-    font-size: em(36px);
+h1 {
+    @include font-size('h1');
 }
 
-h2, .u-h2 {
-    font-size: em(30px);
+h2 {
+    @include font-size('h2');
 }
 
-h3, .u-h3 {
-    font-size: em(24px);
+h3 {
+    @include font-size('h3');
 }
 
-h4, .u-h4 {
-    font-size: em(18px);
+h4 {
+    @include font-size('h4');
 }
 
-h5, .u-h5 {
-    font-size: em(14px);
+h5 {
+    @include font-size('h5');
 }
 
-h6, .u-h6 {
-    font-size: em(12px);
+h6 {
+    @include font-size('h6');
 }
 
 
@@ -90,6 +90,6 @@ a {
  */
 hr {
     margin: 0 0 spacer(1);
-    border: solid color('grey-25');
+    border: solid color('grey', '25');
     border-width: 0 0 1px;
 }

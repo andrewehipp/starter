@@ -1,0 +1,48 @@
+///
+// Z-index Map for @function z();
+///
+$z-index: (
+    'lightbox':     1000
+);
+
+
+
+
+
+///
+/// Retrieve z-index value from sass map $z-index
+///
+/// @param {string} $element - Element to return z-index value from $z-index.
+///
+/// @require {variable} $z-index
+///
+/// @ignore
+/// [1] Check if $element exists in $z-index.
+/// [2] If not pass an error.
+///
+@function z-index($element) {
+
+    // [1]
+    @if map-has-key($z-index, $element) {
+
+        @return map-get($z-index, $element);
+
+    } @else {
+
+        @warn "`#{$element}` does not have a value set in `#{$z-index}`. (Keys: #{map-keys($z-index)})"; // [2]
+        @return null;
+
+    }
+
+}
+
+
+
+
+
+///
+// Alias for z-index()
+///
+@function z($args...) {
+    @return z-index($args);
+}

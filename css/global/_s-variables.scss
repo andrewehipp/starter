@@ -6,20 +6,38 @@
 ///
 // Base global defaults
 ///
+$base-color:        #000;
+$base-font-family:  sans-serif;
+$base-font-size:    14px;
+$base-line-height:  1.5;
 
-$base-config: (
-    'color':        #000,
-    'font-family':  sans-serif,
-    'font-size':    14px,
-    'line-height':  1.5
+
+
+
+
+///
+// Font sizes
+///
+$font-sizes: (
+    'h1': (
+        'default': 22px,
+        'sm':      36px
+    ),
+    'h2': (
+        'default': 20px,
+        'sm':      30px
+    ),
+    'h3': (
+        'default': 18px,
+        'sm':      24px
+    ),
+    'h4': (
+        'default': 16px,
+        'sm':      18px
+    ),
+    'h5': 14px,
+    'h6': 12px
 );
-
-
-
-
-
-/// Generic spacing unit
-$spacing-unit:      20px;
 
 
 
@@ -28,14 +46,16 @@ $spacing-unit:      20px;
 ///
 // Colors
 ///
-
 $colors: (
     'body':         #333,
     'headings':     #00587d,
-    'grey-25':      #bfbfbf,
-    'grey-50':      #7f7f7f,
     'primary':      #337ab7,
-    'link':         'primary'
+    'link':         #337ab7,
+    'grey': (
+        'default':  #7f7f7f,
+        '25':       #bfbfbf,
+        '75':       #474747
+    )
 );
 
 
@@ -45,122 +65,9 @@ $colors: (
 ///
 // Social Network's brand colors (just nice to have)
 ///
-
 $social-networks: (
     'facebook':     #0e639e,
     'twitter':      #44c1ed,
     'pinterest':    #f00,
     'youtube':      #c90909
-);
-
-
-
-///
-// Breakpoints
-///
-
-$breakpoints: (
-    'xs':      480px,
-    'sm':      768px,
-    'md':     1024px,
-    'lg':     1200px,
-    'xl':     1500px,
-
-    'short':   480px vertical,
-    'medium':  768px vertical,
-    'tall':   1024px vertical
-);
-
-
-// Container for generated media queries based of those listed in $breakpoints
-$breakpoints-layout-config: ();
-
-// Extended breakpoints for generating utility classes. Includes some defaults.
-$breakpoints-extended-config: (
-    'screen':   'screen',
-    'print':    'print',
-    'high-res': '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)'
-);
-
-
-// Get the keys for the breakpoints.
-$breakpoint-keys: map-keys($breakpoints);
-
-// Get a list of the breakpoints properties.
-$breakpoint-props: map-values($breakpoints);
-
-@each $breakpoint in $breakpoint-keys {
-
-    // Index of position in list
-    $index: index($breakpoint-keys, $breakpoint);
-
-    // Properties of the current breakpoint
-    $props: nth($breakpoint-props, $index);
-
-    // The size should be the first one.
-    $size: nth($props, 1);
-
-    // Assume a width
-    $direction: 'width';
-
-    // Loop through and check id the breakpoint has a vertical property.
-    @each $item in $props {
-        @if($item == vertical) {
-
-            // If so change to height
-            $direction: 'height';
-        }
-    }
-
-    // Add this breakpoint to the layout breakpoints
-    @if $direction == 'width' {
-        $breakpoints-layout-config: map-merge($breakpoints-layout-config, ('#{$breakpoint}': '(min-#{$direction}: #{$size})'));
-    }
-
-    // Generate Extended sizes
-    $breakpoint-min: ('#{$breakpoint}': '(min-#{$direction}: #{$size})');
-    $breakpoint-less-than: ('less-than-#{$breakpoint}': '(max-#{$direction}: #{$size - 1})');
-
-    // Add the generated sizes to the extended config map.
-    $breakpoints-extended-config: map-merge($breakpoints-extended-config, $breakpoint-min);
-    $breakpoints-extended-config: map-merge($breakpoints-extended-config, $breakpoint-less-than);
-
-    @if $index < length($breakpoint-keys) {
-
-        $next-props: nth($breakpoint-props, $index + 1);
-        $next-size: nth($next-props, 1);
-
-        $next-direction: 'width';
-
-        @each $item in $next-props {
-            @if($item == vertical) {
-                $next-direction: 'height';
-            }
-        }
-
-        // Check to make sure this direction matches the next item's direction.
-        // We don't want to mix vertical and horizontal
-        @if $direction == $next-direction {
-
-            $breakpoint-only: (
-                '#{$breakpoint}-only': 'screen and (min-#{$direction}: #{$size}) and (max-#{$direction}: #{$next-size - 1})'
-            );
-
-            $breakpoints-extended-config: map-merge($breakpoints-extended-config, $breakpoint-only);
-
-        }
-
-    }
-
-}
-
-
-
-
-
-///
-// Z-index Map for @function z();
-///
-$z-index: (
-    'lightbox':     1000
 );
