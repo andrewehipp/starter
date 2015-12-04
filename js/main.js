@@ -1,14 +1,14 @@
 /**
  * Avoid `console` errors in browsers that lack a console.
  */
-(function() {
+(function () {
 
     // Placeholder for assigning the tested method.
     var method;
 
     // An empty function. If the browser doesn't have support for a console
     // method reference this empty one.
-    var noop = function() {};
+    var noop = function () {};
 
     // Array of methods to test for.
     var methods = [
@@ -76,11 +76,11 @@ function debounce(func, wait, immediate) {
 
     var timeout;
 
-    return function() {
+    return function () {
         var context = this;
         var args = arguments;
 
-        var later = function() {
+        var later = function () {
             timeout = null;
             if (!immediate) {
                 func.apply(context, args);
@@ -111,9 +111,11 @@ function debounce(func, wait, immediate) {
  * but if you'd like to disable the execution on the leading edge, pass
  * `{leading: false}`. To disable execution on the trailing edge, ditto.
  */
-throttle = function(func, wait, options) {
+throttle = function (func, wait, options) {
 
-    var context, args, result;
+    var context;
+    var args;
+    var result;
     var timeout = null;
     var previous = 0;
 
@@ -121,7 +123,7 @@ throttle = function(func, wait, options) {
         options = {};
     }
 
-    var later = function() {
+    var later = function () {
         previous = options.leading === false ? 0 : getNow();
         timeout = null;
         result = func.apply(context, args);
@@ -132,7 +134,7 @@ throttle = function(func, wait, options) {
 
     };
 
-    return function() {
+    return function () {
 
         var now = getNow();
 
@@ -176,9 +178,9 @@ throttle = function(func, wait, options) {
  * Get current timestamp
  */
 function getNow() {
-    return Date.now() || function() {
+    return Date.now() || function () {
         return new Date().getTime();
-    }
+    };
 }
 
 
@@ -190,7 +192,7 @@ function getNow() {
  *
  * @namespace
  */
-$(document.body).on('click', '.js-toggle-active', function(e) {
+$(document.body).on('click', '.js-toggle-active', function (e) {
 
     e.preventDefault();
 

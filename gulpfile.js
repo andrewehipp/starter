@@ -71,7 +71,7 @@ gulp.task('scss-lint', function() {
     gulp.src(PATH.css + '/**/*.scss')
         .pipe($.plumber())
         .pipe($.scssLint({
-            'config': './scss-lint.yml'
+            'config': './.scss-lint.yml'
         }))
 
 });
@@ -136,6 +136,7 @@ gulp.task('css', ['sass'], function(){
 gulp.task('lint', function() {
 
     return gulp.src(PATH.js + '/main.js')
+        .pipe($.plumber())
         .pipe($.jshint())
         .pipe($.jshint.reporter('jshint-stylish'));
 
@@ -148,9 +149,8 @@ gulp.task('lint', function() {
 gulp.task('jscs', ['lint'], function() {
 
     return gulp.src(PATH.js + '/main.js')
-        .pipe($.jscs({
-            verbose: true
-        }));
+        .pipe($.jscs())
+        .pipe($.jscs.reporter());
 
 });
 
