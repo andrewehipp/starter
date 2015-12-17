@@ -6,7 +6,7 @@
 // Grid Configuration
 //
 // [1] Number of columns per grid layout
-// [2] Column gutters, anything additional items other than `default` builds out
+// [2] Column gutters, anything additional items other than `initial` builds out
 // modifier classes
 // [3] Generate offset modifier classes for layout items that push content to
 // the right as if the set number of columns was to the left of it.
@@ -17,7 +17,7 @@
 $grid-config: (
     'columns':       12,
     'gutters': (
-        'default':   30px
+        'initial':   30px
     ),
     'offsets':       false,
     'push-and-pull': false
@@ -26,7 +26,7 @@ $grid-config: (
 
 // Store $grid-config map as variables...
 $grid-gutters:            map-get($grid-config, 'gutters');
-$grid-gutters-default:    map-get($grid-gutters, 'default');
+$grid-gutters-initial:    map-get($grid-gutters, 'initial');
 $grid-columns:            map-get($grid-config, 'columns');
 $grid-offsets:            map-get($grid-config, 'offsets');
 $grid-push-and-pull:      map-get($grid-config, 'push-and-pull');
@@ -42,15 +42,15 @@ $grid-push-and-pull:      map-get($grid-config, 'push-and-pull');
  */
 .o-grid {
     @include clearfix;
-    margin-right: neg(halve($grid-gutters-default));
-    margin-left:  neg(halve($grid-gutters-default));
+    margin-right: neg(halve($grid-gutters-initial));
+    margin-left:  neg(halve($grid-gutters-initial));
 }
 
 // [1]
 @each $grid-gutter, $grid-gutter-value in $grid-gutters {
 
-    // Skip the default value.
-    @if ($grid-gutter != 'default') {
+    // Skip the initial value.
+    @if ($grid-gutter != 'initial') {
 
         .o-grid--#{$grid-gutter} {
             margin-right:  neg(halve($grid-gutter-value));
@@ -72,8 +72,8 @@ $grid-push-and-pull:      map-get($grid-config, 'push-and-pull');
  */
 .o-grid__column {
     position: relative;
-    padding-right:  halve($grid-gutters-default);
-    padding-left:   halve($grid-gutters-default);
+    padding-right:  halve($grid-gutters-initial);
+    padding-left:   halve($grid-gutters-initial);
     width: 100%;
     min-height: 1px;
     float: left;
@@ -81,8 +81,8 @@ $grid-push-and-pull:      map-get($grid-config, 'push-and-pull');
     // [1]
     @each $grid-gutter, $grid-gutter-value in $grid-gutters {
 
-        // Skip the default value.
-        @if ($grid-gutter != 'default') {
+        // Skip the initial value.
+        @if ($grid-gutter != 'initial') {
 
             .o-grid--#{$grid-gutter} > & {
                 padding-right:  halve($grid-gutter-value);
