@@ -4,25 +4,24 @@
 
 //
 // Map of logos, good for building out several at a time by passing a list of
-// properties to this configuration map. They have a single base size and can
-// get additional sizes based on provided breakpoints.
-//
-// EXAMPLE
-// simple: (width, height, 'url')
-//
-// OR
-// responsive: (width, height, 'image-url', (
-//                 'breakpoint': (width, height),
-//                 'breakpoint-2': (width, height, '../img/image.png')
-//             ))
-//
-
-
+// properties to this configuration map. They have a single initial size and
+// can set additional sizes based on provided breakpoints and scales.
 $logos-config: (
-    'sample': (150px, 75px, 'http://www.placehold.it/150x75?text=Logo'),
-    'responsive': (250px, 120px, 'http://www.placehold.it/250x120?text=Logo', (
-        'sm': (125px, 60px)
-    ))
+    'sample': (
+        'width': 150px,
+        'height': 75px,
+        'url': 'http://satyr.io/150x75?text=Logo'
+    ),
+    'responsive': (
+        'width':  250px,
+        'height': 150px,
+        'url': 'http://satyr.io/250x150?text=Logo',
+        'breakpoints': (
+            'initial': 0.4,
+            'sm':      0.75,
+            'md':      1
+        )
+    )
 );
 
 
@@ -49,39 +48,31 @@ $logos-config: (
 //
 @each $logo, $logo-config in $logos-config {
 
+    // Logo's properties
+    $logo-width:  map-get($logo-config, 'width');
+    $logo-height: map-get($logo-config, 'height');
+    $logo-url:    map-get($logo-config, 'url');
+
+    // Does the logo have a breakpoints map
+    $logo-breakpoints-config: if(map-has-key($logo-config, 'breakpoints'), map-get($logo-config, 'breakpoints'), false);
+
+    $logo-scale-initial: if($logo-breakpoints-config, map-get($logo-breakpoints-config, 'initial'), 1);
+
     .c-logo--#{$logo} {
-
-        // Logo's properties
-        $width:  nth($logo-config, 1);
-        $height: nth($logo-config, 2);
-        $url:    nth($logo-config, 3);
-
-        width:  $width;
-        height: $height;
-        background-image: url($url);
+        width:  $logo-width * $logo-scale-initial;
+        height: $logo-height * $logo-scale-initial;
+        background-image: url($logo-url);
 
         // Check is a breakpoints list is provided
-        @if length($logo-config) == 4 {
+        @if $logo-breakpoints-config {
 
-            // logo's breakpoints list
-            $logo-breakpoints-config: nth($logo-config, 4);
+            @each $logo-breakpoint, $logo-scale-breakpoint in $logo-breakpoints-config {
 
-            @each $logo-breakpoint, $logo-breakpoint-config in $logo-breakpoints-config {
+                @if $logo-breakpoint != 'initial' {
 
-                // Logo's properties at this breakpoint
-                $breakpoint-width:      nth($logo-breakpoint-config, 1);
-                $breakpoint-height:     nth($logo-breakpoint-config, 2);
-
-                @include media(#{$logo-breakpoint}) {
-                    width:  $breakpoint-width;
-                    height: $breakpoint-height;
-
-                    // Check if an optional image size is provided for this
-                    // breakpoint.
-                    @if length($logo-breakpoint-config) == 3 {
-                        $url: nth($logo-breakpoint-config, 3);
-
-                        background-image: url($url);
+                    @include media(#{$logo-breakpoint}) {
+                        width:  round($logo-width * $logo-scale-breakpoint);
+                        height: round($logo-height * $logo-scale-breakpoint);
                     }
 
                 }
