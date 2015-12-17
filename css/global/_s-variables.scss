@@ -15,10 +15,17 @@ $base-line-height:  1.5;
 
 
 
+/// Generic spacing unit
+$spacing-unit:      20px;
+
+
+
+
+
 ///
 // Font sizes
 ///
-$font-sizes: (
+$font-size-config: (
     'h1': (
         'initial': 22px,
         'sm':      36px
@@ -46,7 +53,7 @@ $font-sizes: (
 ///
 // Colors
 ///
-$colors: (
+$color-config: (
     'body':         #333,
     'headings':     #00587d,
     'primary':      #337ab7,
@@ -63,11 +70,40 @@ $colors: (
 
 
 ///
-// Social Network's brand colors (just nice to have)
+// Timer Map for @function timer();
 ///
-$social-networks: (
-    'facebook':     #0e639e,
-    'twitter':      #44c1ed,
-    'pinterest':    #f00,
-    'youtube':      #c90909
+$timer-config: (
+    'normal':   0.4s,
+    'slow':    0.75s,
+    'fast':    0.15s
+);
+
+
+
+
+
+///
+// Z-index Map for @function z();
+///
+$z-index-config: (
+    'example':   1000
+);
+
+
+
+
+
+///
+// Breakpoints
+///
+$breakpoints: (
+    'xs':      480px,
+    'sm':      768px,
+    'md':     1024px,
+    'lg':     1200px,
+    'xl':     1500px,
+
+    'short':   480px vertical,
+    'medium':  768px vertical,
+    'tall':   1024px vertical
 );

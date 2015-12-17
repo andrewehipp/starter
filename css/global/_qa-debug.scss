@@ -1,11 +1,7 @@
 ///
 /// DEBUG
 ///
-
-// Make sure we have a way to turn debugging on/off.
-$debug: true;
-
-@if ($debug) {
+@if (true) {
 
     // List of selectors that we’re deprecating (and their replacements, if any).
     // Example $deprecated-selectors: (

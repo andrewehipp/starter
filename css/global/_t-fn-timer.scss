@@ -1,17 +1,4 @@
 ///
-// Timer Map for @function timer();
-///
-$timers: (
-    'default':  0.4s,
-    'slow':    0.75s,
-    'fast':    0.15s
-);
-
-
-
-
-
-///
 /// Retrieve timer value from sass map $timer
 ///
 /// @param {string} $name - return timer value from $timer.
@@ -25,13 +12,13 @@ $timers: (
 @function timer($name) {
 
     // [1]
-    @if map-has-key($timers, $name) {
+    @if map-has-key($timer-config, $name) {
 
-        @return map-get($timers, $name);
+        @return map-get($timer-config, $name);
 
     } @else {
 
-        @warn "`#{$name}` does not have a value set in `#{$timers}`. (Keys: #{map-keys($timers)})"; // [2]
+        @warn "`#{$name}` does not have a value set in `#{$timer-config}`. (Keys: #{map-keys($timer-config)})"; // [2]
         @return null;
 
     }

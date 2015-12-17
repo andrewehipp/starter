@@ -1,24 +1,24 @@
 ///
 // Font Sizes
-// @param  {string} $size Name of a font size set in $font-sizes.
+// @param  {string} $size Name of a font size set in $font-size-config.
 ///
 @mixin font-size($size) {
 
-    @if map-has-key($font-sizes, $size) {
+    @if map-has-key($font-size-config, $size) {
 
-        $font-size: map-get($font-sizes, $size);
+        $font-size: map-get($font-size-config, $size);
 
         @if type-of($font-size) == 'number' {
 
-            font-size: em(map-get($font-sizes, $size));
+            font-size: em(map-get($font-size-config, $size));
 
         } @elseif type-of($font-size) == 'map' {
 
-            font-size: em(map-get($font-size, 'default'));
+            font-size: em(map-get($font-size, 'initial'));
 
             @each $key, $value in $font-size {
 
-                @if $key != 'default' {
+                @if $key != 'initial' {
 
                     @include media(#{$key}) {
 
@@ -39,7 +39,7 @@
 
     } @else {
 
-        @warn "`#{$size}` does not have a value set in $font-sizes. (#{map-keys($font-sizes)})";
+        @warn "`#{$size}` does not have a value set in $font-size-config. (#{map-keys($font-size-config)})";
         @return null;
 
     }

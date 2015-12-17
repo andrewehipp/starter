@@ -197,14 +197,14 @@ $(document.body).on('click', '.js-toggle-active', function (e) {
     e.preventDefault();
 
     // Store $this as clicked
-    var _this =  $(this); // [1]
+    var $this =  $(this); // [1]
 
     // Check if data-target is set, and store it as _data
-    var data =   _this.data('target'); // [2]
+    var data =   $this.data('target'); // [2]
 
     // If data-target was set pass it through jQuery and use it as the target,
     // or assume the clicked element.
-    var target = data ? $(data) : _this; // [3]
+    var target = data ? $(data) : $this; // [3]
 
     target.toggleClass('is-active');
 
