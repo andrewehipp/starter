@@ -18,8 +18,8 @@
 ///
 ///
 /// 2) $breakpoints-extended-config: Extends `$breakpoints-layout-config` by
-/// adding `max-width` (desktop down), viewport specific `only`, and vertical
-/// media queries.
+/// adding `max-width` (desktop down), viewport specific `only`, vertical
+/// media queries, print, retina, and screen media queries.
 ///
 /// $breakpoints-extended-config: (
 ///     'screen': 'screen',

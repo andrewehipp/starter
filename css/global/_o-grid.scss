@@ -42,15 +42,21 @@ $grid-push-and-pull:      map-get($grid-config, 'push-and-pull');
  */
 .o-grid {
     @include clearfix;
-    margin-right: neg(halve($grid-gutters-initial));
-    margin-left:  neg(halve($grid-gutters-initial));
+    margin-right: neg(quarter($grid-gutters-initial));
+    margin-left:  neg(quarter($grid-gutters-initial));
+
+    @include media(md) {
+        margin-right: neg(halve($grid-gutters-initial));
+        margin-left:  neg(halve($grid-gutters-initial));
+    }
+
 }
 
 // [1]
 @each $grid-gutter, $grid-gutter-value in $grid-gutters {
 
-    // Skip the initial value.
-    @if ($grid-gutter != 'initial') {
+    // Skip the default value.
+    @if ($grid-gutter != 'default') {
 
         .o-grid--#{$grid-gutter} {
             margin-right:  neg(halve($grid-gutter-value));
@@ -72,17 +78,22 @@ $grid-push-and-pull:      map-get($grid-config, 'push-and-pull');
  */
 .o-grid__column {
     position: relative;
-    padding-right:  halve($grid-gutters-initial);
-    padding-left:   halve($grid-gutters-initial);
+    padding-right:  quarter($grid-gutters-initial);
+    padding-left:   quarter($grid-gutters-initial);
     width: 100%;
     min-height: 1px;
     float: left;
 
+    @include media(md) {
+        padding-right:  halve($grid-gutters-initial);
+        padding-left:   halve($grid-gutters-initial);
+    }
+
     // [1]
     @each $grid-gutter, $grid-gutter-value in $grid-gutters {
 
-        // Skip the initial value.
-        @if ($grid-gutter != 'initial') {
+        // Skip the default value.
+        @if ($grid-gutter != 'default') {
 
             .o-grid--#{$grid-gutter} > & {
                 padding-right:  halve($grid-gutter-value);
@@ -105,16 +116,26 @@ $grid-push-and-pull:      map-get($grid-config, 'push-and-pull');
 @for $grid-item-span from 1 through $grid-columns {
 
     .o-grid__column--#{$grid-item-span} {
+        width: (100% / $grid-columns) * $grid-item-span;
+    }
 
-        @include loop-breakpoints() {
-            width: (100% / $grid-columns) * $grid-item-span;
+}
+
+@each $breakpoint, $media-querie in $breakpoints-layout-config {
+
+    @include media($breakpoint) {
+
+        @for $grid-item-span from 1 through $grid-columns {
+
+            .o-grid__column--#{$grid-item-span}\@#{$breakpoint} {
+                width: (100% / $grid-columns) * $grid-item-span;
+            }
+
         }
 
     }
 
 }
-
-
 
 
 
@@ -127,9 +148,21 @@ $grid-push-and-pull:      map-get($grid-config, 'push-and-pull');
     @for $grid-item-span from 1 through $grid-columns {
 
         .o-grid__column--offset-#{$grid-item-span} {
+            margin-left: (100% / $grid-columns) * $grid-item-span;
+        }
 
-            @include loop-breakpoints() {
-                margin-left: (100% / $grid-columns) * $grid-item-span;
+    }
+
+    @each $breakpoint, $media-querie in $breakpoints-layout-config {
+
+        @include media($breakpoint) {
+
+            @for $grid-item-span from 1 through $grid-columns {
+
+                .o-grid__column--offset-#{$grid-item-span}\@#{$breakpoint} {
+                    margin-left: (100% / $grid-columns) * $grid-item-span;
+                }
+
             }
 
         }
@@ -151,17 +184,29 @@ $grid-push-and-pull:      map-get($grid-config, 'push-and-pull');
     @for $grid-item-span from 1 through $grid-columns {
 
         .o-grid__column--push-#{$grid-item-span} {
-
-            @include loop-breakpoints() {
-                left: (100% / $grid-columns) * $grid-item-span;
-            }
-
+            left: (100% / $grid-columns) * $grid-item-span;
         }
 
         .o-grid__column--pull-#{$grid-item-span} {
+            left: neg((100% / $grid-columns) * $grid-item-span);
+        }
 
-            @include loop-breakpoints() {
-                left: neg((100% / $grid-columns) * $grid-item-span);
+    }
+
+    @each $breakpoint, $media-querie in $breakpoints-layout-config {
+
+        @include media($breakpoint) {
+
+            @for $grid-item-span from 1 through $grid-columns {
+
+                .o-grid__column--push-#{$grid-item-span}\@#{$breakpoint} {
+                    left: (100% / $grid-columns) * $grid-item-span;
+                }
+
+                .o-grid__column--pull-#{$grid-item-span}\@#{$breakpoint} {
+                    left: neg((100% / $grid-columns) * $grid-item-span);
+                }
+
             }
 
         }

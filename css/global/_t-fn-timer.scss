@@ -9,7 +9,7 @@
 /// [1] Check if $name exists in $timer.
 /// [2] If not pass an error.
 ///
-@function timer($name) {
+@function timer($name: 'normal') {
 
     // [1]
     @if map-has-key($timer-config, $name) {

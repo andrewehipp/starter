@@ -7,7 +7,10 @@
  */
 .c-btn {
     display: inline-block;
+    padding: em(10px) em(20px);
+    border: 0;
     color: color('link');
+    font-weight: bold;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: timer('fast');
@@ -18,9 +21,6 @@
  * Modifiers for the buttons
  */
 .c-btn--primary {
-    padding: em(10px) em(20px);
-    border: 0;
     background: color('primary');
     color: #fff;
-    font-weight: bold;
 }
